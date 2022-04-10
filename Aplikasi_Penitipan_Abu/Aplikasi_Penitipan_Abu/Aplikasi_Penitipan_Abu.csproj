@@ -64,6 +64,12 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml.cs">
+      <DependentUpon>PembayaranSewa_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml.cs">
+      <DependentUpon>Penitipan_Abu_Edit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PenitipanAbu\Penitipan_Abu_Add.xaml.cs">
       <DependentUpon>Penitipan_Abu_Add.xaml</DependentUpon>
     </Compile>
@@ -82,6 +88,14 @@
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Transaksi\PenitipanAbu\Penitipan_Abu_Add.xaml">
       <SubType>Designer</SubType>
@@ -117,5 +131,6 @@
   <ItemGroup>
     <Resource Include="search_image.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
