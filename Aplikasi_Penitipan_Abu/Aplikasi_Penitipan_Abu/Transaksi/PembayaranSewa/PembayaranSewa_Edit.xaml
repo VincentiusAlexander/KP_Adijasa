@@ -84,9 +84,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Tanggal Penyimpanan" MinWidth="120"/>
-                <DatePicker/>
+                <DatePicker MinWidth="110"/>
                 <TextBlock Text=" s/d " VerticalAlignment="Center"/>
-                <DatePicker/>
+                <DatePicker MinWidth="110"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Harga Total Sewa" MinWidth="120"/>

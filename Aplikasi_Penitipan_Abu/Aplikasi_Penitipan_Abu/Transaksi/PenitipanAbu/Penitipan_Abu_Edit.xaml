@@ -65,7 +65,7 @@
             </MenuItem>
         </Menu>
         <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto">
-            
+
             <Grid Margin="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -83,12 +83,12 @@
                 <Border BorderBrush="Gray" BorderThickness="2" Grid.Row="2" Grid.ColumnSpan="2" Margin="0 2">
                     <Grid Margin="6">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="126*" />
-                            <ColumnDefinition Width="126*" />
-                            <ColumnDefinition Width="12*" />
-                            <ColumnDefinition Width="126*" />
-                            <ColumnDefinition Width="126*" />
-                            <ColumnDefinition Width="126*" />
+                            <ColumnDefinition Width="149*" />
+                            <ColumnDefinition Width="149*" />
+                            <ColumnDefinition Width="34*" />
+                            <ColumnDefinition Width="130*" />
+                            <ColumnDefinition Width="149*" />
+                            <ColumnDefinition Width="149*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="24"/>
@@ -107,13 +107,13 @@
                         <TextBlock Grid.Column="1" Grid.Row="1" Text="001"></TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="2" Text="12/08/2022"></TextBlock>
                         <DatePicker Grid.Row="3" Grid.Column="1"/>
-                        <TextBlock Text="-" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="16" Margin="4" Width="4"/>
+                        <TextBlock Text="s/d" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <DatePicker Grid.Row="3" Grid.Column="3"/>
                         <ComboBox Grid.Row="4" Grid.Column="1" >
-                            
+
                         </ComboBox>
                         <TextBlock Text="Rp." Grid.Column="1" Grid.Row="5"/>
-                        <TextBlock Text="100.000,00" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right"/>
+                        <TextBlock Text="100.000,00" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Width="57"/>
                     </Grid>
                 </Border>
                 <Border Grid.Row="3" BorderBrush="Gray" BorderThickness="2" Margin="0 6 6 6">
