@@ -1,11 +1,11 @@
-﻿<Window x:Class="Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa.PembayaranSewa_Add"
+﻿<Window x:Class="Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan.PemabayaranJaminan_Add"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa"
+        xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan"
         mc:Ignorable="d"
-        Title="PembayaranSewa_Add" Height="285" Width="800">
+        Title="PemabayaranJaminan_Add" Height="245" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -64,39 +64,27 @@
             </MenuItem>
         </Menu>
         <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="6 0">
-            <TextBlock HorizontalAlignment="Center" Text="Pembayaran Sewa"  FontSize="24" FontWeight="Bold" DockPanel.Dock="Top"/>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="No Kwitansi" MinWidth="120"/>
-                <TextBlock Text="001"/>
+            <TextBlock Text="Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="24" FontWeight="Bold" Margin="0 2" />
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="No Kwitansi Jaminan" MinWidth="120"/>
+                <TextBlock Text="-"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
                 <TextBlock Text="No Registrasi" MinWidth="120"/>
                 <TextBlock Text="-" MinWidth="120"/>
-                <Button Content="Cari Registrasi" Padding="6 0"/>
+                <Button Content="Cari Registrasi" Padding="6 0"></Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="No Kotak" MinWidth="120"/>
-                <TextBlock Text="-"/>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="Nama Penanggung Jawab" MinWidth="120" TextWrapping="Wrap" MaxWidth="120"/>
+                <TextBlock Text="-" VerticalAlignment="Center"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="Nama Abu" MinWidth="120"/>
-                <TextBlock Text="-"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="Tanggal Penyimpanan" MinWidth="120"/>
-                <DatePicker MinWidth="110"/>
-                <TextBlock Text=" s/d " VerticalAlignment="Center"/>
-                <DatePicker MinWidth="110"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="Harga Total Sewa" MinWidth="120"/>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="Uang Jaminan" MinWidth="120"/>
                 <TextBlock Text="Rp.-"/>
             </StackPanel>
-            <CheckBox Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top"></CheckBox>
-            <Button DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5 2" Margin="0 2"/>
-            <StackPanel>
-                <Button Content="Selesai" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 2" Padding="6 0"></Button>
-            </StackPanel>
+            <CheckBox Content="Centang Bila Pembayaran Sudah Diterima" DockPanel.Dock="Top" Margin="0 4" />
+            <Button DockPanel.Dock="Top" Content="Cetak Tanda Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 2" Padding="6 0"/>
+            <Button DockPanel.Dock="Top" Content="Selesai" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 6" Padding="6 0"/>
         </DockPanel>
     </Grid>
 </Window>
