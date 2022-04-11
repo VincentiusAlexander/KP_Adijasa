@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("search_image.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("master/search_image.png")]
 
 

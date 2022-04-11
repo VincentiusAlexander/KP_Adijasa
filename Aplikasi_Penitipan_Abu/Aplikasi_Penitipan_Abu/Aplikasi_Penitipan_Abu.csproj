@@ -64,6 +64,9 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Master\MasterKotak.xaml.cs">
+      <DependentUpon>MasterKotak.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PembayaranJaminan\PemabayaranJaminan_Edit.xaml.cs">
       <DependentUpon>PemabayaranJaminan_Edit.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,12 @@
     </Compile>
     <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml.cs">
       <DependentUpon>PembayaranSewa_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml.cs">
+      <DependentUpon>PengambilanAbu_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml.cs">
+      <DependentUpon>PengambilanAbu_Add.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml.cs">
       <DependentUpon>Penitipan_Abu_Edit.xaml</DependentUpon>
@@ -88,6 +97,10 @@
     <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml.cs">
       <DependentUpon>PerpanjanganSewa_Add.xaml</DependentUpon>
     </Compile>
+    <Page Include="Master\MasterKotak.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Overview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +132,14 @@
     <Page Include="Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -167,5 +188,8 @@
     <Resource Include="search_image.png" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Master\search_image.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
