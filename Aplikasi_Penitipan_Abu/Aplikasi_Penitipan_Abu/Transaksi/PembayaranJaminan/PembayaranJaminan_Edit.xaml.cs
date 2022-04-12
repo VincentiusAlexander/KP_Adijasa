@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
+namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
 {
     /// <summary>
-    /// Interaction logic for PembayaranSewa_Add.xaml
+    /// Interaction logic for PembayaranJaminan_Edit.xaml
     /// </summary>
-    public partial class PembayaranSewa_Edit : Window
+    public partial class PembayaranJaminan_Edit : Window
     {
-        public PembayaranSewa_Edit()
+        public PembayaranJaminan_Edit()
         {
             InitializeComponent();
         }

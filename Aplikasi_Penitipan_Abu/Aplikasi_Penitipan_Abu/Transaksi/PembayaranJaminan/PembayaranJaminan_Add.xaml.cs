@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
 {
     /// <summary>
-    /// Interaction logic for PemabayaranJaminan_Add.xaml
+    /// Interaction logic for PembayaranJaminan_Add.xaml
     /// </summary>
-    public partial class PemabayaranJaminan_Add : Window
+    public partial class PembayaranJaminan_Add : Window
     {
-        public PemabayaranJaminan_Add()
+        public PembayaranJaminan_Add()
         {
             InitializeComponent();
         }
