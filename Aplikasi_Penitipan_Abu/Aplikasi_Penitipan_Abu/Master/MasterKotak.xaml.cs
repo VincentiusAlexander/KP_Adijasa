@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
+namespace Aplikasi_Penitipan_Abu.Master
 {
     /// <summary>
-    /// Interaction logic for PemabayaranJaminan_Add.xaml
+    /// Interaction logic for MasterKotak.xaml
     /// </summary>
-    public partial class PemabayaranJaminan_Add : Window
+    public partial class MasterKotak : Window
     {
-        public PemabayaranJaminan_Add()
+        public MasterKotak()
         {
             InitializeComponent();
         }

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
 {
     /// <summary>
-    /// Interaction logic for Penitipan_Abu_Forms.xaml
+    /// Interaction logic for PenitipanAbu_Forms.xaml
     /// </summary>
-    public partial class Penitipan_Abu_Forms : Window
+    public partial class PenitipanAbu_Forms : Window
     {
-        public Penitipan_Abu_Forms()
+        public PenitipanAbu_Forms()
         {
             InitializeComponent();
         }

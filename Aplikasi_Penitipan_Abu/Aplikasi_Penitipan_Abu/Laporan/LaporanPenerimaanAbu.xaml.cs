@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Aplikasi_Penitipan_Abu.Laporan
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for LaporanPenerimaanAbu.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class LaporanPenerimaanAbu : Window
     {
-        public Window1()
+        public LaporanPenerimaanAbu()
         {
             InitializeComponent();
         }

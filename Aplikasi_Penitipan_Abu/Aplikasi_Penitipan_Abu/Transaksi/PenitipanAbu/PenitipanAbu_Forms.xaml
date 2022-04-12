@@ -1,11 +1,11 @@
-﻿<Window x:Class="Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu.Penitipan_Abu_Forms"
+﻿<Window x:Class="Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu.PenitipanAbu_Forms"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu"
         mc:Ignorable="d"
-        Title="Penitipan_Abu_Forms" Height="450" Width="800">
+        Title="Penitipan Abu Forms" Height="1250" Width="800">
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Auto">
             <StackPanel>

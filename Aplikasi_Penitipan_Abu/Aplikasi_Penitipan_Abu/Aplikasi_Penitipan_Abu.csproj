@@ -79,6 +79,9 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Master\MasterKategori.xaml.cs">
+      <DependentUpon>MasterKategori.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Master\MasterKotak.xaml.cs">
       <DependentUpon>MasterKotak.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
     </Compile>
     <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml.cs">
       <DependentUpon>PengambilanAbu_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Forms.xaml.cs">
+      <DependentUpon>PenitipanAbu_Forms.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml.cs">
       <DependentUpon>Penitipan_Abu_Edit.xaml</DependentUpon>
@@ -131,6 +137,10 @@
     <Page Include="Laporan\LaporanPiutang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master\MasterKategori.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Master\MasterKotak.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +185,10 @@
     <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaksi\PenitipanAbu\PenitipanAbu_Forms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml">
       <Generator>MSBuild:Compile</Generator>
