@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-C:\Kuliah\SMT6\KP\Project\KP_Adijasa\Aplikasi_Penitipan_Abu\Aplikasi_Penitipan_Abu\obj\Debug\
+E:\Vincent\Sem 6\Jumat\Kerja Praktek 08.00 - 09.40\Program\KP_Adijasa\Aplikasi_Penitipan_Abu\Aplikasi_Penitipan_Abu\obj\Debug\
 Aplikasi_Penitipan_Abu
 none
 false
 DEBUG;TRACE
+<<<<<<< Updated upstream
 C:\Kuliah\SMT6\KP\Project\KP_Adijasa\Aplikasi_Penitipan_Abu\Aplikasi_Penitipan_Abu\App.xaml
 14-783528615
 
 19-75709462
 151397803362
 Master\MasterKategori.xaml;Master\MasterKotak.xaml;Overview.xaml;Login.xaml;Transaksi\PembayaranJaminan\PemabayaranJaminan_Edit.xaml;Transaksi\PembayaranJaminan\PemabayaranJaminan_Add.xaml;Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml;Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml;Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml;Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml;Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml;Transaksi\PenitipanAbu\Penitipan_Abu_Add.xaml;Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml;Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml;
+=======
+E:\Vincent\Sem 6\Jumat\Kerja Praktek 08.00 - 09.40\Program\KP_Adijasa\Aplikasi_Penitipan_Abu\Aplikasi_Penitipan_Abu\App.xaml
+18-846264870
 
-True
+23934572164
+161322186626
+Laporan\LaporanPenerimaanAbu.xaml;Laporan\LaporanPembayaranAbu.xaml;Laporan\LaporanPengembalianAbu.xaml;Laporan\LaporanJaminanAbu.xaml;Laporan\LaporanPiutang.xaml;Master\MasterKotak.xaml;Overview.xaml;Login.xaml;Transaksi\PembayaranJaminan\PemabayaranJaminan_Edit.xaml;Transaksi\PembayaranJaminan\PemabayaranJaminan_Add.xaml;Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml;Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml;Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml;Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml;Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml;Transaksi\PenitipanAbu\Penitipan_Abu_Add.xaml;Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml;Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml;
+>>>>>>> Stashed changes
+
+False
 
