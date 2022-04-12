@@ -1,9 +1,0 @@
-﻿<Application x:Class="Aplikasi_Penitipan_Abu.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu"
-             StartupUri="./Transaksi/PenitipanAbu/Penitipan_Abu_add.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
-</Application>
