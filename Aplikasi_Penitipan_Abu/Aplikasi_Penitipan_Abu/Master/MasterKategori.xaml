@@ -81,36 +81,29 @@
                 <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical">
                     <Border  BorderBrush="Gray" BorderThickness="2" Margin="3">
                         <StackPanel Orientation="Vertical" Margin="6">
-                            <TextBlock Text="Tambah Kotak" Margin="2" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="Tambah Kategori" Margin="2" FontSize="14" FontWeight="SemiBold"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="No Kotak" MinWidth="120"/>
+                                <TextBlock Text="Nama Kategori" MinWidth="120"/>
                                 <TextBox MinWidth="120"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Kategori" MinWidth="120"/>
-                                <ComboBox MinWidth="120"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Harga Kotak" MinWidth="120"/>
-                                <TextBlock Text="Rp.-" MinWidth="120"/>
+                                <TextBlock Text="Harga" MinWidth="120"/>
+                                <TextBlock Text="Rp. "/>
+                                <TextBox MinWidth="100" />
                             </StackPanel>
                             <Button Content="Tambah" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </Border>
                     <Border  BorderBrush="Gray" BorderThickness="2" Margin="3">
                         <StackPanel Orientation="Vertical" Margin="6">
-                            <TextBlock Text="Kotak Yang Dipilih" Margin="2" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="Kategori Yang Dipilih" Margin="2" FontSize="14" FontWeight="SemiBold"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="No Kotak" MinWidth="120"/>
+                                <TextBlock Text="Nama Kategori" MinWidth="120"/>
                                 <TextBox MinWidth="120"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Kategori" MinWidth="120"/>
-                                <ComboBox MinWidth="120"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Harga Kotak" MinWidth="120"/>
-                                <TextBlock Text="Rp.-" MinWidth="120"/>
+                                <TextBlock Text="Harga" MinWidth="120"/>
+                                <TextBlock Text="-" MinWidth="120"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <Button Content="Edit" Margin="6 0" Padding="4 0"/>
