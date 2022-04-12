@@ -85,17 +85,14 @@
     <Compile Include="Master\MasterKotak.xaml.cs">
       <DependentUpon>MasterKotak.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PembayaranJaminan\PemabayaranJaminan_Edit.xaml.cs">
-      <DependentUpon>PemabayaranJaminan_Edit.xaml</DependentUpon>
+    <Compile Include="Transaksi\PembayaranJaminan\PembayaranJaminan_Add.xaml.cs">
+      <DependentUpon>PembayaranJaminan_Add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PembayaranJaminan\PemabayaranJaminan_Add.xaml.cs">
-      <DependentUpon>PemabayaranJaminan_Add.xaml</DependentUpon>
+    <Compile Include="Transaksi\PembayaranJaminan\PembayaranJaminan_Edit.xaml.cs">
+      <DependentUpon>PembayaranJaminan_Edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml.cs">
       <DependentUpon>PembayaranSewa_Add.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml.cs">
-      <DependentUpon>PembayaranSewa_Edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml.cs">
       <DependentUpon>PengambilanAbu_Edit.xaml</DependentUpon>
@@ -162,19 +159,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transaksi\PembayaranJaminan\PemabayaranJaminan_Edit.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Transaksi\PembayaranJaminan\PembayaranJaminan_Add.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transaksi\PembayaranJaminan\PemabayaranJaminan_Add.xaml">
+    <Page Include="Transaksi\PembayaranJaminan\PembayaranJaminan_Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
