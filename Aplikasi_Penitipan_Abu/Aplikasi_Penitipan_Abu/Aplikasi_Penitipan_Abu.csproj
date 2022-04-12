@@ -94,26 +94,29 @@
     <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml.cs">
       <DependentUpon>PembayaranSewa_Add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml.cs">
-      <DependentUpon>PengambilanAbu_Edit.xaml</DependentUpon>
+    <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml.cs">
+      <DependentUpon>PembayaranSewa_Edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml.cs">
       <DependentUpon>PengambilanAbu_Add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Forms.xaml.cs">
-      <DependentUpon>PenitipanAbu_Forms.xaml</DependentUpon>
+    <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml.cs">
+      <DependentUpon>PengambilanAbu_Edit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml.cs">
-      <DependentUpon>Penitipan_Abu_Edit.xaml</DependentUpon>
+    <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Add.xaml.cs">
+      <DependentUpon>PenitipanAbu_Add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PenitipanAbu\Penitipan_Abu_Add.xaml.cs">
-      <DependentUpon>Penitipan_Abu_Add.xaml</DependentUpon>
+    <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Edit.xaml.cs">
+      <DependentUpon>PenitipanAbu_Edit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml.cs">
-      <DependentUpon>PerpanjanganSewa_Edit.xaml</DependentUpon>
+    <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Form.xaml.cs">
+      <DependentUpon>PenitipanAbu_Form.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml.cs">
       <DependentUpon>PerpanjanganSewa_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml.cs">
+      <DependentUpon>PerpanjanganSewa_Edit.xaml</DependentUpon>
     </Compile>
     <Page Include="Laporan\LaporanPenerimaanAbu.xaml">
       <SubType>Designer</SubType>
@@ -171,33 +174,37 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Transaksi\PenitipanAbu\PenitipanAbu_Forms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transaksi\PenitipanAbu\Penitipan_Abu_Add.xaml">
+    <Page Include="Transaksi\PenitipanAbu\PenitipanAbu_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PenitipanAbu\PenitipanAbu_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PenitipanAbu\PenitipanAbu_Form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

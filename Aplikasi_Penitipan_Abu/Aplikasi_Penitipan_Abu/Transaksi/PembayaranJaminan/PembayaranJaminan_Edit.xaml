@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan"
         mc:Ignorable="d"
-        Title="PembayaranJaminan_Edit" Height="450" Width="800">
+        Title="Pembayaran Jaminan Edit" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
