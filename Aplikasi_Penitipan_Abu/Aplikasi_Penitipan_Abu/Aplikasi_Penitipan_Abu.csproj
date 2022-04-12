@@ -61,21 +61,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Laporan\LaporanPenerimaanAbu.xaml.cs">
-      <DependentUpon>LaporanPenerimaanAbu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Laporan\LaporanPembayaranAbu.xaml.cs">
-      <DependentUpon>LaporanPembayaranAbu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Laporan\LaporanPengembalianAbu.xaml.cs">
-      <DependentUpon>LaporanPengembalianAbu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Laporan\LaporanJaminanAbu.xaml.cs">
-      <DependentUpon>LaporanJaminanAbu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Laporan\LaporanPiutang.xaml.cs">
-      <DependentUpon>LaporanPiutang.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -112,26 +97,6 @@
     <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml.cs">
       <DependentUpon>PerpanjanganSewa_Add.xaml</DependentUpon>
     </Compile>
-    <Page Include="Laporan\LaporanPenerimaanAbu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Laporan\LaporanPembayaranAbu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Laporan\LaporanPengembalianAbu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Laporan\LaporanJaminanAbu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Laporan\LaporanPiutang.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Master\MasterKotak.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Aplikasi_Penitipan_Abu.Laporan
+namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
 {
     /// <summary>
-    /// Interaction logic for Window2.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class Window1 : Window
     {
-        public Window2()
+        public Window1()
         {
             InitializeComponent();
         }

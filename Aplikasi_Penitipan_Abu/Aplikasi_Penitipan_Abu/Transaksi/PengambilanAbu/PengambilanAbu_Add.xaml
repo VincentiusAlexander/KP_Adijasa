@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa"
         mc:Ignorable="d"
-        Title="PembayaranSewa_Add" Height="466.701" Width="647.768">
+        Title="PembayaranSewa_Add" Height="510.233" Width="647.768">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -89,6 +89,10 @@
                     <StackPanel Orientation="Horizontal" Margin="0 2">
                         <TextBlock Text="Nomor Penanggung Jawab" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
                         <TextBlock Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 2">
+                        <TextBlock Text="Keterangan pengambilan" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
+                        <RichTextBox MinWidth="240"></RichTextBox>
                     </StackPanel>
                 </StackPanel>
             </Border>
