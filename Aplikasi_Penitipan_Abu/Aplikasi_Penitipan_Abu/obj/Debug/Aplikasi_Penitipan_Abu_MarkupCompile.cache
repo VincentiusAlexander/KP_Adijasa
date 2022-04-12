@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Kuliah\SMT6\KP\Project\KP_Adijasa\Aplikasi_Penitipan_Abu\Aplikasi_Penitipan_Abu\App.xaml
-5-1924912271
+18-846264870
 
-9-376247889
+23934572164
 151397803362
-Overview.xaml;Login.xaml;Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml;Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml;Transaksi\PenitipanAbu\Penitipan_Abu_Add.xaml;
+Laporan\LaporanPenerimaanAbu.xaml;Laporan\LaporanPembayaranAbu.xaml;Laporan\LaporanPengembalianAbu.xaml;Laporan\LaporanJaminanAbu.xaml;Laporan\LaporanPiutang.xaml;Master\MasterKotak.xaml;Overview.xaml;Login.xaml;Transaksi\PembayaranJaminan\PemabayaranJaminan_Edit.xaml;Transaksi\PembayaranJaminan\PemabayaranJaminan_Add.xaml;Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml;Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml;Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml;Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml;Transaksi\PenitipanAbu\Penitipan_Abu_Edit.xaml;Transaksi\PenitipanAbu\Penitipan_Abu_Add.xaml;Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml;Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml;
 
 True
 
