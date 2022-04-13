@@ -112,6 +112,9 @@
     <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Form.xaml.cs">
       <DependentUpon>PenitipanAbu_Form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PenitipanAbu\TandaTerimaPenitipanAbu.xaml.cs">
+      <DependentUpon>TandaTerimaPenitipanAbu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml.cs">
       <DependentUpon>PerpanjanganSewa_Add.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PenitipanAbu\PenitipanAbu_Form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PenitipanAbu\TandaTerimaPenitipanAbu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
