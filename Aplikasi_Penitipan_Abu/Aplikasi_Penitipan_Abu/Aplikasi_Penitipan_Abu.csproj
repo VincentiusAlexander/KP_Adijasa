@@ -91,17 +91,26 @@
     <Compile Include="Transaksi\PembayaranJaminan\PembayaranJaminan_Edit.xaml.cs">
       <DependentUpon>PembayaranJaminan_Edit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PembayaranJaminan\TandaTerimaPembayaranJaminan.xaml.cs">
+      <DependentUpon>TandaTerimaPembayaranJaminan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml.cs">
       <DependentUpon>PembayaranSewa_Add.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml.cs">
       <DependentUpon>PembayaranSewa_Edit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PembayaranSewa\TandaTerimaPembayaranSewa.xaml.cs">
+      <DependentUpon>TandaTerimaPembayaranSewa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml.cs">
       <DependentUpon>PengambilanAbu_Add.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml.cs">
       <DependentUpon>PengambilanAbu_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\PengambilanAbu\TandaTerimaPengambilanAbu.xaml.cs">
+      <DependentUpon>TandaTerimaPengambilanAbu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Add.xaml.cs">
       <DependentUpon>PenitipanAbu_Add.xaml</DependentUpon>
@@ -173,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Transaksi\PembayaranJaminan\TandaTerimaPembayaranJaminan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,11 +194,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Transaksi\PembayaranSewa\TandaTerimaPembayaranSewa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PengambilanAbu\TandaTerimaPengambilanAbu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
