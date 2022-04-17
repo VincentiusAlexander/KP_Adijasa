@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace Aplikasi_Penitipan_Abu.Master
 {
@@ -22,6 +23,11 @@ namespace Aplikasi_Penitipan_Abu.Master
         public MasterKategori()
         {
             InitializeComponent();
+            MySqlConnection conn = new MySqlConnection("datasource=localhost; port=3306; username=root; password=;database=penitipan_abu_adijasa");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("insert into kategori values(0,'test',2000,0)", conn);
+            cmd.ExecuteNonQuery();
+            
         }
     }
 }

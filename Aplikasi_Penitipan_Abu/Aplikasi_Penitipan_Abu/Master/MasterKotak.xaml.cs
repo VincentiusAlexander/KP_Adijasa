@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace Aplikasi_Penitipan_Abu.Master
 {
@@ -19,6 +20,7 @@ namespace Aplikasi_Penitipan_Abu.Master
     /// </summary>
     public partial class MasterKotak : Window
     {
+
         public MasterKotak()
         {
             InitializeComponent();
