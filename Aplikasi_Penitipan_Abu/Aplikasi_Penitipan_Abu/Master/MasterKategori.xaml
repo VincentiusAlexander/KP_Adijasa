@@ -84,35 +84,40 @@
                             <TextBlock Text="Tambah Kategori" Margin="2" FontSize="14" FontWeight="SemiBold"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                                 <TextBlock Text="Nama Kategori" MinWidth="120"/>
-                                <TextBox MinWidth="120"/>
+                                <TextBox MinWidth="120" Name="NamaKategoriAdd"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                                 <TextBlock Text="Harga" MinWidth="120"/>
                                 <TextBlock Text="Rp. "/>
-                                <TextBox MinWidth="100" />
+                                <TextBox MinWidth="100" Name="HargaKategoriAdd" />
                             </StackPanel>
-                            <Button Content="Tambah" HorizontalAlignment="Right"/>
+                            <Button Content="Tambah" HorizontalAlignment="Right" Margin="6 0" Name="btnTambah" Click="btnTambah_Click"/>
                         </StackPanel>
                     </Border>
                     <Border  BorderBrush="Gray" BorderThickness="2" Margin="3">
                         <StackPanel Orientation="Vertical" Margin="6">
                             <TextBlock Text="Kategori Yang Dipilih" Margin="2" FontSize="14" FontWeight="SemiBold"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
+                                <TextBlock Text="ID" MinWidth="120"/>
+                                <TextBlock Text="-" MinWidth="120" Name="txt_kategori_id"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                                 <TextBlock Text="Nama Kategori" MinWidth="120"/>
-                                <TextBox MinWidth="120"/>
+                                <TextBox MinWidth="120" Name="NamaKategoriEdit"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                                 <TextBlock Text="Harga" MinWidth="120"/>
-                                <TextBlock Text="-" MinWidth="120"/>
+                                <TextBlock Text="Rp. "/>
+                                <TextBox MinWidth="100" Name="HargaKategoriEdit" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Content="Edit" Margin="6 0" Padding="4 0"/>
-                                <Button Content="Delete" Margin="6 0" Padding="4 0"/>
+                                <Button Content="Edit" Margin="6 0" Padding="4 0" Name="btnEdit" Click="btnEdit_Click"/>
+                                <Button Content="Delete" Margin="6 0" Padding="4 0" Name="btnDelete" Click="btnDelete_Click"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
                 </StackPanel>
-                <DataGrid Grid.Column="1" Margin="6 3">
+                <DataGrid Name="dtGrid" Grid.Column="1" Margin="6 3" IsReadOnly="True" MouseDoubleClick="dtGrid_MouseDoubleClick" >
 
                 </DataGrid>
             </Grid>
