@@ -41,6 +41,7 @@ namespace Aplikasi_Penitipan_Abu.Master
             dt = new DataTable();
             MySqlCommand cmd = new MySqlCommand($"select id, nama, harga from kategori where status = ?status", conn);
             cmd.Parameters.AddWithValue("?status", status);
+            conn.Close();
             conn.Open();
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
@@ -97,6 +98,7 @@ namespace Aplikasi_Penitipan_Abu.Master
                 MySqlCommand cmd = new MySqlCommand("insert into kategori (nama,harga) values (?nama,?harga)",conn);
                 cmd.Parameters.AddWithValue("?nama", nama);
                 cmd.Parameters.AddWithValue("?harga", harga);
+                conn.Close();
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -124,8 +126,9 @@ namespace Aplikasi_Penitipan_Abu.Master
                     System.Windows.Forms.MessageBox.Show("Tekan Dua Kali Pada Salah Satu Item", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                     return;
                 }
-                MySqlCommand cmd = new MySqlCommand("Delete from kategori where id = ?id", conn);
+                MySqlCommand cmd = new MySqlCommand("update kategori set status = 1 where id = ?id", conn);
                 cmd.Parameters.AddWithValue("?id", id);
+                conn.Close();
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -179,6 +182,7 @@ namespace Aplikasi_Penitipan_Abu.Master
                 cmd.Parameters.AddWithValue("?nama", nama);
                 cmd.Parameters.AddWithValue("?harga", harga);
                 cmd.Parameters.AddWithValue("?id", id);
+                conn.Close();
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
