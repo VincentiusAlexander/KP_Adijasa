@@ -22,15 +22,15 @@
             <TextBlock Text="Login Penerimaan Abu Adijasa" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" TextAlignment="Center" FontSize="24" TextWrapping="Wrap"/>
             <StackPanel Grid.Row="1" >
                 <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 2">
-                    <TextBlock Text="Nama User : " DockPanel.Dock="Left" Width="80"></TextBlock>
-                    <TextBox  DockPanel.Dock="Left"/>
+                    <TextBlock Text="Username : " DockPanel.Dock="Left" Width="80"></TextBlock>
+                    <TextBox  DockPanel.Dock="Left" x:Name="txt_username"/>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 2">
                     <TextBlock Text="Password : " DockPanel.Dock="Left"  Width="80"></TextBlock>
-                    <TextBox  DockPanel.Dock="Left"/>
+                    <PasswordBox DockPanel.Dock="Left" x:Name="txt_password"/>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 2">
-                    <Button>Login</Button>
+                    <Button Click="Button_Click">Login</Button>
                 </DockPanel>
             </StackPanel>
             
