@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\app\Vincentius\product\11.2.0\dbhome_2\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
@@ -62,29 +62,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Laporan\LaporanPenerimaanAbu.xaml.cs">
-      <DependentUpon>LaporanPenerimaanAbu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Laporan\LaporanPembayaranAbu.xaml.cs">
-      <DependentUpon>LaporanPembayaranAbu.xaml</DependentUpon>
+    <Compile Include="Laporan\LaporanJaminanAbu.xaml.cs">
+      <DependentUpon>LaporanJaminanAbu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Laporan\LaporanPengembalianAbu.xaml.cs">
       <DependentUpon>LaporanPengembalianAbu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Laporan\LaporanJaminanAbu.xaml.cs">
-      <DependentUpon>LaporanJaminanAbu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Laporan\LaporanPiutang.xaml.cs">
-      <DependentUpon>LaporanPiutang.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Master\MasterKategori.xaml.cs">
-      <DependentUpon>MasterKategori.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Master\MasterKotak.xaml.cs">
-      <DependentUpon>MasterKotak.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PembayaranJaminan\PembayaranJaminan_Add.xaml.cs">
       <DependentUpon>PembayaranJaminan_Add.xaml</DependentUpon>
@@ -131,33 +116,13 @@
     <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml.cs">
       <DependentUpon>PerpanjanganSewa_Edit.xaml</DependentUpon>
     </Compile>
-    <Page Include="Laporan\LaporanPenerimaanAbu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Laporan\LaporanPembayaranAbu.xaml">
+    <Page Include="Laporan\LaporanJaminanAbu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Laporan\LaporanPengembalianAbu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Laporan\LaporanJaminanAbu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Laporan\LaporanPiutang.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Master\MasterKategori.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Master\MasterKotak.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Overview.xaml">
       <Generator>MSBuild:Compile</Generator>

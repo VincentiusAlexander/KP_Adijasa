@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
@@ -17,7 +18,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
     /// <summary>
     /// Interaction logic for PerpanjanganSewa_Edit.xaml
     /// </summary>
-    public partial class PerpanjanganSewa_Edit : Window
+    public partial class PerpanjanganSewa_Edit : Page
     {
         public PerpanjanganSewa_Edit()
         {

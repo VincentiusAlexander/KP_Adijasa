@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
+namespace Aplikasi_Penitipan_Abu
 {
     /// <summary>
-    /// Interaction logic for PembayaranJaminan_Edit.xaml
+    /// Interaction logic for Menu.xaml
     /// </summary>
-    public partial class PembayaranJaminan_Edit : Page
+    public partial class Menu : Window
     {
-        public PembayaranJaminan_Edit()
+        public Menu()
         {
             InitializeComponent();
         }

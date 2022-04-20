@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Aplikasi_Penitipan_Abu
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Overview.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Overview : Page
     {
-        public MainWindow()
+        public Overview()
         {
             InitializeComponent();
         }

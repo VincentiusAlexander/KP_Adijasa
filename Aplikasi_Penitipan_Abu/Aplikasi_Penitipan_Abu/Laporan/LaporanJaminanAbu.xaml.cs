@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
+namespace Aplikasi_Penitipan_Abu.Laporan
 {
     /// <summary>
-    /// Interaction logic for PembayaranJaminan_Edit.xaml
+    /// Interaction logic for LaporanJaminanAbu.xaml
     /// </summary>
-    public partial class PembayaranJaminan_Edit : Page
+    public partial class LaporanJaminanAbu : Page
     {
-        public PembayaranJaminan_Edit()
+        public LaporanJaminanAbu()
         {
             InitializeComponent();
         }

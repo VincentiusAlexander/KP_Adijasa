@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
@@ -17,7 +18,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
     /// <summary>
     /// Interaction logic for PenitipanAbu_Edit.xaml
     /// </summary>
-    public partial class PenitipanAbu_Edit : Window
+    public partial class PenitipanAbu_Edit : Page
     {
         public PenitipanAbu_Edit()
         {
