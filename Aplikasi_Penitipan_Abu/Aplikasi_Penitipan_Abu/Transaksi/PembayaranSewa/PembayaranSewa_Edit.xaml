@@ -48,7 +48,7 @@
             </StackPanel>
             <CheckBox Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top"></CheckBox>
             <Button DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5 2" Margin="0 2"/>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Button Content="Edit" Margin="2 2" Padding="6 0"/>
                 <Button Content="Delete" Margin="2 2" Padding="6 0"/>
             </StackPanel>

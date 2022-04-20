@@ -19,6 +19,7 @@ namespace Aplikasi_Penitipan_Abu
     /// </summary>
     public partial class Menu : Window
     {
+        int role;
         public Menu()
         {
             InitializeComponent();
@@ -26,6 +27,8 @@ namespace Aplikasi_Penitipan_Abu
         public Menu(int role)
         {
             InitializeComponent();
+            this.role = role;
+            mainFrame.Content = new Overview();
         }
 
         private void penitipan_abu_add_Click(object sender, RoutedEventArgs e)
@@ -35,6 +38,11 @@ namespace Aplikasi_Penitipan_Abu
 
         private void penitipan_abu_edit_Click(object sender, RoutedEventArgs e)
         {
+            if(role == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Role Bukan Admin", "Unauthorized", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu.PenitipanAbu_Edit();
         }
 
@@ -45,6 +53,11 @@ namespace Aplikasi_Penitipan_Abu
 
         private void pembayaran_sewa_edit_Click(object sender, RoutedEventArgs e)
         {
+            if (role == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Role Bukan Admin", "Unauthorized", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa.PembayaranSewa_Edit();
         }
 
@@ -65,27 +78,47 @@ namespace Aplikasi_Penitipan_Abu
 
         private void pembayaran_jaminan_edit_Click(object sender, RoutedEventArgs e)
         {
+            if (role == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Role Bukan Admin", "Unauthorized", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan.PembayaranJaminan_Edit();
         }
 
 
         private void pengembalian_abu_edit_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu.PengambilanAbu_Add();
+            if (role == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Role Bukan Admin", "Unauthorized", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
+            mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu.PengambilanAbu_Edit();
         }
 
         private void pengembalian_abu_add_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu.PengambilanAbu_Edit();
+            mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu.PengambilanAbu_Add();
         }
 
         private void master_kotak_add_Click(object sender, RoutedEventArgs e)
         {
+            if (role == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Role Bukan Admin", "Unauthorized", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             mainFrame.Content = new Aplikasi_Penitipan_Abu.Master.MasterKotak();
         }
 
         private void master_kategori_add_Click(object sender, RoutedEventArgs e)
         {
+            if (role == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Role Bukan Admin", "Unauthorized", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             mainFrame.Content = new Aplikasi_Penitipan_Abu.Master.MasterKategori();
         }
 

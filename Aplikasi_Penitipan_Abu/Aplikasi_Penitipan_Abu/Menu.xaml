@@ -47,7 +47,7 @@
                 <MenuItem x:Name="laporan_piutang_abu" Header="Piutang Abu" Click="laporan_piutang_abu_Click"/>
             </MenuItem>
         </Menu>
-        <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden">
+        <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="6 0">
             
         </Frame>
     </Grid>
