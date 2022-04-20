@@ -7,54 +7,48 @@
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Menu VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="0">
-            <MenuItem Header="Overview" FontSize="14"/>
+            <MenuItem x:Name="overview" Header="Overview" FontSize="14" Click="overview_Click" />
             <MenuItem Header="Transaksi" FontSize="14" >
                 <MenuItem Header="Penitipan Abu">
-                    <MenuItem Header="Add"/>
-                    <MenuItem Header="Edit"/>
-                    <MenuItem Header="Delete"/>
+                    <MenuItem x:Name="penitipan_abu_add" Header="Add" Click="penitipan_abu_add_Click"/>
+                    <MenuItem x:Name="penitipan_abu_edit" Header="Edit/delete" Click="penitipan_abu_edit_Click"/>
                 </MenuItem>
                 <MenuItem Header="Pembayaran Sewa">
-                    <MenuItem Header="Add"/>
-                    <MenuItem Header="Edit"/>
-                    <MenuItem Header="Delete"/>
+                    <MenuItem x:Name="pembayaran_sewa_add" Header="Add" Click="pembayaran_sewa_add_Click" />
+                    <MenuItem x:Name="pembayaran_sewa_edit" Header="Edit/delete" Click="pembayaran_sewa_edit_Click"/>
                 </MenuItem>
                 <MenuItem Header="Pembayaran Perpanjangan">
-                    <MenuItem Header="Add"/>
-                    <MenuItem Header="Edit"/>
-                    <MenuItem Header="Delete"/>
+                    <MenuItem x:Name="pembayaran_perpanjangan_add" Header="Add" Click="pembayaran_perpanjangan_add_Click" />
+                    <MenuItem x:Name="pembayaran_perpanjangan_edit" Header="Edit/delete" Click="pembayaran_perpanjangan_edit_Click" />
                 </MenuItem>
                 <MenuItem Header="Pembayaran Jaminan">
-                    <MenuItem Header="Add"/>
-                    <MenuItem Header="Edit"/>
-                    <MenuItem Header="Delete"/>
+                    <MenuItem x:Name="pembayaran_jaminan_add" Header="Add" Click="pembayaran_jaminan_add_Click" />
+                    <MenuItem x:Name="pembayaran_jaminan_edit" Header="Edit/delete" Click="pembayaran_jaminan_edit_Click"/>
                 </MenuItem>
                 <MenuItem Header="Pengembalian Abu">
-                    <MenuItem Header="Add"/>
-                    <MenuItem Header="Edit"/>
-                    <MenuItem Header="Delete"/>
+                    <MenuItem x:Name="pengembalian_abu_add" Header="Add" Click="pengembalian_abu_add_Click"/>
+                    <MenuItem x:Name="pengembalian_abu_edit" Header="Edit/delete" Click="pengembalian_abu_edit_Click"/>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Master" FontSize="14" >
-                <MenuItem Header="Master">
-                    <MenuItem Header="Add"/>
-                    <MenuItem Header="Edit"/>
-                    <MenuItem Header="Delete"/>
-                </MenuItem>
-                <MenuItem Header="Kategori">
-                    <MenuItem Header="Add"/>
-                    <MenuItem Header="Edit"/>
-                    <MenuItem Header="Delete"/>
-                </MenuItem>
+                <MenuItem Header="Kotak" Click="master_kotak_add_Click"/>
+                <MenuItem Header="Kategori" Click="master_kategori_add_Click"/>
             </MenuItem>
             <MenuItem Header="Laporan" FontSize="14" >
-                <MenuItem Header="Penerimaan Abu"/>
-                <MenuItem Header="Pembayaran Abu"/>
-                <MenuItem Header="Pengambilan Abu"/>
-                <MenuItem Header="Jaminan Abu"/>
-                <MenuItem Header="Piutang Abu"/>
+                <MenuItem x:Name="laporan_penerimaan_abu" Header="Penerimaan Abu" Click="laporan_penerimaan_abu_Click"/>
+                <MenuItem x:Name="laporan_pembayaran_abu" Header="Pembayaran Abu" Click="laporan_pembayaran_abu_Click"/>
+                <MenuItem x:Name="laporan_pengambilan_abu" Header="Pengambilan Abu" Click="laporan_pengambilan_abu_Click"/>
+                <MenuItem x:Name="laporan_jaminan_abu" Header="Jaminan Abu" Click="laporan_jaminan_abu_Click"/>
+                <MenuItem x:Name="laporan_piutang_abu" Header="Piutang Abu" Click="laporan_piutang_abu_Click"/>
             </MenuItem>
         </Menu>
+        <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden">
+            
+        </Frame>
     </Grid>
 </Window>

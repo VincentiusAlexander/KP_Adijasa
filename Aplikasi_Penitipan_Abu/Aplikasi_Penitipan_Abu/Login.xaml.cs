@@ -39,14 +39,15 @@ namespace Aplikasi_Penitipan_Abu
             Boolean isUser = false;
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read()) if (reader.GetValue(2).ToString().Equals(password)) isUser = true;
-            conn.Close();
             if (isUser)
             {
-                MainWindow overview = new MainWindow();
+                Menu overview = new Menu(reader.GetInt32(3));
                 overview.Show();
+                conn.Close();
                 this.Close();
                 return;
             }
+            conn.Close();
             System.Windows.Forms.MessageBox.Show("Gagal Login, periksa kembali username dan password", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
         }
 
