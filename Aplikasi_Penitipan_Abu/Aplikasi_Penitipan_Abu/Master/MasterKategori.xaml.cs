@@ -19,7 +19,7 @@ namespace Aplikasi_Penitipan_Abu.Master
     /// <summary>
     /// Interaction logic for MasterKategori.xaml
     /// </summary>
-    public partial class MasterKategori : Window
+    public partial class MasterKategori : Page
     {
         MySqlDataAdapter da;
         MySqlConnection conn;
@@ -37,7 +37,7 @@ namespace Aplikasi_Penitipan_Abu.Master
         public void loadDataTable(int status = 0)
         {
             //load data in the data grid
-            
+
             dt = new DataTable();
             MySqlCommand cmd = new MySqlCommand($"select id, nama, harga from kategori where status = ?status", conn);
             cmd.Parameters.AddWithValue("?status", status);
@@ -68,7 +68,7 @@ namespace Aplikasi_Penitipan_Abu.Master
                 txt_kategori_id.Text = idEdit.ToString();
             }
         }
-        
+
 
         private void btnTambah_Click(object sender, RoutedEventArgs e)
         {
@@ -95,7 +95,7 @@ namespace Aplikasi_Penitipan_Abu.Master
                     System.Windows.Forms.MessageBox.Show("Harga hanya boleh Number", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                     return;
                 }
-                MySqlCommand cmd = new MySqlCommand("insert into kategori (nama,harga) values (?nama,?harga)",conn);
+                MySqlCommand cmd = new MySqlCommand("insert into kategori (nama,harga) values (?nama,?harga)", conn);
                 cmd.Parameters.AddWithValue("?nama", nama);
                 cmd.Parameters.AddWithValue("?harga", harga);
                 conn.Close();
@@ -106,7 +106,7 @@ namespace Aplikasi_Penitipan_Abu.Master
                 loadDataTable();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Penambahan Kategori", "Sukses", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             }
-            catch (Exception )
+            catch (Exception)
             {
                 System.Windows.Forms.MessageBox.Show("Gagal Memasukkan Data", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
