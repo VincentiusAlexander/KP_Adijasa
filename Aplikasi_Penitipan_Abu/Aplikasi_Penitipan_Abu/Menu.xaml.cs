@@ -64,11 +64,17 @@ namespace Aplikasi_Penitipan_Abu
         private void pembayaran_perpanjangan_add_Click(object sender, RoutedEventArgs e)
         {
             //pembayaran perpanjangan wi pie, masuk nde mana :v
+            mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa.PerpanjanganSewa_Add();
         }
 
         private void pembayaran_perpanjangan_edit_Click(object sender, RoutedEventArgs e)
         {
-
+            if (role == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Role Bukan Admin", "Unauthorized", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
+            mainFrame.Content = new Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa.PerpanjanganSewa_Edit();
         }
 
         private void pembayaran_jaminan_add_Click(object sender, RoutedEventArgs e)
