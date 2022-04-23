@@ -31,7 +31,13 @@ CREATE TABLE `data_abu` (
   `tanggal_kremasi` datetime NOT NULL,
   `keterangan` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `data_abu` */
+
+insert  into `data_abu`(`id`,`nama_abu`,`nama_alternatif_abu`,`alamat_abu`,`jenis_kelamin`,`tanggal_lahir`,`tanggal_wafat`,`tanggal_kremasi`,`keterangan`) values 
+(1,'','','','','2022-04-04 00:00:00','2022-04-06 00:00:00','2022-04-08 00:00:00',''),
+(2,'a','b','c','Laki-laki','2022-04-06 00:00:00','2022-03-29 00:00:00','2022-04-02 00:00:00','aaa');
 
 /*Table structure for table `kategori` */
 
@@ -44,6 +50,8 @@ CREATE TABLE `kategori` (
   `status` int(1) DEFAULT 0 COMMENT '0 == Not Deleted, 1 == Deleted',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `kategori` */
 
 /*Table structure for table `kotak` */
 
@@ -59,6 +67,8 @@ CREATE TABLE `kotak` (
   CONSTRAINT `kotak_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
+/*Data for the table `kotak` */
+
 /*Table structure for table `penanggung_jawab` */
 
 DROP TABLE IF EXISTS `penanggung_jawab`;
@@ -66,10 +76,17 @@ DROP TABLE IF EXISTS `penanggung_jawab`;
 CREATE TABLE `penanggung_jawab` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `nama` varchar(255) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
   `nomor_telp` varchar(55) NOT NULL,
   `relasi` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `penanggung_jawab` */
+
+insert  into `penanggung_jawab`(`id`,`nama`,`alamat`,`nomor_telp`,`relasi`) values 
+(1,'z','x','c','v'),
+(2,'b','n','m','.');
 
 /*Table structure for table `penitipan` */
 
@@ -86,6 +103,8 @@ CREATE TABLE `penitipan` (
   CONSTRAINT `penitipan_ibfk_1` FOREIGN KEY (`id_kotak`) REFERENCES `kotak` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+/*Data for the table `penitipan` */
+
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
@@ -96,7 +115,12 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `role` int(1) NOT NULL COMMENT '1 = admin, 0 = staff',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `users` */
+
+insert  into `users`(`id`,`username`,`password`,`role`) values 
+(2,'test','098f6bcd4621d373cade4e832627b4f6',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
