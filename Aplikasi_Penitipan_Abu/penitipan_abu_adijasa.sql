@@ -31,13 +31,19 @@ CREATE TABLE `data_abu` (
   `tanggal_kremasi` datetime NOT NULL,
   `keterangan` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `data_abu` */
 
 insert  into `data_abu`(`id`,`nama_abu`,`nama_alternatif_abu`,`alamat_abu`,`jenis_kelamin`,`tanggal_lahir`,`tanggal_wafat`,`tanggal_kremasi`,`keterangan`) values 
-(1,'','','','','2022-04-04 00:00:00','2022-04-06 00:00:00','2022-04-08 00:00:00',''),
-(2,'a','b','c','Laki-laki','2022-04-06 00:00:00','2022-03-29 00:00:00','2022-04-02 00:00:00','aaa');
+(22,'','','','Laki-laki','2022-04-02 00:00:00','2022-03-31 00:00:00','2022-04-01 00:00:00',''),
+(23,'a','','a','Laki-laki','2022-04-01 00:00:00','2022-04-08 00:00:00','2022-03-31 00:00:00',''),
+(24,'a','','a','Laki-laki','2022-04-01 00:00:00','2022-04-08 00:00:00','2022-03-31 00:00:00',''),
+(25,'a','','a','Laki-laki','2022-04-14 00:00:00','2022-04-16 00:00:00','2022-04-08 00:00:00',''),
+(26,'q','','q','Laki-laki','2022-04-06 00:00:00','2022-03-31 00:00:00','2022-04-01 00:00:00',''),
+(27,'q','','q','Laki-laki','2022-03-27 00:00:00','2022-03-31 00:00:00','2022-04-01 00:00:00',''),
+(28,'p','p','p','Laki-laki','2022-04-15 00:00:00','2022-04-20 00:00:00','2022-04-01 00:00:00','p'),
+(29,'r','','r','Laki-laki','2022-04-09 00:00:00','2022-04-08 00:00:00','2022-04-04 00:00:00','');
 
 /*Table structure for table `kategori` */
 
@@ -49,9 +55,13 @@ CREATE TABLE `kategori` (
   `harga` int(255) NOT NULL,
   `status` int(1) DEFAULT 0 COMMENT '0 == Not Deleted, 1 == Deleted',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `kategori` */
+
+insert  into `kategori`(`id`,`nama`,`harga`,`status`) values 
+(5,'Besar',10000,0),
+(6,'kecil',5000,0);
 
 /*Table structure for table `kotak` */
 
@@ -65,9 +75,13 @@ CREATE TABLE `kotak` (
   PRIMARY KEY (`id`),
   KEY `kategori_id` (`kategori_id`),
   CONSTRAINT `kotak_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `kotak` */
+
+insert  into `kotak`(`id`,`kategori_id`,`no_kotak`,`status`) values 
+(8,5,'A1',0),
+(9,6,'A2',0);
 
 /*Table structure for table `penanggung_jawab` */
 
@@ -80,13 +94,20 @@ CREATE TABLE `penanggung_jawab` (
   `nomor_telp` varchar(55) NOT NULL,
   `relasi` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `penanggung_jawab` */
 
 insert  into `penanggung_jawab`(`id`,`nama`,`alamat`,`nomor_telp`,`relasi`) values 
-(1,'z','x','c','v'),
-(2,'b','n','m','.');
+(7,'b','b','b','b'),
+(8,'b','b','b','b'),
+(9,'b','b','b','b'),
+(10,'w','w','w','w'),
+(11,'w','w','w','w'),
+(12,'o','o','o','o'),
+(13,'i','i','i','i'),
+(14,'t','t','t','t'),
+(15,'y','y','y','y');
 
 /*Table structure for table `penitipan` */
 
@@ -97,13 +118,20 @@ CREATE TABLE `penitipan` (
   `tanggal_registrasi` datetime NOT NULL,
   `tanggal_titip` datetime DEFAULT NULL,
   `tanggal_ambil` datetime DEFAULT NULL,
-  `id_kotak` int(255) NOT NULL,
+  `kotak_id` int(255) NOT NULL,
+  `data_abu_id` int(11) NOT NULL,
+  `penanggung_jawab_satu_id` int(11) NOT NULL,
+  `penanggung_jawab_dua_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_kotak` (`id_kotak`),
-  CONSTRAINT `penitipan_ibfk_1` FOREIGN KEY (`id_kotak`) REFERENCES `kotak` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  KEY `id_kotak` (`kotak_id`),
+  CONSTRAINT `penitipan_ibfk_1` FOREIGN KEY (`kotak_id`) REFERENCES `kotak` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `penitipan` */
+
+insert  into `penitipan`(`id`,`tanggal_registrasi`,`tanggal_titip`,`tanggal_ambil`,`kotak_id`,`data_abu_id`,`penanggung_jawab_satu_id`,`penanggung_jawab_dua_id`) values 
+(1,'2022-04-25 18:13:00','2022-04-08 00:00:00','2022-04-01 00:00:00',8,28,12,-1),
+(2,'2022-04-25 18:16:44','2022-04-09 00:00:00','2022-03-31 00:00:00',8,29,14,15);
 
 /*Table structure for table `users` */
 

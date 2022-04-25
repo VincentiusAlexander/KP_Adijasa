@@ -230,7 +230,7 @@ namespace Aplikasi_Penitipan_Abu.Master
             try
             {
                 string no_kotak = no_kotak_edit.Text;
-                Kategori temp = (Kategori)listKategori[cb_kategori_add.SelectedIndex];
+                Kategori temp = (Kategori)listKategori[cb_kategori_edit.SelectedIndex];
                 int kategori_id = temp.id;
                 int id;
                 try
