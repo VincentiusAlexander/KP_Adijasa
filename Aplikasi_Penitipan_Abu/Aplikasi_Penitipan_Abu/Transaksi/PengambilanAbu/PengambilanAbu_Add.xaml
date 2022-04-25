@@ -29,7 +29,7 @@
                     <StackPanel Orientation="Horizontal" Margin="0 2">
                         <TextBlock Text="No Registrasi" MinWidth="120"/>
                         <TextBlock Text="-" MinWidth="120" VerticalAlignment="Center"/>
-                        <Button Content="Cari Registrasi" Padding="4 0"/>
+                        <Button Content="Cari Registrasi" Padding="4 0" Name="cari_registrasi" Click="cari_registrasi_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
                         <TextBlock Text="Nama Penanggung Jawab" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
@@ -72,7 +72,7 @@
                 </StackPanel>
             </Border>
             <Button Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0"/>
-            <Button Content="Selesai" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0"/>
+            <Button Content="Simpan" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0"/>
         </DockPanel>
     </Grid>
 </Page>

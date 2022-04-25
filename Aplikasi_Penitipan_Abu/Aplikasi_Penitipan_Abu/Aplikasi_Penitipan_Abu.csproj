@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\app\Vincentius\product\11.2.0\dbhome_2\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
@@ -107,6 +107,9 @@
     <Compile Include="Transaksi\PembayaranSewa\TandaTerimaPembayaranSewa.xaml.cs">
       <DependentUpon>TandaTerimaPembayaranSewa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PencarianRegistrasi.xaml.cs">
+      <DependentUpon>PencarianRegistrasi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml.cs">
       <DependentUpon>PengambilanAbu_Add.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,7 @@
     <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml.cs">
       <DependentUpon>PerpanjanganSewa_Edit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\Registrasi.cs" />
     <Page Include="Laporan\LaporanJaminanAbu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,6 +210,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Transaksi\PencarianRegistrasi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -272,7 +280,9 @@
   <ItemGroup>
     <Resource Include="search_image.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Transaksi\search_image.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Master\search_image.png" />
   </ItemGroup>

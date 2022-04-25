@@ -25,16 +25,16 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="No Registrasi" MinWidth="120"/>
-                <TextBlock Text="-" MinWidth="120"/>
-                <Button Content="Cari Registrasi" Padding="6 0"/>
+                <TextBlock Text="-" MinWidth="120" Name="no_registrasi"/>
+                <Button Content="Cari Registrasi" Padding="6 0" Name="cari_registrasi" Click="cari_registrasi_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="No Kotak" MinWidth="120"/>
-                <TextBlock Text="-"/>
+                <TextBlock Text="-" Name="no_kotak"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Nama Abu" MinWidth="120"/>
-                <TextBlock Text="-"/>
+                <TextBlock Text="-" Name="nama_abu"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Tanggal Penyimpanan" MinWidth="120"/>

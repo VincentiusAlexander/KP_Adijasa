@@ -165,6 +165,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                 int kategori_id = (int)reader.GetValue(1);
                 listKotak.Add(new Kotak(id, kategori_id, nama));
             }
+            if (listKotak.Count <= 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Kotak belum tersedia, buat kotak terlebih dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             cb_no_kotak_penitipan_abu.ItemsSource = listKotak;
             cb_no_kotak_penitipan_abu.SelectedIndex = 0;
             Kotak temp = (Kotak)listKotak[cb_no_kotak_penitipan_abu.SelectedIndex];

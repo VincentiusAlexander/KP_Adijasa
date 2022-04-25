@@ -24,5 +24,12 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
         {
             InitializeComponent();
         }
+
+        private void cari_registrasi_Click(object sender, RoutedEventArgs e)
+        {
+            PencarianRegistrasi pencarianRegistrasi = new PencarianRegistrasi();
+            pencarianRegistrasi.ShowDialog();
+            System.Windows.Forms.MessageBox.Show(pencarianRegistrasi.selectedId+" check");
+        }
     }
 }
