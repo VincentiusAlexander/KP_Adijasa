@@ -149,6 +149,10 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             datepickerAwal.SelectedDate = null;
         }
 
-
+        private void cetak_tanda_terima_pembayaran_abu_Click(object sender, RoutedEventArgs e)
+        {
+            TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa();
+            tandaTerima.Show();
+        }
     }
 }

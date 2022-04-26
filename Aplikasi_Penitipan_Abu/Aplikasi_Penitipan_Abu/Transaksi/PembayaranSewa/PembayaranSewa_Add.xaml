@@ -47,7 +47,7 @@
                 <TextBlock Text="Rp.-" Name="harga_sewa"/>
             </StackPanel>
             <CheckBox x:Name="centang_bila_pembayaran" Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top"></CheckBox>
-            <Button DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5 2" Margin="0 2"/>
+            <Button x:Name="cetak_tanda_terima_pembayaran_abu" DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5 2" Margin="0 2" Click="cetak_tanda_terima_pembayaran_abu_Click"/>
             <StackPanel>
                 <Button Content="Simpan" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 2" Padding="6 0" Name="btnSimpan" Click="btnSimpan_Click" ></Button>
             </StackPanel>

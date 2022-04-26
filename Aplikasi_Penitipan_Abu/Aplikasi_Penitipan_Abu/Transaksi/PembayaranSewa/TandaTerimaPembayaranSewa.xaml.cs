@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
@@ -18,7 +17,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
     /// <summary>
     /// Interaction logic for TandaTerimaPembayaranSewa.xaml
     /// </summary>
-    public partial class TandaTerimaPembayaranSewa : Page
+    public partial class TandaTerimaPembayaranSewa : Window
     {
         public TandaTerimaPembayaranSewa()
         {
