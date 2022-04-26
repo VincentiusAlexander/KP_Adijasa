@@ -45,7 +45,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             command.Parameters.AddWithValue("?id", selectedId);
             conn.Close();
             conn.Open();
-            int count = (int) command.ExecuteScalar();
+            int count = Int32.Parse(command.ExecuteScalar().ToString());
+
             if(count > 0)
             {
                 System.Windows.Forms.MessageBox.Show("Pembayaran Sewa untuk id ini telah dilakukan sebelumnya !", "Pembayaran Sewa", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
