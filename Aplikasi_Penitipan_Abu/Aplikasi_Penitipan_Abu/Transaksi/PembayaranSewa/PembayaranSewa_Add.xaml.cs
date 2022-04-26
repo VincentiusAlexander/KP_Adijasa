@@ -41,6 +41,16 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
+            MySqlCommand command = new MySqlCommand("select count(*) from pembayaran_sewa where id_penitipan = ?id", conn);
+            command.Parameters.AddWithValue("?id", selectedId);
+            conn.Close();
+            conn.Open();
+            int count = (int) command.ExecuteScalar();
+            if(count > 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Pembayaran Sewa untuk id ini telah dilakukan sebelumnya !", "Pembayaran Sewa", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+            }
+            conn.Close();
 
             MySqlCommand cmd = new MySqlCommand("select * from penitipan p left join data_abu da on p.data_abu_id = da.id where p.id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", selectedId);
@@ -78,5 +88,67 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
 
             conn.Close();
         }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (datepickerAwal.SelectedDate != null && datepickerAkhir.SelectedDate != null)
+            {
+                //perhitungan harga
+                if(registrasi != null && registrasi.harga_kotak != -1) {
+                    int harga = registrasi.harga_kotak;
+                    if (datepickerAkhir.SelectedDate < datepickerAwal.SelectedDate)
+                    {
+                        System.Windows.Forms.MessageBox.Show("tanggal akhir lebih awal daripada tanggal awal");
+                        datepickerAkhir.SelectedDate = datepickerAwal.SelectedDate;
+                        return;
+                    }
+                    TimeSpan timeSpan = (TimeSpan)(datepickerAkhir.SelectedDate - datepickerAwal.SelectedDate);
+                    int countDays = (int) timeSpan.TotalDays;
+                    int totalMonth = countDays / 30;
+                    if((countDays/30)%30 >= 0)
+                    {
+                        totalMonth += 1;
+                    }
+                    int harga_total_sewa = harga * totalMonth;
+                    harga_sewa.Text = "Rp."+harga_total_sewa.ToString();
+                }
+            }
+        }
+
+        private void btnSimpan_Click(object sender, RoutedEventArgs e)
+        {
+            if (centang_bila_pembayaran.IsChecked == false)
+            {
+                System.Windows.Forms.MessageBox.Show("Centang sudah menerima pembayaran", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
+
+            int harga_total_sewa = Int32.Parse(harga_sewa.Text.Split('.')[1]);
+            DateTime tanggal_awal = (DateTime)datepickerAwal.SelectedDate;
+            DateTime tanggal_akhir = (DateTime)datepickerAkhir.SelectedDate;
+
+            MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa values(0,?id_penitipan,?no_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
+            cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
+            cmd.Parameters.AddWithValue("?no_kotak", registrasi.no_kotak);
+            cmd.Parameters.AddWithValue("?harga_kotak", registrasi.harga_kotak);
+            cmd.Parameters.AddWithValue("?harga_total_sewa", harga_total_sewa);
+            cmd.Parameters.AddWithValue("?tanggal_awal", tanggal_awal.ToString("yyyy-MM-dd HH:mm"));
+            cmd.Parameters.AddWithValue("?tanggal_akhir", tanggal_akhir.ToString("yyyy-MM-dd HH:mm"));
+            conn.Close();
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Pembayaran Sewa", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            //reset tampilan
+            registrasi = new Registrasi();
+            no_registrasi.Text = "-";
+            no_kotak.Text = "-";
+            nama_abu.Text = "-";
+            harga_sewa.Text = "Rp.";
+            datepickerAkhir.SelectedDate = null;
+            datepickerAwal.SelectedDate = null;
+        }
+
+
     }
 }

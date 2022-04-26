@@ -27,6 +27,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi
             id_penanggung_jawab = -1;
             id_penanggung_jawab_2 = -1;
             id_kotak = -1;
+            harga_kotak = -1;
         }
     }
 }
