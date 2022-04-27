@@ -43,7 +43,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             }
             MySqlCommand command = new MySqlCommand("select count(*) from pembayaran_sewa where id_penitipan = ?id", conn);
             command.Parameters.AddWithValue("?id", selectedId);
-            no_kwitansi.Text = selectedId.ToString();
             conn.Close();
             conn.Open();
             int count = Int32.Parse(command.ExecuteScalar().ToString());
@@ -53,6 +52,10 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 System.Windows.Forms.MessageBox.Show("Pembayaran Sewa untuk id ini telah dilakukan sebelumnya !", "Pembayaran Sewa", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
             }
             conn.Close();
+            command.Parameters.Clear();
+            conn.Open();
+            command.CommandText = "select max(id) from pembayaran_sewa";
+            no_kwitansi.Text = ((int)command.ExecuteScalar() + 1).ToString();
 
             MySqlCommand cmd = new MySqlCommand("select * from penitipan p left join data_abu da on p.data_abu_id = da.id where p.id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", selectedId);
@@ -129,9 +132,9 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             DateTime tanggal_awal = (DateTime)datepickerAwal.SelectedDate;
             DateTime tanggal_akhir = (DateTime)datepickerAkhir.SelectedDate;
 
-            MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa values(0,?id_penitipan,?no_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
+            MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa (id_penitipan,id_kotak,harga_kotak,harga_total_sewa,tanggal_awal,tanggal_akhir) values(?id_penitipan,?id_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
             cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
-            cmd.Parameters.AddWithValue("?no_kotak", registrasi.no_kotak);
+            cmd.Parameters.AddWithValue("?id_kotak", registrasi.id_kotak);
             cmd.Parameters.AddWithValue("?harga_kotak", registrasi.harga_kotak);
             cmd.Parameters.AddWithValue("?harga_total_sewa", harga_total_sewa);
             cmd.Parameters.AddWithValue("?tanggal_awal", tanggal_awal.ToString("yyyy-MM-dd HH:mm"));

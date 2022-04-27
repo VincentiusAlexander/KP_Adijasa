@@ -72,7 +72,7 @@
                 </StackPanel>
             </Border>
             <Button Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0"/>
-            <Button Content="Simpan" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0"/>
+            <Button Content="Ambil Abu" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0"/>
         </DockPanel>
     </Grid>
 </Page>
