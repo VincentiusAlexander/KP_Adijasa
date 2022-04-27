@@ -21,36 +21,36 @@
             <TextBlock HorizontalAlignment="Center" Text="Pembayaran Sewa (Edit/Delete)"  FontSize="24" FontWeight="Bold" DockPanel.Dock="Top"/>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="No Kwitansi" MinWidth="120"/>
-                <TextBlock Text="001" MinWidth="120"/>
-                <Button Content="Cari Kwitansi Pembayaran sewa" Padding="6 0"/>
+                <TextBlock x:Name="no_kwitasi" Text="001" MinWidth="120"/>
+                <Button x:Name="pencarian_pembayaran_sewa" Content="Cari Kwitansi Pembayaran sewa" Padding="6 0" Click="pencarian_pembayaran_sewa_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="No Registrasi" MinWidth="120"/>
-                <TextBlock Text="-" MinWidth="120"/>
+                <TextBlock x:Name="no_registrasi" Text="-" MinWidth="120" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="No Kotak" MinWidth="120"/>
-                <TextBox Text="-"  MinWidth="120"/>
+                <ComboBox x:Name="no_kotak" Text="-"  MinWidth="120" SelectionChanged="no_kotak_SelectionChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Nama Abu" MinWidth="120"/>
-                <TextBox Text="-"  MinWidth="120"/>
+                <TextBlock x:Name="nama_abu" Text="-"  MinWidth="120"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Tanggal Penyimpanan" MinWidth="120"/>
-                <DatePicker MinWidth="110"/>
+                <DatePicker x:Name="tanggal_simpan_awal" MinWidth="110" SelectedDateChanged="tanggal_simpan_awal_SelectedDateChanged"/>
                 <TextBlock Text=" s/d " VerticalAlignment="Center"/>
-                <DatePicker MinWidth="110"/>
+                <DatePicker x:Name="tanggal_simpan_akhir" MinWidth="110" SelectedDateChanged="tanggal_simpan_awal_SelectedDateChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Harga Total Sewa" MinWidth="120"/>
-                <TextBlock Text="Rp.-"/>
+                <TextBlock x:Name="harga_total_sewa_txt" Text="Rp.-"/>
             </StackPanel>
-            <CheckBox Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top"></CheckBox>
+            <CheckBox x:Name="check_pembayaran_sudah_diterima" Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top"></CheckBox>
             <Button DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5 2" Margin="0 2"/>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right" VerticalAlignment="Top">
-                <Button Content="Edit" Margin="2 2" Padding="6 0"/>
-                <Button Content="Delete" Margin="2 2" Padding="6 0"/>
+                <Button x:Name="btn_edit" Content="Edit" Margin="2 2" Padding="6 0" Click="btn_edit_Click"/>
+                <Button x:Name="btn_delete" Content="Delete" Margin="2 2" Padding="6 0" Click="btn_delete_Click"/>
             </StackPanel>
         </DockPanel>
     </Grid>

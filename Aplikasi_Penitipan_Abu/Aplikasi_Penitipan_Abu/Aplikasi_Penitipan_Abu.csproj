@@ -104,6 +104,9 @@
     <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Edit.xaml.cs">
       <DependentUpon>PembayaranSewa_Edit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PembayaranSewa\PencarianPembayaranSewa.xaml.cs">
+      <DependentUpon>PencarianPembayaranSewa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PembayaranSewa\TandaTerimaPembayaranSewa.xaml.cs">
       <DependentUpon>TandaTerimaPembayaranSewa.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Transaksi\PembayaranSewa\PencarianPembayaranSewa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Transaksi\PembayaranSewa\TandaTerimaPembayaranSewa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,6 +292,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Master\search_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Transaksi\PembayaranSewa\search_image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

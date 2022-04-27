@@ -21,7 +21,7 @@
             <TextBlock HorizontalAlignment="Center" Text="Pembayaran Sewa"  FontSize="24" FontWeight="Bold" DockPanel.Dock="Top"/>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="No Kwitansi" MinWidth="120"/>
-                <TextBlock Text="001"/>
+                <TextBlock x:Name="no_kwitansi" Text="001"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="No Registrasi" MinWidth="120"/>

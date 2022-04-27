@@ -43,6 +43,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             }
             MySqlCommand command = new MySqlCommand("select count(*) from pembayaran_sewa where id_penitipan = ?id", conn);
             command.Parameters.AddWithValue("?id", selectedId);
+            no_kwitansi.Text = selectedId.ToString();
             conn.Close();
             conn.Open();
             int count = Int32.Parse(command.ExecuteScalar().ToString());
@@ -78,7 +79,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             while (reader.Read())
             {
                 registrasi.no_kotak = reader.GetString(2);
-                registrasi.harga_kotak = reader.GetInt32(6);
+                registrasi.harga_kotak = reader.GetInt32(7);
             }
 
             reader.Close();
