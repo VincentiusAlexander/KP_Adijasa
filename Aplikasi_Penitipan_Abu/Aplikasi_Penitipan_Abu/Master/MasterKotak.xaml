@@ -22,7 +22,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" MaxHeight="16" Margin=" 0 0 6 0">
                 <TextBlock Text="Filter Kotak" Margin="0 0 6 0"/>
                 <Image Source="search_image.png" ></Image>
-                <TextBox MinWidth="120"/>
+                <TextBox x:Name="search_box" MinWidth="120" TextChanged="search_box_TextChanged"/>
             </StackPanel>
             <Grid>
                 <Grid.ColumnDefinitions>

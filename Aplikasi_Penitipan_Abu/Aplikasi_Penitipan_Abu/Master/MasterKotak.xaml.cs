@@ -34,13 +34,14 @@ namespace Aplikasi_Penitipan_Abu.Master
             loadData();
         }
 
-        public void loadData(int status = 0)
+        public void loadData(int status = 0, string filter = "")
         {
 
             //populate the data grid
             dt = new DataTable();
-            MySqlCommand cmd = new MySqlCommand($"select kotak.id as 'ID Kotak', kotak.no_kotak as 'No Kotak', kategori.nama as 'Nama Kategori' from kotak left join kategori on kotak.kategori_id = kategori.id where kotak.status = ?status", conn);
+            MySqlCommand cmd = new MySqlCommand($"select kotak.id as 'ID Kotak', kotak.no_kotak as 'No Kotak', kategori.nama as 'Nama Kategori' from kotak left join kategori on kotak.kategori_id = kategori.id where kotak.status = ?status and (kotak.id like ?filter or lower(kotak.no_kotak) like lower(?filter) or lower(kategori.nama) like lower(?filter))", conn);
             cmd.Parameters.AddWithValue("?status", status);
+            cmd.Parameters.AddWithValue("?filter", "%"+filter+"%");
             conn.Close();
             conn.Open();
             MySqlDataAdapter da = new MySqlDataAdapter();
@@ -269,6 +270,11 @@ namespace Aplikasi_Penitipan_Abu.Master
             {
                 System.Windows.Forms.MessageBox.Show("Gagal Edit Data", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
+        }
+
+        private void search_box_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            loadData(filter: search_box.Text);
         }
     }
 

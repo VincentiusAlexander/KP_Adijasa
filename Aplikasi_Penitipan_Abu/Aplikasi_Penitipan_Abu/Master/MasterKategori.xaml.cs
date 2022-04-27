@@ -34,13 +34,14 @@ namespace Aplikasi_Penitipan_Abu.Master
 
             loadDataTable();
         }
-        public void loadDataTable(int status = 0)
+        public void loadDataTable(int status = 0, string filter = "")
         {
             //load data in the data grid
 
             dt = new DataTable();
-            MySqlCommand cmd = new MySqlCommand($"select id, nama, harga from kategori where status = ?status", conn);
+            MySqlCommand cmd = new MySqlCommand($"select id, nama, harga from kategori where status = ?status and (id like ?filter or lower(nama) like lower(?filter) or harga like ?filter)", conn);
             cmd.Parameters.AddWithValue("?status", status);
+            cmd.Parameters.AddWithValue("?filter", "%"+filter+"%");
             conn.Close();
             conn.Open();
             MySqlDataAdapter da = new MySqlDataAdapter();
@@ -194,6 +195,11 @@ namespace Aplikasi_Penitipan_Abu.Master
             {
                 System.Windows.Forms.MessageBox.Show("Gagal Melakukan Edit Data", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
+        }
+
+        private void search_box_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            loadDataTable(filter: search_box.Text);
         }
     }
 }
