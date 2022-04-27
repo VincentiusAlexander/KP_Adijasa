@@ -24,6 +24,17 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
     {
         MySqlConnection conn;
         int id_registrasi = -1;
+        int id_penanggung_jawab = -1;
+        int id_data_abu = -1;
+        string nama_penanggung_jawab = "";
+        string alamat_penanggung_jawab = "";
+        string nomor_telp_penanggung_jawab = "";
+        string nama_abu = "";
+        string jenis_kelamin_abu = "";
+        DateTime tanggal_wafat_abu;
+        DateTime tanggal_kremasi_abu;
+        string no_kotak = "";
+
         public PengambilanAbu_Add()
         {
             InitializeComponent();
@@ -40,11 +51,67 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
+            no_registrasi_txt.Text = id_registrasi.ToString();
+            
             MySqlCommand cmd = new MySqlCommand("select * from penitipan where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", id_registrasi);
             conn.Close();
             conn.Open();
-            
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                id_penanggung_jawab = reader.GetInt32(6);
+                id_data_abu = reader.GetInt32(5);
+            }
+            reader.Close();
+            conn.Close();
+            conn.Open();
+            cmd.Parameters.Clear();
+            cmd.CommandText = "select * from penanggung_jawab where id = ?id";
+            cmd.Parameters.AddWithValue("?id", id_penanggung_jawab);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                nama_penanggung_jawab = reader.GetString(1);
+                alamat_penanggung_jawab = reader.GetString(2);
+                nomor_telp_penanggung_jawab = reader.GetString(3);
+            }
+            nama_penanggung_jawab_txt.Text = nama_penanggung_jawab;
+            alamat_penanggung_jawab_txt.Text = alamat_penanggung_jawab;
+            nomor_telp_penanggung_jawab_txt.Text = nomor_telp_penanggung_jawab;
+
+            reader.Close();
+            conn.Close();
+            conn.Open();
+            cmd.Parameters.Clear();
+            cmd.CommandText = "select * from data_abu where id = ?id";
+            cmd.Parameters.AddWithValue("?id", id_data_abu);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                nama_abu = reader.GetString(1);
+                jenis_kelamin_abu = reader.GetString(4);
+                tanggal_wafat_abu = reader.GetDateTime(6);
+                tanggal_kremasi_abu = reader.GetDateTime(7);
+            }
+            nama_abu_txt.Text = nama_abu;
+            jenis_kelamin_abu_txt.Text = jenis_kelamin_abu;
+            tanggal_wafat_abu_txt.Text = tanggal_wafat_abu.ToString("dd/MM/yyyy");
+            tanggal_kremasi_abu_txt.Text = tanggal_kremasi_abu.ToString("dd/MM/yyyy");
+            reader.Close();
+            conn.Close();
+            conn.Open();
+            cmd.Parameters.Clear();
+            cmd.CommandText = "select k.no_kotak from penitipan p left join kotak k on k.id = p.kotak_id where p.id = ?id";
+            cmd.Parameters.AddWithValue("?id", id_registrasi);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                no_kotak = reader.GetString(0);
+            }
+            no_kotak_abu_txt.Text = no_kotak;
+
+            conn.Close();
         }
     }
 }

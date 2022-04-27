@@ -91,24 +91,27 @@ insert  into `kotak`(`id`,`kategori_id`,`no_kotak`,`status`,`terpakai`) values
 DROP TABLE IF EXISTS `pembayaran_sewa`;
 
 CREATE TABLE `pembayaran_sewa` (
-  `id` int(11) DEFAULT NULL,
-  `id_penitipan` int(11) DEFAULT NULL,
-  `id_kotak` int(11) DEFAULT NULL,
-  `harga_kotak` int(11) DEFAULT NULL,
-  `harga_total_sewa` int(11) DEFAULT NULL,
-  `tanggal_awal` datetime DEFAULT NULL,
-  `tanggal_akhir` datetime DEFAULT NULL,
-  `status` int(1) DEFAULT 0,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_penitipan` int(11) NOT NULL,
+  `id_kotak` int(11) NOT NULL,
+  `harga_kotak` int(11) NOT NULL,
+  `harga_total_sewa` int(11) NOT NULL,
+  `tanggal_awal` datetime NOT NULL,
+  `tanggal_akhir` datetime NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 0,
+  `tanggal_diambil` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `id_penitipan` (`id_penitipan`),
   KEY `id_kotak` (`id_kotak`),
   CONSTRAINT `pembayaran_sewa_ibfk_1` FOREIGN KEY (`id_penitipan`) REFERENCES `penitipan` (`id`),
   CONSTRAINT `pembayaran_sewa_ibfk_2` FOREIGN KEY (`id_kotak`) REFERENCES `kotak` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `pembayaran_sewa` */
 
-insert  into `pembayaran_sewa`(`id`,`id_penitipan`,`id_kotak`,`harga_kotak`,`harga_total_sewa`,`tanggal_awal`,`tanggal_akhir`,`status`) values 
-(0,1,8,15000,75000,'2022-04-26 00:00:00','2022-08-27 00:00:00',0);
+insert  into `pembayaran_sewa`(`id`,`id_penitipan`,`id_kotak`,`harga_kotak`,`harga_total_sewa`,`tanggal_awal`,`tanggal_akhir`,`status`,`tanggal_diambil`) values 
+(1,1,8,15000,75000,'2022-04-26 00:00:00','2022-08-27 00:00:00',0,NULL),
+(2,2,3,15000,15000,'2022-04-27 00:00:00','2022-04-27 00:00:00',0,NULL);
 
 /*Table structure for table `penanggung_jawab` */
 
@@ -129,6 +132,19 @@ insert  into `penanggung_jawab`(`id`,`nama`,`alamat`,`nomor_telp`,`relasi`) valu
 (1,'Mulya','ddd','2we13','Cek'),
 (2,'Chandra','ddas','2we13','Cek'),
 (3,'asd','asd','asd','asd');
+
+/*Table structure for table `pengambilan_abu` */
+
+DROP TABLE IF EXISTS `pengambilan_abu`;
+
+CREATE TABLE `pengambilan_abu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_penitipan` int(11) NOT NULL,
+  `tanggal_pengambilan` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `pengambilan_abu` */
 
 /*Table structure for table `penitipan` */
 
