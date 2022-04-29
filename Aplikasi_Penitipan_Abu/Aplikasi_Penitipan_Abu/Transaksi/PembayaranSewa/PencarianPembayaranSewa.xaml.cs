@@ -56,9 +56,16 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
 
         private void PilihRegistrasi_Click(object sender, RoutedEventArgs e)
         {
-            DataRow dr = data.Rows[dtGrid.SelectedIndex];
-            selectedId = Int32.Parse(dr["ID"].ToString());
-            this.Close();
+            try
+            {
+                DataRow dr = data.Rows[dtGrid.SelectedIndex];
+                selectedId = Int32.Parse(dr["ID"].ToString());
+                this.Close();
+            }
+            catch (Exception)
+            {
+                this.Close();
+            }
         }
     }
 }

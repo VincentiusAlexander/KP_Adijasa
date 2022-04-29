@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu"
         mc:Ignorable="d"
-        Title="Penitipan Abu" Height="450" Width="658.621">
+        Title="Penitipan Abu" Height="720" Width="1080"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

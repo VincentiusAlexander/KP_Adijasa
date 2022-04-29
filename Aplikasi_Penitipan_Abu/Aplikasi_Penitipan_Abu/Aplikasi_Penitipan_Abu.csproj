@@ -113,6 +113,9 @@
     <Compile Include="Transaksi\PencarianRegistrasi.xaml.cs">
       <DependentUpon>PencarianRegistrasi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PencarianRegistrasi_pengambilan_abu.xaml.cs">
+      <DependentUpon>PencarianRegistrasi_pengambilan_abu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PengambilanAbu\PengambilanAbu_Add.xaml.cs">
       <DependentUpon>PengambilanAbu_Add.xaml</DependentUpon>
     </Compile>
@@ -218,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PencarianRegistrasi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PencarianRegistrasi_pengambilan_abu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

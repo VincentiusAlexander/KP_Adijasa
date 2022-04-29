@@ -43,7 +43,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
 
         private void cari_registrasi_Click(object sender, RoutedEventArgs e)
         {
-            PencarianRegistrasi pencarianRegistrasi = new PencarianRegistrasi();
+            PencarianRegistrasi_pengambilan_abu pencarianRegistrasi = new PencarianRegistrasi_pengambilan_abu();
             pencarianRegistrasi.ShowDialog();
             id_registrasi = pencarianRegistrasi.selectedId;
             if (id_registrasi == -1)
@@ -112,6 +112,37 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
             no_kotak_abu_txt.Text = no_kotak;
 
             conn.Close();
+        }
+
+        private void btn_ambil_abu_Click(object sender, RoutedEventArgs e)
+        {
+            if (id_registrasi == -1)
+            {
+                System.Windows.Forms.MessageBox.Show("Pilih dulu registrasi yang ingin diambil", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
+            }
+            if (System.Windows.Forms.MessageBox.Show("Lakukan Pengambilan Abu ?","Confirm",System.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand("insert into pengambilan_abu values (0,?id_penitipan,?tanggal_pengambilan)", conn);
+                conn.Close();
+                conn.Open();
+                cmd.Parameters.AddWithValue("?id_penitipan", id_registrasi);
+                cmd.Parameters.AddWithValue("?tanggal_pengambilan", DateTime.Now.ToString("yyyy-MM-dd"));
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                System.Windows.Forms.MessageBox.Show("Pengambilan Berhasil !", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+
+                //lakukan reset tampilan
+                alamat_penanggung_jawab_txt.Text = "-";
+                jenis_kelamin_abu_txt.Text = "-";
+                nama_abu_txt.Text = "-";
+                nama_penanggung_jawab_txt.Text = "-";
+                nomor_telp_penanggung_jawab_txt.Text = "-";
+                no_kotak_abu_txt.Text = "-";
+                no_registrasi_txt.Text = "-";
+                tanggal_kremasi_abu_txt.Text = "-";
+                tanggal_wafat_abu_txt.Text = "-";
+            }
         }
     }
 }
