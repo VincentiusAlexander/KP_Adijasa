@@ -25,6 +25,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         MySqlConnection conn;
         Registrasi registrasi;
         int selectedId = -1;
+        bool perlu_jaminan = false;
         public PembayaranSewa_Add()
         {
             InitializeComponent();
@@ -54,8 +55,9 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             conn.Close();
             command.Parameters.Clear();
             conn.Open();
-            command.CommandText = "select max(id) from pembayaran_sewa";
-            no_kwitansi.Text = ((int)command.ExecuteScalar() + 1).ToString();
+            command.CommandText = "select count(*) from pembayaran_sewa";
+            int max = Int32.Parse(command.ExecuteScalar().ToString()) + 1;
+            no_kwitansi.Text = max.ToString();
 
             MySqlCommand cmd = new MySqlCommand("select * from penitipan p left join data_abu da on p.data_abu_id = da.id where p.id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", selectedId);
@@ -100,6 +102,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             {
                 //perhitungan harga
                 if(registrasi != null && registrasi.harga_kotak != -1) {
+                    perlu_jaminan = false;
                     int harga = registrasi.harga_kotak;
                     if (datepickerAkhir.SelectedDate < datepickerAwal.SelectedDate)
                     {
@@ -116,6 +119,10 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                     }
                     int harga_total_sewa = harga * totalMonth;
                     harga_sewa.Text = "Rp."+harga_total_sewa.ToString();
+                    if (totalMonth >= 3)
+                    {
+                        perlu_jaminan = true;
+                    }
                 }
             }
         }
@@ -142,7 +149,15 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             conn.Close();
             conn.Open();
             cmd.ExecuteNonQuery();
+            if (perlu_jaminan)
+            {
+                cmd.CommandText = "insert into jaminan values(0,?id_penitipan,1000000,0)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
+                cmd.ExecuteNonQuery();
+            }
             conn.Close();
+
             System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Pembayaran Sewa", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             //reset tampilan
             registrasi = new Registrasi();

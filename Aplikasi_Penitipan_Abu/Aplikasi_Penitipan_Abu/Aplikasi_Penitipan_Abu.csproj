@@ -110,6 +110,9 @@
     <Compile Include="Transaksi\PembayaranSewa\TandaTerimaPembayaranSewa.xaml.cs">
       <DependentUpon>TandaTerimaPembayaranSewa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PencarianPembayaranJaminan.xaml.cs">
+      <DependentUpon>PencarianPembayaranJaminan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PencarianPengembalianAbu.xaml.cs">
       <DependentUpon>PencarianPengembalianAbu.xaml</DependentUpon>
     </Compile>
@@ -220,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PembayaranSewa\TandaTerimaPembayaranSewa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PencarianPembayaranJaminan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,24 +21,28 @@
             <TextBlock Text="Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="24" FontWeight="Bold" Margin="0 2" />
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
                 <TextBlock Text="No Kwitansi Jaminan" MinWidth="120"/>
-                <TextBlock Text="-"/>
+                <TextBlock x:Name="no_kwitansi_jaminan_txt" Text="-"/>
             </StackPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
                 <TextBlock Text="No Registrasi" MinWidth="120"/>
-                <TextBlock Text="-" MinWidth="120"/>
-                <Button Content="Cari Registrasi" Padding="6 0"></Button>
+                <TextBlock x:Name="no_registrasi_txt" Text="-" MinWidth="120"/>
+                <Button x:Name="btn_cari_registrasi" Content="Cari Registrasi" Padding="6 0" Click="btn_cari_registrasi_Click"></Button>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="Nama Abu" MinWidth="120"/>
+                <TextBlock x:Name="nama_abu_txt" Text="-" MinWidth="120"/>
             </StackPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
                 <TextBlock Text="Nama Penanggung Jawab" MinWidth="120" TextWrapping="Wrap" MaxWidth="120"/>
-                <TextBlock Text="-" VerticalAlignment="Center"/>
+                <TextBlock x:Name="nama_penanggung_jawab_txt" Text="-" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
                 <TextBlock Text="Uang Jaminan" MinWidth="120"/>
-                <TextBlock Text="Rp.-"/>
+                <TextBlock  x:Name="uang_jaminan_txt" Text="Rp." MinWidth="120"/>
             </StackPanel>
-            <CheckBox Content="Centang Bila Pembayaran Sudah Diterima" DockPanel.Dock="Top" Margin="0 4" />
+            <CheckBox x:Name="check_box_pembayaran_telah_diterima" Content="Centang Bila Pembayaran Sudah Diterima" DockPanel.Dock="Top" Margin="0 4" />
             <Button DockPanel.Dock="Top" Content="Cetak Tanda Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 2" Padding="6 0"/>
-            <Button DockPanel.Dock="Top" Content="Selesai" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 6" Padding="6 0"/>
+            <Button x:Name="btn_simpan" DockPanel.Dock="Top" Content="Simpan" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 6" Padding="6 0" Click="btn_simpan_Click"/>
         </DockPanel>
     </Grid>
 </Page>
