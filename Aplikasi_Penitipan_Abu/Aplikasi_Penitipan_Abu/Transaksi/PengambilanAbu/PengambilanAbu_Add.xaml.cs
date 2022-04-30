@@ -123,15 +123,33 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
             }
             if (System.Windows.Forms.MessageBox.Show("Lakukan Pengambilan Abu ?","Confirm",System.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                MySqlCommand cmd = new MySqlCommand("insert into pengambilan_abu values (0,?id_penitipan,?tanggal_pengambilan)", conn);
+                MySqlCommand command = new MySqlCommand("select count(*) from pengambilan_abu where id_penitipan = ?id_penitipan", conn);
+                command.Parameters.AddWithValue("?id_penitipan", id_registrasi);
                 conn.Close();
                 conn.Open();
-                cmd.Parameters.AddWithValue("?id_penitipan", id_registrasi);
-                cmd.Parameters.AddWithValue("?tanggal_pengambilan", DateTime.Now.ToString("yyyy-MM-dd"));
-                cmd.ExecuteNonQuery();
+                int count = Int32.Parse(command.ExecuteScalar().ToString());
                 conn.Close();
+                if (count >= 1)
+                {
+                    MySqlCommand cmd = new MySqlCommand("update pengambilan_abu set status = 0, tanggal_pengambilan = ?tanggal_pengambilan where id_penitipan = ?id_penitipan",conn);
+                    cmd.Parameters.AddWithValue("?id_penitipan", id_registrasi);
+                    cmd.Parameters.AddWithValue("?tanggal_pengambilan", DateTime.Now.ToString("yyyy-MM-dd"));
+                    conn.Close();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                else
+                {
+                    MySqlCommand cmd = new MySqlCommand("insert into pengambilan_abu values (0,?id_penitipan,?tanggal_pengambilan)", conn);
+                    conn.Close();
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("?id_penitipan", id_registrasi);
+                    cmd.Parameters.AddWithValue("?tanggal_pengambilan", DateTime.Now.ToString("yyyy-MM-dd"));
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
                 System.Windows.Forms.MessageBox.Show("Pengambilan Berhasil !", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-
                 //lakukan reset tampilan
                 alamat_penanggung_jawab_txt.Text = "-";
                 jenis_kelamin_abu_txt.Text = "-";

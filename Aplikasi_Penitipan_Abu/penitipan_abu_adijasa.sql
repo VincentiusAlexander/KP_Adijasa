@@ -141,10 +141,15 @@ CREATE TABLE `pengambilan_abu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_penitipan` int(11) NOT NULL,
   `tanggal_pengambilan` datetime NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = deleted, 1 = not-deleted',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `pengambilan_abu` */
+
+insert  into `pengambilan_abu`(`id`,`id_penitipan`,`tanggal_pengambilan`,`status`) values 
+(1,2,'2022-04-29 00:00:00',0),
+(2,1,'2022-04-30 00:00:00',1);
 
 /*Table structure for table `penitipan` */
 

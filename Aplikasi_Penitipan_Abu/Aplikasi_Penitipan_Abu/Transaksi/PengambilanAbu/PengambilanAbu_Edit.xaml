@@ -24,25 +24,25 @@
                     <TextBlock Text="Data Pengambilan" FontSize="14" FontWeight="SemiBold" Margin="0 0 0 4"/>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
                         <TextBlock Text="No Pengambilan Abu" MinWidth="120"/>
-                        <TextBlock Text="-" MinWidth="120" VerticalAlignment="Center"/>
-                        <Button Content="Cari Pengambilan Abu" Padding="4 0"/>
+                        <TextBlock x:Name="no_pengambilan_abu_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <Button x:Name="cari_pengambilan_abu" Content="Cari Pengambilan Abu" Padding="4 0" Click="cari_pengambilan_abu_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
                         <TextBlock Text="No Registrasi" MinWidth="120"/>
-                        <TextBlock Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="no_registrasi_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
                         <TextBlock Text="Nama Penanggung Jawab" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="nama_penanggung_jawab_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0 2">
                         <TextBlock Text="Alamat Penanggung Jawab" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="alamat_penanggung_jawab_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
                         <TextBlock Text="Nomor Penanggung Jawab" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="nomor_penanggung_jawab_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -51,30 +51,29 @@
                     <TextBlock Text="Data Abu" FontSize="14" FontWeight="SemiBold" Margin="6"/>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
                         <TextBlock Text="Nama Abu" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock Text="-" MinWidth="120"/>
+                        <TextBlock x:Name="nama_abu_txt" Text="-" MinWidth="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
                         <TextBlock Text="Jenis Kelamin" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock Text="-" MinWidth="120"/>
+                        <TextBlock x:Name="jenis_kelamin_abu_txt" Text="-" MinWidth="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
                         <TextBlock Text="Tanggal Wafat" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock Text="-" MinWidth="120"/>
+                        <TextBlock x:Name="tanggal_wafat_abu_txt" Text="-" MinWidth="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
                         <TextBlock Text="Tanggal Kremasi" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock Text="-" MinWidth="120"/>
+                        <TextBlock x:Name="tanggal_kremasi_abu_txt" Text="-" MinWidth="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
                         <TextBlock Text="Nomor Kotak" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock Text="-" MinWidth="120"/>
+                        <TextBlock x:Name="no_kotak_abu_txt" Text="-" MinWidth="120"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
             <Button Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0"/>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button Content="Edit" Padding="6 0" Margin="6 0"/>
-                <Button Content="Delete" Padding="6 0" Margin="6 0"/>
+                <Button x:Name="btn_delete" Content="Delete" Padding="6 0" Margin="6 0" Click="btn_delete_Click"/>
             </StackPanel>
         </DockPanel>
     </Grid>

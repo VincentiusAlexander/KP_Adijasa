@@ -15,32 +15,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 
-
 namespace Aplikasi_Penitipan_Abu.Transaksi
 {
     /// <summary>
-    /// Interaction logic for PencarianRegistrasi_pengambilan_abu.xaml
+    /// Interaction logic for PencarianPengembalianAbu.xaml
     /// </summary>
-    public partial class PencarianRegistrasi_pengambilan_abu : Window
+    public partial class PencarianPengembalianAbu : Window
     {
         public int selectedId { get; set; }
 
         MySqlConnection conn;
         DataTable data;
-        ArrayList listRegistrasi = new ArrayList();
-        public PencarianRegistrasi_pengambilan_abu()
+        public PencarianPengembalianAbu()
         {
             InitializeComponent();
             conn = new MySqlConnection("datasource=localhost; port=3306; username=root; password=;database=penitipan_abu_adijasa");
-            selectedId = -1;
             loadDataGrid();
         }
-
         public void loadDataGrid(string filter = "")
         {
             data = new DataTable();
-
-            MySqlCommand cmd = new MySqlCommand("SELECT p.id as 'ID', k.no_kotak AS 'No Kotak', da.nama_abu AS 'Nama Abu', da.nama_alternatif_abu AS 'Nama Alternatif Abu', da.alamat_abu AS 'Alamat Abu', da.jenis_kelamin AS 'Jenis Kelamin',  DATE(da.tanggal_lahir) AS 'Tanggal Lahir',  DATE(da.tanggal_wafat) AS 'Tanggal Wafat', DATE(da.tanggal_kremasi) AS 'Tanggal Kremasi', da.keterangan AS 'Keterangan', pj1.nama AS 'Nama Penanggung Jawab 1', pj2.nama AS 'Nama Penanggung Jawab 2' FROM penitipan p LEFT JOIN data_abu da ON da.id = p.data_abu_id LEFT JOIN kotak k ON k.id = p.kotak_id LEFT JOIN penanggung_jawab pj1 ON p.penanggung_jawab_satu_id = pj1.id LEFT JOIN penanggung_jawab pj2 ON p.penanggung_jawab_dua_id = pj2.id WHERE (k.no_kotak LIKE ?a or da.nama_abu LIKE ?a or da.nama_alternatif_abu LIKE ?a or da.alamat_abu LIKE ?a or da.jenis_kelamin LIKE ?a or pj1.nama LIKE ?a or pj2.nama LIKE ?a) and p.id not in (select id_penitipan from pengambilan_abu where status = 0)", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT pa.id AS 'ID', da.nama_abu AS 'Nama Abu', pj.nama AS 'Nama Penanggung Jawab', case when pa.status = 0 then 'Aktif' when pa.status = 1 then 'Terhapus' end as 'Status' FROM pengambilan_abu pa LEFT JOIN penitipan p ON pa.id_penitipan = p.id LEFT JOIN data_abu da ON da.id = p.data_abu_id LEFT JOIN penanggung_jawab pj ON p.penanggung_jawab_satu_id = pj.id where pa.id = ?a or da.nama_abu like ?a or pj.nama like ?a", conn);
+            conn.Open();
             cmd.Parameters.AddWithValue("?a", "%" + filter + "%");
             conn.Close();
             conn.Open();
