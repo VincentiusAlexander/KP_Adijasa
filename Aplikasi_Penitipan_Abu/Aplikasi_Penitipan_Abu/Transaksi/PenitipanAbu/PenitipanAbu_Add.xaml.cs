@@ -242,11 +242,40 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
             String relasi = tb_relasi_penanggung_jawab_satu_penitipan_abu.Text.ToString();
             String namaAbu = tb_nama_abu_penitipan_abu.Text.ToString();
             String alamatAbu = tb_alamat_abu_penitipan_abu.Text.ToString();
-            DateTime tglLahirAbu = dp_tgl_lahir_abu_penitipan_abu.SelectedDate.Value;
-            DateTime tglWafatAbu = dp_tgl_wafat_abu_penitipan_abu.SelectedDate.Value;
-            DateTime tglKremasiAbu = dp_tgl_kremasi_abu_penitipan_abu.SelectedDate.Value;
+            String tglLahirAbu = dp_tgl_lahir_abu_penitipan_abu.SelectedDate.ToString();
+            String tglWafatAbu = dp_tgl_wafat_abu_penitipan_abu.SelectedDate.ToString();
+            String tglKremasiAbu = dp_tgl_kremasi_abu_penitipan_abu.SelectedDate.ToString();
             if (tanggalAkhir == "" || tanggalAwal == "" || nama == "" || alamat == "" || notelp == "" || relasi == "" ||
-                namaAbu == "" || alamatAbu == "" || tglLahirAbu == null || tglWafatAbu == null || tglKremasiAbu == null) error = true;
+                namaAbu == "" || alamatAbu == "" || tglLahirAbu == "" || tglWafatAbu == "" || tglKremasiAbu == "") error = true;
+        }
+
+        private void tb_notelp_penanggung_jawab_satu_penitipan_abu_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String text = tb_notelp_penanggung_jawab_satu_penitipan_abu.Text;
+            String temp = textChanged(text);
+            tb_notelp_penanggung_jawab_satu_penitipan_abu.Text = temp;
+            tb_notelp_penanggung_jawab_satu_penitipan_abu.SelectionStart = temp.Length;
+        }
+
+        private void tb_notelp_penanggung_jawab_dua_penitipan_abu_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String text = tb_notelp_penanggung_jawab_dua_penitipan_abu.Text;
+            String temp = textChanged(text);
+            tb_notelp_penanggung_jawab_dua_penitipan_abu.Text = temp;
+            tb_notelp_penanggung_jawab_dua_penitipan_abu.SelectionStart = temp.Length;
+        }
+
+        private String textChanged(String text)
+        {
+            String temp = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (char.IsNumber(text[i]))
+                {
+                    temp += text[i];
+                }
+            }
+            return temp;
         }
     }
     public class Kotak

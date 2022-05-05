@@ -102,6 +102,7 @@ namespace Aplikasi_Penitipan_Abu.Master
 
                 loadData();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Penambahan Kategori", "Sukses", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                tb_no_kotak_add.Text = "";
             }
             catch (Exception)
             {
@@ -219,6 +220,8 @@ namespace Aplikasi_Penitipan_Abu.Master
 
                 loadData();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Delete Kotak", "Sukses", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                id_kotak_edit.Text = "";
+                no_kotak_edit.Text = "";
             }
             catch (Exception)
             {
@@ -265,6 +268,8 @@ namespace Aplikasi_Penitipan_Abu.Master
 
                 loadData();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Edit Kotak", "Sukses", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                id_kotak_edit.Text = "";
+                no_kotak_edit.Text = "";
             }
             catch (Exception)
             {
