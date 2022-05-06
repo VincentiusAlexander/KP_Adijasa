@@ -162,5 +162,42 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                 tanggal_wafat_abu_txt.Text = "-";
             }
         }
+
+        private void btnCetak_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TandaTerimaPengambilanAbuFix tandaTerima = new TandaTerimaPengambilanAbuFix(new tandaTerimaPengambilanAbuData(nama_penanggung_jawab, alamat_penanggung_jawab, nomor_telp_penanggung_jawab, nama_abu, no_kotak, jenis_kelamin_abu, tanggal_wafat_abu.ToString("dd/MM/yyyy"), tanggal_kremasi_abu.ToString("dd/MM/yyyy")));
+                tandaTerima.Show();
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+
+            }
+        }
+    }
+    public class tandaTerimaPengambilanAbuData
+    {
+        
+        public string nama_penanggung_jawab;
+        public string alamat_penanggung_jawab;
+        public string no_telp_penanggung_jawab;
+        public string nama_abu;
+        public string jenis_kelamin_abu;
+        public string tanggal_wafat;
+        public string tanggal_kremasi;
+        public string no_kotak;
+        public tandaTerimaPengambilanAbuData(string nama_penanggung_jawab, string alamat_penanggung_jawab, string no_telp_penanggung_jawab, string nama_abu, string no_kotak, string jenis_kelamin_abu, string tanggal_wafat, string tanggal_kremasi)
+        {
+            this.nama_penanggung_jawab = nama_penanggung_jawab;
+            this.alamat_penanggung_jawab = alamat_penanggung_jawab;
+            this.no_telp_penanggung_jawab = no_telp_penanggung_jawab;
+            this.nama_abu = nama_abu;
+            this.jenis_kelamin_abu = jenis_kelamin_abu;
+            this.tanggal_wafat = tanggal_wafat;
+            this.tanggal_kremasi = tanggal_kremasi;
+            this.no_kotak = no_kotak;
+        }
     }
 }

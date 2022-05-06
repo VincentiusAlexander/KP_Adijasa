@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Printing;
 
 namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
 {
@@ -19,9 +20,26 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
     /// </summary>
     public partial class TandaTerimaPembayaranSewa : Window
     {
-        public TandaTerimaPembayaranSewa()
+        public TandaTerimaPembayaranSewa(tandaTerimaPembayaranSewaData data)
         {
             InitializeComponent();
+            noKwitansi.Text = data.no_kwitansi.ToString();
+            noRegistrasi.Text = data.no_registrasi.ToString();
+            noKotak.Text = data.no_kotak.ToString();
+            tanggalSekarang.Text = data.tanggal_pembayaran;
+            noKotak.Text = data.no_kotak;
+            NamaAbu.Text = data.nama_abu;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            btn.Visibility = Visibility.Hidden;
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                printDialog.PrintVisual(this, "Pembayaran Sewa");
+            }
+            btn.Visibility = Visibility.Visible;
         }
     }
 }

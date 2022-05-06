@@ -206,6 +206,19 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 perhitungan_harga();
             }
         }
+
+        private void btnCetakTandaTerima_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitasi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text));
+                tandaTerima.Show();
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+            }
+        }
     }
     public class Kotak
     {

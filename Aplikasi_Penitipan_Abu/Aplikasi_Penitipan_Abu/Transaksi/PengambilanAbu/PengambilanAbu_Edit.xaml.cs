@@ -153,5 +153,19 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
             tanggal_kremasi_abu_txt.Text = "-";
             tanggal_wafat_abu_txt.Text = "-";
         }
+
+        private void btnCetakTandaTerima_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TandaTerimaPengambilanAbuFix tandaTerima = new TandaTerimaPengambilanAbuFix(new tandaTerimaPengambilanAbuData(nama_penanggung_jawab, alamat_penanggung_jawab, nomor_telp_penanggung_jawab, nama_abu, no_kotak, jenis_kelamin_abu, tanggal_wafat_abu.ToString("dd/MM/yyyy"), tanggal_kremasi_abu.ToString("dd/MM/yyyy")));
+                tandaTerima.Show();
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+
+            }
+        }
     }
 }

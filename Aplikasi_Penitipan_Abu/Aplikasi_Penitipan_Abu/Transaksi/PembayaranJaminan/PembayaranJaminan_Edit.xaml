@@ -41,7 +41,7 @@
                 <TextBlock x:Name="uang_jaminan_txt" Text="Rp.-"/>
             </StackPanel>
             <CheckBox x:Name="check_box_centang_bila_data_benar" Content="Centang Bila Data sudah benar" DockPanel.Dock="Top" Margin="0 4" />
-            <Button DockPanel.Dock="Top" Content="Cetak Tanda Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 2" Padding="6 0"/>
+            <Button x:Name="btnCetak" DockPanel.Dock="Top" Content="Cetak Tanda Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 2" Padding="6 0" Click="btnCetak_Click"/>
             <Button x:Name="btn_edit" DockPanel.Dock="Top" Content="Edit" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 6" Padding="6 0" Click="btn_edit_Click"/>
         </DockPanel>
     </Grid>

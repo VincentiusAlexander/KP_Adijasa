@@ -171,8 +171,33 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
 
         private void cetak_tanda_terima_pembayaran_abu_Click(object sender, RoutedEventArgs e)
         {
-            TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa();
-            tandaTerima.Show();
+            try
+            {
+                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitansi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text));
+                tandaTerima.Show();
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+
+            }
         }
     }
+    public class tandaTerimaPembayaranSewaData
+    {
+        public int no_kwitansi;
+        public int no_registrasi;
+        public string tanggal_pembayaran;
+        public string no_kotak;
+        public string nama_abu;
+        public tandaTerimaPembayaranSewaData(int noKwitansi, int noRegistrasi, string tanggalPembayaran, string noKotak, string namaAbu)
+        {
+            no_kwitansi = noKwitansi;
+            no_registrasi = noRegistrasi;
+            tanggal_pembayaran = tanggalPembayaran;
+            no_kotak = noKotak;
+            nama_abu = namaAbu;
+        }
+    }
+
 }

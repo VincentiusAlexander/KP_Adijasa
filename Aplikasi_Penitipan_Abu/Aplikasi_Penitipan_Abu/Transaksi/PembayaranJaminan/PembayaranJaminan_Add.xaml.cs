@@ -108,5 +108,29 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             conn.Close();
             System.Windows.Forms.MessageBox.Show("Berhasil melakukan pembayaran uang jaminan", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
         }
+
+        private void btnCetak_Click(object sender, RoutedEventArgs e)
+        {
+            TandaTerimaPembayaranJaminanFix a = new TandaTerimaPembayaranJaminanFix(new tandaTerimaPembayaranJaminanData(no_kwitansi_jaminan_txt.Text, no_registrasi_txt.Text, DateTime.Now.ToString("dd/MM/yyyy"), nama_penanggung_jawab_txt.Text, nama_abu_txt.Text, uang_jaminan_txt.Text));
+            a.ShowDialog();
+        }
+    }
+    public class tandaTerimaPembayaranJaminanData
+    {
+        public string no_kwitansi;
+        public string no_registrasi;
+        public string tanggal_pembayaran;
+        public string nama_penanggung_jawab;
+        public string nama_abu;
+        public string uang_jaminan;
+        public tandaTerimaPembayaranJaminanData(string noKwitansi, string noRegistrasi, string tanggalPembayaran, string namaPenanggungJawab, string namaAbu, string uangJaminan)
+        {
+            no_kwitansi = noKwitansi;
+            no_registrasi = noRegistrasi;
+            tanggal_pembayaran = tanggalPembayaran;
+            nama_penanggung_jawab = namaPenanggungJawab;
+            nama_abu = namaAbu;
+            uang_jaminan = uangJaminan;
+        }
     }
 }

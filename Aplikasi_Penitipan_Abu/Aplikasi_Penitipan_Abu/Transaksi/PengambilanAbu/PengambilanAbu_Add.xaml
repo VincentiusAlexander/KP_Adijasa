@@ -67,7 +67,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Button Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0"/>
+            <Button x:Name="btnCetak" Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btnCetak_Click"/>
             <Button x:Name="btn_ambil_abu" Content="Ambil Abu" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btn_ambil_abu_Click"/>
         </DockPanel>
     </Grid>

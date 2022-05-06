@@ -24,6 +24,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
     {
         MySqlConnection conn;
         int selectedId = -1;
+        string nama_abu;
         public PembayaranJaminan_Edit()
         {
             InitializeComponent();
@@ -77,13 +78,14 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             cb_status.SelectedIndex = status;
 
             cmd.Parameters.Clear();
-            cmd.CommandText = "select pj.nama from penitipan p left join penanggung_jawab pj on p.penanggung_jawab_satu_id = pj.id where p.id = ?id";
+            cmd.CommandText = "SELECT pj.nama, da.nama_abu FROM penitipan p LEFT JOIN penanggung_jawab pj ON p.penanggung_jawab_satu_id = pj.id LEFT JOIN data_abu da ON da.id = p.data_abu_id where p.id = ?id";
             cmd.Parameters.AddWithValue("?id", id_penitipan);
             reader = cmd.ExecuteReader();
             string nama = "";
             while (reader.Read())
             {
                 nama = reader.GetString(0);
+                nama_abu = reader.GetString(1);
             }
             nama_penanggung_jawab_txt.Text = nama;
             conn.Close();
@@ -122,6 +124,12 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             cmd.ExecuteNonQuery();
             conn.Close();
             System.Windows.Forms.MessageBox.Show("Berhasil Edit", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+        }
+
+        private void btnCetak_Click(object sender, RoutedEventArgs e)
+        {
+            TandaTerimaPembayaranJaminanFix a = new TandaTerimaPembayaranJaminanFix(new tandaTerimaPembayaranJaminanData(no_kwitansi_jaminan_txt.Text, no_registrasi_txt.Text, DateTime.Now.ToString("dd/MM/yyyy"), nama_penanggung_jawab_txt.Text, nama_abu, uang_jaminan_txt.Text));
+            a.ShowDialog();
         }
     }
 }

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa"
         mc:Ignorable="d"
-        Title="TandaTerimaPembayaranSewa" Height="450" Width="800">
+        Title="TandaTerimaPembayaranSewa" Height="376" Width="800">
     <Grid>
         <StackPanel Margin="12">
-            <Button HorizontalAlignment="Right" Content="Print" Padding="4 2"></Button>
+            <Button x:Name="btn" HorizontalAlignment="Right" Content="Print" Padding="4 2" Click="Button_Click"></Button>
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock Text="Yayasan Adi Jasa" FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
                 <TextBlock Text="JL. Demak No. 90 - 92" FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
@@ -27,27 +27,26 @@
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
                     <TextBlock Text="No Kwitansi" MinWidth="200"/>
-                    <TextBlock Text="-" MinWidth="200"/>
+                    <TextBlock x:Name="noKwitansi" Text="-" MinWidth="200"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
                     <TextBlock Text="No Registrasi" MinWidth="200"/>
-                    <TextBlock Text="-" MinWidth="200"/>
+                    <TextBlock x:Name="noRegistrasi" Text="-" MinWidth="200"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
                     <TextBlock Text="Tanggal" MinWidth="200"/>
-                    <TextBlock Text="-/-/-" MinWidth="200"/>
+                    <TextBlock x:Name="tanggalSekarang" Text="-/-/-" MinWidth="200"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
                     <TextBlock Text="No Kotak" MinWidth="200"/>
-                    <TextBlock Text="-" MinWidth="200"/>
+                    <TextBlock x:Name="noKotak" Text="-" MinWidth="200"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
                     <TextBlock Text="Nama Abu" MinWidth="200"/>
-                    <TextBlock Text="-" MinWidth="200"/>
+                    <TextBlock x:Name="NamaAbu" Text="-" MinWidth="200"/>
                 </StackPanel>
             </Grid>
-            <TextBlock Text="Sudah terima dari, -" MaxWidth="600" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12"/>
-            <Grid Margin="24 0">
+            <Grid Margin="24 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200*"/>
                     <ColumnDefinition Width="24*"/>
