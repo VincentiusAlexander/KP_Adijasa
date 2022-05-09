@@ -31,7 +31,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi
         {
             InitializeComponent();
             conn = new MySqlConnection("datasource=localhost; port=3306; username=root; password=;database=penitipan_abu_adijasa");
-            selectedId = -1;
             loadDataGrid();
         }
 
