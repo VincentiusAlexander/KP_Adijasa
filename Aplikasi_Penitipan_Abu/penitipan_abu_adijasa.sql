@@ -37,7 +37,7 @@ CREATE TABLE `data_abu` (
 
 insert  into `data_abu`(`id`,`nama_abu`,`nama_alternatif_abu`,`alamat_abu`,`jenis_kelamin`,`tanggal_lahir`,`tanggal_wafat`,`tanggal_kremasi`,`keterangan`) values 
 (1,'Hansen','Hansen','asd','Laki-laki','2000-03-08','2022-04-25','2022-04-25','ads'),
-(2,'asd','asd','asd','Laki-laki','2022-04-25','2022-04-25','2022-04-25','asd');
+(2,'asdf','asdf','asdf','Perempuan','2022-04-26','2022-04-27','2022-04-24','asdf');
 
 /*Table structure for table `jaminan` */
 
@@ -84,24 +84,25 @@ CREATE TABLE `kotak` (
   `kategori_id` int(255) NOT NULL,
   `no_kotak` varchar(100) NOT NULL,
   `status` int(1) DEFAULT 0 COMMENT '0 == Not Deleted, 1 == Deleted',
+  `terpakai` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `kotak` */
 
-insert  into `kotak`(`id`,`kategori_id`,`no_kotak`,`status`) values 
-(1,1,'A1',0),
-(2,1,'A2',0),
-(3,1,'A3',0),
-(4,1,'A4',0),
-(5,1,'A5',0),
-(6,1,'A6',0),
-(7,2,'B1',0),
-(8,2,'B2',0),
-(9,2,'B3',0),
-(10,2,'B4',0),
-(11,2,'B5',0),
-(12,2,'B6',0);
+insert  into `kotak`(`id`,`kategori_id`,`no_kotak`,`status`,`terpakai`) values 
+(1,1,'A1',0,0),
+(2,1,'A2',0,0),
+(3,1,'A3',0,0),
+(4,1,'A4',0,0),
+(5,1,'A5',0,0),
+(6,1,'A6',0,0),
+(7,2,'B1',0,0),
+(8,2,'B2',0,0),
+(9,2,'B3',0,0),
+(10,2,'B4',0,0),
+(11,2,'B5',0,0),
+(12,2,'B6',0,0);
 
 /*Table structure for table `pembayaran_sewa` */
 
@@ -147,7 +148,7 @@ CREATE TABLE `penanggung_jawab` (
 insert  into `penanggung_jawab`(`id`,`nama`,`alamat`,`nomor_telp`,`relasi`) values 
 (1,'Mulya','ddd','123','Cek'),
 (2,'Chandra','ddas','123','Cek'),
-(3,'asd','asd','123','asd');
+(3,'asdf','asdf','1234','asdf');
 
 /*Table structure for table `pengambilan_abu` */
 
@@ -180,14 +181,15 @@ CREATE TABLE `penitipan` (
   `data_abu_id` int(11) NOT NULL,
   `penanggung_jawab_satu_id` int(11) NOT NULL,
   `penanggung_jawab_dua_id` int(11) DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `penitipan` */
 
-insert  into `penitipan`(`id`,`tanggal_registrasi`,`tanggal_titip`,`tanggal_ambil`,`kotak_id`,`data_abu_id`,`penanggung_jawab_satu_id`,`penanggung_jawab_dua_id`) values 
-(1,'2022-04-25','2022-04-26','2027-04-26',8,1,1,2),
-(2,'2022-04-25','2022-04-25','2022-04-25',3,2,3,-1);
+insert  into `penitipan`(`id`,`tanggal_registrasi`,`tanggal_titip`,`tanggal_ambil`,`kotak_id`,`data_abu_id`,`penanggung_jawab_satu_id`,`penanggung_jawab_dua_id`,`status`) values 
+(1,'2022-04-25','2022-04-26','2027-04-26',8,1,1,2,0),
+(2,'2022-04-25','2022-04-28','2022-04-30',2,2,3,-1,0);
 
 /*Table structure for table `users` */
 
