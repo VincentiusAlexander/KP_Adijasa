@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\app\Vincentius\product\11.2.0\dbhome_2\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
@@ -138,11 +138,11 @@
     <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Edit.xaml.cs">
       <DependentUpon>PenitipanAbu_Edit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_Form.xaml.cs">
-      <DependentUpon>PenitipanAbu_Form.xaml</DependentUpon>
+    <Compile Include="Transaksi\PenitipanAbu\PenitipanAbu_FormFix.xaml.cs">
+      <DependentUpon>PenitipanAbu_FormFix.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PenitipanAbu\TandaTerimaPenitipanAbu.xaml.cs">
-      <DependentUpon>TandaTerimaPenitipanAbu.xaml</DependentUpon>
+    <Compile Include="Transaksi\PenitipanAbu\TandaTerimaPenitipanAbuFix.xaml.cs">
+      <DependentUpon>TandaTerimaPenitipanAbuFix.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Add.xaml.cs">
       <DependentUpon>PerpanjanganSewa_Add.xaml</DependentUpon>
@@ -263,11 +263,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transaksi\PenitipanAbu\PenitipanAbu_Form.xaml">
+    <Page Include="Transaksi\PenitipanAbu\PenitipanAbu_FormFix.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transaksi\PenitipanAbu\TandaTerimaPenitipanAbu.xaml">
+    <Page Include="Transaksi\PenitipanAbu\TandaTerimaPenitipanAbuFix.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

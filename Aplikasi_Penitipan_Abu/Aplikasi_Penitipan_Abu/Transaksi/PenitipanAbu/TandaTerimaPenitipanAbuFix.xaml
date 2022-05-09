@@ -1,0 +1,53 @@
+﻿<Window x:Class="Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu.TandaTerimaPenitipanAbuFix"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu"
+        mc:Ignorable="d"
+        Title="TandaTerimaPenitipanAbuFix" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="12">
+            <Button x:Name="btn_print_tanda_terima_penitipan_abu" HorizontalAlignment="Right" Content="Print" Padding="4 2" Click="btn_print_tanda_terima_penitipan_abu_Click"></Button>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Yayasan Adi Jasa" FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
+                <TextBlock Text="JL. Demak No. 90 - 92" FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
+                <TextBlock Text="Surabaya" FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <TextBlock Text="Tanda Terima Penitipan Abu" TextAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="Yang bertanda tangan dibawah ini, kami :" Margin="0 12" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Nama Penanggung Jawab" MinWidth="200"/>
+                <TextBlock x:Name="tb_Nama_Penanggung_Jawab" Text="-" MinWidth="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Alamat Penanggung Jawab" MinWidth="200"/>
+                <TextBlock x:Name="tb_Alamat_Penanggung_Jawab" Text="-" MinWidth="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Nomor Yang Dapat Dihubungi " MinWidth="200"/>
+                <TextBlock x:Name="tb_Notelp_Penanggung_Jawab" Text="-" MinWidth="200"/>
+            </StackPanel>
+            <TextBlock x:Name="tb_Keterangan" Text="Pihak Adijasa tidak keberatan abu tersebut ditempatkan di kotak no. (A5) dengan syarat pihak keluarga (penanggung jawab) harus menaati tata tertib yayasan adijasa" MaxWidth="750" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12"/>
+            <Grid Margin="24 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="24*"/>
+                    <ColumnDefinition Width="200*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Menyetujui" TextAlignment="Center"/>
+                    <TextBlock Text="Pengurus Yayasan Adi Jasa" Margin="0 0 0 40" TextAlignment="Center"/>
+                    <TextBox BorderThickness="0 0 0 2" MaxWidth="250" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <StackPanel Margin="26 0">
+                        <TextBlock x:Name="tb_Tempat_Tanggal_Registrasi" Text="Surabaya," TextAlignment="Left" HorizontalAlignment="Left" />
+                        <TextBlock Text="Penanggung Jawab" Margin="0 0 0 40" TextAlignment="Center" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <TextBox BorderThickness="0 0 0 2" MaxWidth="250" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

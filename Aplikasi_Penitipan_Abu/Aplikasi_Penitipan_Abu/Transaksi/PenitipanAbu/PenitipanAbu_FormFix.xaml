@@ -1,17 +1,15 @@
-﻿<Page x:Class="Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu.PenitipanAbu_Form"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PenitipanAbu_Form">
-
-    <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+﻿<Window x:Class="Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu.PenitipanAbu_FormFix"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu"
+        mc:Ignorable="d"
+        Title="PenitipanAbu_FormFix" Height="1250" Width="800">
+    <ScrollViewer>
+        <Grid x:Name="grid">
             <StackPanel>
-                <Button Content="Print" Margin="12" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="6 0"/>
+                <Button x:Name="btn_print_penitipan_abu_form" Content="Print" Margin="12" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="6 0" Click="btn_print_penitipan_abu_form_Click"/>
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
                     <TextBlock Text="Yayasan Adi Jasa" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
                     <TextBlock Text="JL. Demak No. 90 - 92" FontSize="18" FontWeight="Bold" TextAlignment="Center"/>
@@ -172,6 +170,6 @@
                     </StackPanel>
                 </Grid>
             </StackPanel>
-        </ScrollViewer>
-    </Grid>
-</Page>
+        </Grid>
+    </ScrollViewer>
+</Window>

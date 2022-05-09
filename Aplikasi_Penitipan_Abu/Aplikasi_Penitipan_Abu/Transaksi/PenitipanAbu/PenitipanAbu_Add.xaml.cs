@@ -24,7 +24,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
     {
         MySqlConnection conn;
         ArrayList listKotak = new ArrayList();
-        Boolean error;
+        Boolean error, save;
         int ctr;
 
         public PenitipanAbu_Add()
@@ -36,7 +36,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
 
         private void btn_cetak_form_penitipan_abu_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu.PenitipanAbu_Form());
+            PenitipanAbu_FormFix penitipanAbu_FormFix = new PenitipanAbu_FormFix();
+            penitipanAbu_FormFix.Show();
         }
 
         private void loadData()
@@ -47,6 +48,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
             cb_jk_abu_penitipan_abu.SelectedIndex = 0;
             initRegistrasi();
             error = false;
+            save = false;
         }
 
         private void inputDataAbu()
@@ -76,74 +78,21 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
 
         private void btn_cetak_tanda_terima_abu_Click(object sender, RoutedEventArgs e)
         {
-            error = false;
-            ctr = 0;
-            cekInput();
-            if (error)
+            if (!save)
             {
-                MessageBox.Show("Data tidak lengkap!");
-                return;
-            }
-            inputDataAbu();
-            inputDataPenanggungJawab();
-            DateTime tanggal_registrasi = DateTime.Now;
-            DateTime tanggal_titip = dp_tanggal_simpan_penitipan_abu.SelectedDate.Value;
-            DateTime tanggal_ambil = dp_tanggal_ambil_penitipan_abu.SelectedDate.Value;
-            Kotak temp = (Kotak)listKotak[cb_no_kotak_penitipan_abu.SelectedIndex];
-            int kotak_id = temp.id;
-            int data_abu_id = -1;
-            int penanggung_jawab_satu_id = -1;
-            int penanggung_jawab_dua_id = -1;
-            MySqlCommand cmd = new MySqlCommand("select id from data_abu order by id desc limit 1", conn);
-            conn.Close();
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                data_abu_id = (int)reader.GetValue(0);
-            }
-            conn.Close();
-            if (ctr == 1)
-            {
-                cmd = new MySqlCommand("select * from penanggung_jawab order by id desc limit 1", conn);
-                conn.Close();
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    penanggung_jawab_satu_id = (int)reader.GetValue(0);
-                }
-                conn.Close();
+                System.Windows.Forms.MessageBox.Show("Belum melakukan penyimpanan data", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             else
             {
-                int ctr2 = 0;
-                cmd = new MySqlCommand("select * from penanggung_jawab order by id desc limit 2", conn);
-                conn.Close();
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    if (ctr2 > 0) penanggung_jawab_satu_id = (int)reader.GetValue(0);
-                    else penanggung_jawab_dua_id = (int)reader.GetValue(0);
-                    ctr2++;
-                }
-                conn.Close();
+                String nama = tb_nama_penanggung_jawab_satu_penitipan_abu.Text.ToString();
+                String alamat = tb_alamat_penanggung_jawab_satu_penitipan_abu.Text.ToString();
+                String notelp = tb_notelp_penanggung_jawab_satu_penitipan_abu.Text.ToString();
+                Kotak temp = (Kotak)listKotak[cb_no_kotak_penitipan_abu.SelectedIndex];
+                String kotak = temp.nama;
+                String tanggal_registrasi = DateTime.Now.ToString("dd MMMM yyyy");
+                TandaTerimaPenitipanAbuFix tandaTerimaPenitipanAbuFix = new TandaTerimaPenitipanAbuFix(nama, alamat, notelp, kotak, tanggal_registrasi);
+                tandaTerimaPenitipanAbuFix.Show(); 
             }
-            cmd = new MySqlCommand("insert into penitipan (tanggal_registrasi, tanggal_titip, tanggal_ambil, kotak_id, data_abu_id, penanggung_jawab_satu_id, penanggung_jawab_dua_id) values(?tanggal_registrasi, ?tanggal_titip, ?tanggal_ambil, ?kotak_id, ?data_abu_id, ?penanggung_jawab_satu_id, ?penanggung_jawab_dua_id)", conn);
-            cmd.Parameters.AddWithValue("?tanggal_registrasi", tanggal_registrasi);
-            cmd.Parameters.AddWithValue("?tanggal_titip", tanggal_titip);
-            cmd.Parameters.AddWithValue("?tanggal_ambil", tanggal_ambil);
-            cmd.Parameters.AddWithValue("?kotak_id", kotak_id);
-            cmd.Parameters.AddWithValue("?data_abu_id", data_abu_id);
-            cmd.Parameters.AddWithValue("?penanggung_jawab_satu_id", penanggung_jawab_satu_id);
-            cmd.Parameters.AddWithValue("?penanggung_jawab_dua_id", penanggung_jawab_dua_id);
-            conn.Close();
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            MessageBox.Show("berhasil");
-            this.NavigationService.Navigate(new Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu.TandaTerimaPenitipanAbu());
         }
 
         private void initRegistrasi(int status = 0)
@@ -152,18 +101,74 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
             conn.Close();
             conn.Open();
             tb_noreg_penitipan_abu.Text = Int32.Parse(cmd.ExecuteScalar().ToString()+1).ToString();
+            cmd = new MySqlCommand("select id_penitipan, id_kotak from pembayaran_sewa where status = ?status", conn);
+            cmd.Parameters.AddWithValue("?status", status);
+            conn.Close();
+            conn.Open();
+            List<int> listPenitipanBayar = new List<int>();
+            List<int> listKotakBayar = new List<int>();
+            listPenitipanBayar.Clear();
+            listKotakBayar.Clear();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                listPenitipanBayar.Add(reader.GetInt32(0));
+                listKotakBayar.Add(reader.GetInt32(1));
+            }
+            cmd = new MySqlCommand("select id_penitipan from pengambilan_abu where status = ?status", conn);
+            cmd.Parameters.AddWithValue("?status", status);
+            conn.Close();
+            conn.Open();
+            List<int> listPenitipanAmbil = new List<int>();
+            listPenitipanAmbil.Clear();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                listPenitipanAmbil.Add(reader.GetInt32(0));
+            }
             cmd = new MySqlCommand("select id, kategori_id, no_kotak from kotak where status = ?status", conn);
             cmd.Parameters.AddWithValue("?status", status);
-            MySqlDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+            conn.Open();
+            reader = cmd.ExecuteReader();
             cb_no_kotak_penitipan_abu.DisplayMemberPath = "nama";
             cb_no_kotak_penitipan_abu.SelectedValuePath = "id";
             listKotak.Clear();
             while (reader.Read())
             {
-                int id = (int)reader.GetValue(0);
-                string nama = reader.GetValue(2).ToString();
-                int kategori_id = (int)reader.GetValue(1);
-                listKotak.Add(new Kotak(id, kategori_id, nama));
+                List<int> kotakTerisi = new List<int>();
+                bool ada;
+                for (int i = 0; i < listPenitipanBayar.Count; i++)
+                {
+                    ada = false;
+                    for (int j = 0; j < listPenitipanAmbil.Count; j++)
+                    {
+                        if (listPenitipanBayar[i] == listPenitipanAmbil[j])
+                        {
+                            ada = true;
+                        }
+                    }
+                    if (!ada)
+                    {
+                        kotakTerisi.Add(listKotakBayar[i]);
+                    }
+                }
+                ada = false;
+                for (int i = 0; i < kotakTerisi.Count; i++)
+                {
+                    if ((int)reader.GetValue(0) == kotakTerisi[i])
+                    {
+                        ada = true;
+                    }
+
+                }
+                if (!ada)
+                {
+                    int id = (int)reader.GetValue(0);
+                    string nama = reader.GetValue(2).ToString();
+                    int kategori_id = (int)reader.GetValue(1);
+                    listKotak.Add(new Kotak(id, kategori_id, nama));
+                }
             }
             if (listKotak.Count <= 0)
             {
@@ -276,6 +281,81 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                 }
             }
             return temp;
+        }
+
+        private void btn_save_penitipan_abu_Click(object sender, RoutedEventArgs e)
+        {
+            error = false;
+            ctr = 0;
+            cekInput();
+            if (error)
+            {
+                MessageBox.Show("Data tidak lengkap!");
+                return;
+            }
+            if (!save)
+            {
+                inputDataAbu();
+                inputDataPenanggungJawab();
+                DateTime tanggal_registrasi = DateTime.Now;
+                DateTime tanggal_titip = dp_tanggal_simpan_penitipan_abu.SelectedDate.Value;
+                DateTime tanggal_ambil = dp_tanggal_ambil_penitipan_abu.SelectedDate.Value;
+                Kotak temp = (Kotak)listKotak[cb_no_kotak_penitipan_abu.SelectedIndex];
+                int kotak_id = temp.id;
+                int data_abu_id = -1;
+                int penanggung_jawab_satu_id = -1;
+                int penanggung_jawab_dua_id = -1;
+                MySqlCommand cmd = new MySqlCommand("select id from data_abu order by id desc limit 1", conn);
+                conn.Close();
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    data_abu_id = (int)reader.GetValue(0);
+                }
+                conn.Close();
+                if (ctr == 1)
+                {
+                    cmd = new MySqlCommand("select * from penanggung_jawab order by id desc limit 1", conn);
+                    conn.Close();
+                    conn.Open();
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        penanggung_jawab_satu_id = (int)reader.GetValue(0);
+                    }
+                    conn.Close();
+                }
+                else
+                {
+                    int ctr2 = 0;
+                    cmd = new MySqlCommand("select * from penanggung_jawab order by id desc limit 2", conn);
+                    conn.Close();
+                    conn.Open();
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (ctr2 > 0) penanggung_jawab_satu_id = (int)reader.GetValue(0);
+                        else penanggung_jawab_dua_id = (int)reader.GetValue(0);
+                        ctr2++;
+                    }
+                    conn.Close();
+                }
+                cmd = new MySqlCommand("insert into penitipan (tanggal_registrasi, tanggal_titip, tanggal_ambil, kotak_id, data_abu_id, penanggung_jawab_satu_id, penanggung_jawab_dua_id) values(?tanggal_registrasi, ?tanggal_titip, ?tanggal_ambil, ?kotak_id, ?data_abu_id, ?penanggung_jawab_satu_id, ?penanggung_jawab_dua_id)", conn);
+                cmd.Parameters.AddWithValue("?tanggal_registrasi", tanggal_registrasi);
+                cmd.Parameters.AddWithValue("?tanggal_titip", tanggal_titip);
+                cmd.Parameters.AddWithValue("?tanggal_ambil", tanggal_ambil);
+                cmd.Parameters.AddWithValue("?kotak_id", kotak_id);
+                cmd.Parameters.AddWithValue("?data_abu_id", data_abu_id);
+                cmd.Parameters.AddWithValue("?penanggung_jawab_satu_id", penanggung_jawab_satu_id);
+                cmd.Parameters.AddWithValue("?penanggung_jawab_dua_id", penanggung_jawab_dua_id);
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                System.Windows.Forms.MessageBox.Show("Save Penitipan Abu Berhasil !", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                save = true;
+            }
         }
     }
     public class Kotak

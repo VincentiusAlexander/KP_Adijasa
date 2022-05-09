@@ -26,18 +26,18 @@ CREATE TABLE `data_abu` (
   `nama_alternatif_abu` varchar(255) DEFAULT NULL,
   `alamat_abu` varchar(255) NOT NULL,
   `jenis_kelamin` varchar(25) NOT NULL,
-  `tanggal_lahir` datetime NOT NULL,
-  `tanggal_wafat` datetime NOT NULL,
-  `tanggal_kremasi` datetime NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `tanggal_wafat` date NOT NULL,
+  `tanggal_kremasi` date NOT NULL,
   `keterangan` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `data_abu` */
 
 insert  into `data_abu`(`id`,`nama_abu`,`nama_alternatif_abu`,`alamat_abu`,`jenis_kelamin`,`tanggal_lahir`,`tanggal_wafat`,`tanggal_kremasi`,`keterangan`) values 
-(1,'Hansen','Hansen','asd','Laki-laki','2000-03-08 00:00:00','2022-04-25 00:00:00','2022-04-25 00:00:00','ads'),
-(2,'asd','asd','asd','Laki-laki','2022-04-25 00:00:00','2022-04-25 00:00:00','2022-04-25 00:00:00','asd');
+(1,'Hansen','Hansen','asd','Laki-laki','2000-03-08','2022-04-25','2022-04-25','ads'),
+(2,'asd','asd','asd','Laki-laki','2022-04-25','2022-04-25','2022-04-25','asd');
 
 /*Table structure for table `jaminan` */
 
@@ -84,25 +84,24 @@ CREATE TABLE `kotak` (
   `kategori_id` int(255) NOT NULL,
   `no_kotak` varchar(100) NOT NULL,
   `status` int(1) DEFAULT 0 COMMENT '0 == Not Deleted, 1 == Deleted',
-  `terpakai` int(1) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `kotak` */
 
-insert  into `kotak`(`id`,`kategori_id`,`no_kotak`,`status`,`terpakai`) values 
-(1,1,'A1',0,0),
-(2,1,'A2',0,0),
-(3,1,'A3',0,0),
-(4,1,'A4',0,0),
-(5,1,'A5',0,0),
-(6,1,'A6',0,0),
-(7,2,'B1',0,0),
-(8,1,'B2',0,0),
-(9,1,'B3',0,0),
-(10,1,'B4',0,0),
-(11,1,'B5',0,0),
-(12,1,'B6',0,0);
+insert  into `kotak`(`id`,`kategori_id`,`no_kotak`,`status`) values 
+(1,1,'A1',0),
+(2,1,'A2',0),
+(3,1,'A3',0),
+(4,1,'A4',0),
+(5,1,'A5',0),
+(6,1,'A6',0),
+(7,2,'B1',0),
+(8,2,'B2',0),
+(9,2,'B3',0),
+(10,2,'B4',0),
+(11,2,'B5',0),
+(12,2,'B6',0);
 
 /*Table structure for table `pembayaran_sewa` */
 
@@ -114,10 +113,10 @@ CREATE TABLE `pembayaran_sewa` (
   `id_kotak` int(11) NOT NULL,
   `harga_kotak` int(11) NOT NULL,
   `harga_total_sewa` int(11) NOT NULL,
-  `tanggal_awal` datetime NOT NULL,
-  `tanggal_akhir` datetime NOT NULL,
+  `tanggal_awal` date NOT NULL,
+  `tanggal_akhir` date NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0,
-  `tanggal_diambil` datetime DEFAULT NULL,
+  `tanggal_diambil` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_penitipan` (`id_penitipan`),
   KEY `id_kotak` (`id_kotak`),
@@ -128,7 +127,7 @@ CREATE TABLE `pembayaran_sewa` (
 /*Data for the table `pembayaran_sewa` */
 
 insert  into `pembayaran_sewa`(`id`,`id_penitipan`,`id_kotak`,`harga_kotak`,`harga_total_sewa`,`tanggal_awal`,`tanggal_akhir`,`status`,`tanggal_diambil`) values 
-(1,1,8,15000,45000,'2022-04-30 00:00:00','2022-07-01 00:00:00',0,NULL);
+(1,1,8,15000,45000,'2022-04-30','2022-07-01',0,NULL);
 
 /*Table structure for table `penanggung_jawab` */
 
@@ -146,9 +145,9 @@ CREATE TABLE `penanggung_jawab` (
 /*Data for the table `penanggung_jawab` */
 
 insert  into `penanggung_jawab`(`id`,`nama`,`alamat`,`nomor_telp`,`relasi`) values 
-(1,'Mulya','ddd','2we13','Cek'),
-(2,'Chandra','ddas','2we13','Cek'),
-(3,'asd','asd','asd','asd');
+(1,'Mulya','ddd','123','Cek'),
+(2,'Chandra','ddas','123','Cek'),
+(3,'asd','asd','123','asd');
 
 /*Table structure for table `pengambilan_abu` */
 
@@ -157,7 +156,7 @@ DROP TABLE IF EXISTS `pengambilan_abu`;
 CREATE TABLE `pengambilan_abu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_penitipan` int(11) NOT NULL,
-  `tanggal_pengambilan` datetime NOT NULL,
+  `tanggal_pengambilan` date NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = deleted, 1 = not-deleted',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
@@ -165,8 +164,8 @@ CREATE TABLE `pengambilan_abu` (
 /*Data for the table `pengambilan_abu` */
 
 insert  into `pengambilan_abu`(`id`,`id_penitipan`,`tanggal_pengambilan`,`status`) values 
-(1,2,'2022-04-29 00:00:00',0),
-(2,1,'2022-04-30 00:00:00',1);
+(1,2,'2022-04-29',0),
+(2,1,'2022-04-30',1);
 
 /*Table structure for table `penitipan` */
 
@@ -205,7 +204,7 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`username`,`password`,`role`) values 
-(1,'test','098f6bcd4621d373cade4e832627b4f6',0),
+(1,'staff','1253208465b1efa876f982d8a9e73eef',0),
 (2,'admin','21232f297a57a5a743894a0e4a801fc3',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -116,8 +116,8 @@
                         </StackPanel>
                     </Border>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button x:Name="btn_cetak_tanda_terima_abu" Content="Cetak Tanda Terima Abu" Margin="4 0" Click="btn_cetak_tanda_terima_abu_Click"></Button>
-                        <Button Content="Lanjut Pembayaran Sewa" Margin="4 0"></Button>
+                        <Button x:Name="btn_save_penitipan_abu" Content="Save" Margin="4 0" Click="btn_save_penitipan_abu_Click"/>
+                        <Button x:Name="btn_cetak_tanda_terima_abu" Content="Cetak Tanda Terima Abu" Margin="4 0" Click="btn_cetak_tanda_terima_abu_Click"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
