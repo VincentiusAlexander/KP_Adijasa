@@ -21,7 +21,6 @@ namespace Aplikasi_Penitipan_Abu.Master
     /// </summary>
     public partial class MasterKategori : Page
     {
-        MySqlDataAdapter da;
         MySqlConnection conn;
         DataTable dt;
         int idEdit;

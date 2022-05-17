@@ -24,5 +24,21 @@ namespace Aplikasi_Penitipan_Abu.Laporan
         {
             InitializeComponent();
         }
+
+        private void filter_Click(object sender, RoutedEventArgs e)
+        {
+            report_jaminan_abu rja = new report_jaminan_abu();
+            try
+            {
+                rja.SetParameterValue("tanggal_awal", tanggal_awal.SelectedDate);
+                rja.SetParameterValue("tanggal_akhir", tanggal_akhir.SelectedDate);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Periksa Kembali Tanggal Yang Telah Di Inputkan", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
+            }
+            crystalreportviewer1.ViewerCore.ReportSource = rja;
+        }
     }
 }
