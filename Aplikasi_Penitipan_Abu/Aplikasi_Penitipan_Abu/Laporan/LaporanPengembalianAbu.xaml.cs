@@ -24,5 +24,21 @@ namespace Aplikasi_Penitipan_Abu.Laporan
         {
             InitializeComponent();
         }
+
+        private void btn_filter_Click(object sender, RoutedEventArgs e)
+        {
+            report_pengambilan_abu rpa = new report_pengambilan_abu();
+            try
+            {
+                rpa.SetParameterValue("tanggal_awal", tanggal_awal.SelectedDate);
+                rpa.SetParameterValue("tanggal_akhir", tanggal_akhir.SelectedDate);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Periksa Kembali Tanggal Yang Telah Di Inputkan", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
+            }
+            creport.ViewerCore.ReportSource = rpa;
+        }
     }
 }

@@ -99,6 +99,18 @@
       <DependentUpon>report_penerimaan_abu.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Laporan\report_pengambilan_abu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_pengambilan_abu.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Laporan\report_piutang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_piutang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -326,6 +338,14 @@
     <EmbeddedResource Include="Laporan\report_penerimaan_abu.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>report_penerimaan_abu.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\report_pengambilan_abu.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_pengambilan_abu.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\report_piutang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_piutang.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
