@@ -157,7 +157,12 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 cmd.ExecuteNonQuery();
             }
             conn.Close();
-
+            cmd = new MySqlCommand("update kotak set terpakai = 1 where id = ?id", conn);
+            cmd.Parameters.AddWithValue("?id", registrasi.id_kotak);
+            conn.Close();
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
             System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Pembayaran Sewa", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             //reset tampilan
             registrasi = new Registrasi();

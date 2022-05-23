@@ -61,7 +61,7 @@
                         <TextBlock x:Name="tb_tgl_registrasi" Grid.Column="1" Grid.Row="2" Text="12/08/2022"></TextBlock>
                         <DatePicker x:Name="dp_tanggal_titip" Grid.Row="3" Grid.Column="1"/>
                         <TextBlock Text="s/d" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <DatePicker x:Name="dp_tanggal_ambil" Grid.Row="3" Grid.Column="3"/>
+                        <DatePicker x:Name="dp_tanggal_ambil" Grid.Row="3" Grid.Column="3" SelectedDateChanged="dp_tanggal_ambil_SelectedDateChanged"/>
                         <ComboBox x:Name="cb_kotak" Grid.Row="4" Grid.Column="1" SelectionChanged="cb_kotak_SelectionChanged"/>
                         <TextBlock Text="Rp." Grid.Column="1" Grid.Row="5"/>
                         <TextBlock x:Name="tb_harga_kotak" Text="100.000,00" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Width="57"/>
@@ -79,11 +79,11 @@
                         <TextBlock Text="Jenis Kelamin" Margin="4 2"/>
                         <ComboBox x:Name="cb_jk" Margin="4 2"></ComboBox>
                         <TextBlock Text="Tanggal Lahir" Margin="4 2"/>
-                        <DatePicker x:Name="dp_tanggal_lahir" Margin="4 2"/>
+                        <DatePicker x:Name="dp_tanggal_lahir" Margin="4 2" SelectedDateChanged="dp_tanggal_lahir_SelectedDateChanged"/>
                         <TextBlock Text="Tanggal Wafat" Margin="4 2"/>
-                        <DatePicker x:Name="dp_tanggal_wafat" Margin="4 2"/>
+                        <DatePicker x:Name="dp_tanggal_wafat" Margin="4 2" SelectedDateChanged="dp_tanggal_wafat_SelectedDateChanged"/>
                         <TextBlock Text="Tanggal Kremasi" Margin="4 2"/>
-                        <DatePicker x:Name="dp_tanggal_kremasi" Margin="4 2"/>
+                        <DatePicker x:Name="dp_tanggal_kremasi" Margin="4 2" SelectedDateChanged="dp_tanggal_kremasi_SelectedDateChanged"/>
                         <TextBlock Text="Keterangan" Margin="4 2"/>
                         <TextBox x:Name="tb_keterangan" Margin="4 2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
                     </StackPanel>
