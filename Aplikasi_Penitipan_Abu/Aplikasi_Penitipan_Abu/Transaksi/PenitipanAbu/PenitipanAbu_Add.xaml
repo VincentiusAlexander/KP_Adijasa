@@ -59,7 +59,7 @@
                         <TextBlock Text="Harga Kotak" Grid.Column="0" Grid.Row="5"/>
                         <TextBlock x:Name="tb_noreg_penitipan_abu" Grid.Column="1" Grid.Row="1" Text="001"></TextBlock>
                         <TextBlock x:Name="tb_tglreg_penitipan_abu" Grid.Column="1" Grid.Row="2" Text="12/08/2022"></TextBlock>
-                        <DatePicker x:Name="dp_tanggal_simpan_penitipan_abu" Grid.Row="3" Grid.Column="1"/>
+                        <DatePicker x:Name="dp_tanggal_simpan_penitipan_abu" Grid.Row="3" Grid.Column="1" SelectedDateChanged="dp_tanggal_simpan_penitipan_abu_SelectedDateChanged"/>
                         <TextBlock Text="s/d" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <DatePicker x:Name="dp_tanggal_ambil_penitipan_abu" Grid.Row="3" Grid.Column="3" SelectedDateChanged="dp_tanggal_ambil_penitipan_abu_SelectedDateChanged"/>
                         <ComboBox x:Name="cb_no_kotak_penitipan_abu" Grid.Row="4" Grid.Column="1" SelectionChanged="cb_no_kotak_penitipan_abu_SelectionChanged"/>

@@ -283,6 +283,19 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
             }
         }
 
+        private void dp_tanggal_simpan_penitipan_abu_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dp_tanggal_simpan_penitipan_abu.SelectedDate != null)
+            {
+                if (dp_tanggal_simpan_penitipan_abu.SelectedDate < DateTime.Today)
+                {
+                    System.Windows.Forms.MessageBox.Show("Tanggal Lahir melebihi Tanggal Hari Ini!");
+                    dp_tanggal_simpan_penitipan_abu.SelectedDate = DateTime.Today;
+                    return;
+                }
+            }
+        }
+
         private void btn_save_penitipan_abu_Click(object sender, RoutedEventArgs e)
         {
             error = false;

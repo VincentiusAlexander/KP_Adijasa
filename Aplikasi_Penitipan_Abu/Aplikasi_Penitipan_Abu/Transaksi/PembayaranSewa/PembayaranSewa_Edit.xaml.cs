@@ -31,6 +31,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         int harga_total_sewa;
         DateTime tanggal_awal;
         DateTime tanggal_akhir;
+        string penanggung_jawab;
         ArrayList list = new ArrayList();
         public PembayaranSewa_Edit()
         {
@@ -211,7 +212,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         {
             try
             {
-                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitasi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text));
+                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitasi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab));
                 tandaTerima.Show();
             }
             catch (Exception)

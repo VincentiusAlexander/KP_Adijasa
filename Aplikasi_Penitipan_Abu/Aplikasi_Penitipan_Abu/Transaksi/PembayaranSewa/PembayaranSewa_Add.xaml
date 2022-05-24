@@ -38,9 +38,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Tanggal Penyimpanan" MinWidth="120"/>
-                <DatePicker x:Name="datepickerAwal" MinWidth="110" SelectedDateChanged="DatePicker_SelectedDateChanged" />
+                <TextBlock TextAlignment="Center" Text="-" x:Name="tanggalAwal" MinWidth="110" />
                 <TextBlock Text=" s/d " VerticalAlignment="Center"/>
-                <DatePicker x:Name="datepickerAkhir" MinWidth="110" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+                <TextBlock x:Name="tanggalAkhir" MinWidth="110" Text="-" TextAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="Harga Total Sewa" MinWidth="120"/>

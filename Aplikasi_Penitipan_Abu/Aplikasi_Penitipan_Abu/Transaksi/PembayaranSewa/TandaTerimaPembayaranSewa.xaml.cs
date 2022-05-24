@@ -29,6 +29,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             tanggalSekarang.Text = data.tanggal_pembayaran;
             noKotak.Text = data.no_kotak;
             NamaAbu.Text = data.nama_abu;
+            tempat_tanggal.Text = "Surabaya, " + data.tanggal_pembayaran;
+            keterangan.Text = "Sudah terima dari, " + data.penanggung_jawab;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
