@@ -57,14 +57,14 @@
                         <TextBlock Text="Penyimpanan" Grid.Column="0" Grid.Row="3"/>
                         <TextBlock Text="No Kotak" Grid.Column="0" Grid.Row="4"/>
                         <TextBlock Text="Harga Kotak" Grid.Column="0" Grid.Row="5"/>
-                        <TextBlock x:Name="tb_noreg_penitipan_abu" Grid.Column="1" Grid.Row="1" Text="001"></TextBlock>
-                        <TextBlock x:Name="tb_tgl_registrasi" Grid.Column="1" Grid.Row="2" Text="12/08/2022"></TextBlock>
+                        <TextBlock x:Name="tb_noreg_penitipan_abu" Grid.Column="1" Grid.Row="1" Text="-"></TextBlock>
+                        <TextBlock x:Name="tb_tgl_registrasi" Grid.Column="1" Grid.Row="2" Text="-"></TextBlock>
                         <DatePicker x:Name="dp_tanggal_titip" Grid.Row="3" Grid.Column="1"/>
                         <TextBlock Text="s/d" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <DatePicker x:Name="dp_tanggal_ambil" Grid.Row="3" Grid.Column="3" SelectedDateChanged="dp_tanggal_ambil_SelectedDateChanged"/>
                         <ComboBox x:Name="cb_kotak" Grid.Row="4" Grid.Column="1" SelectionChanged="cb_kotak_SelectionChanged"/>
                         <TextBlock Text="Rp." Grid.Column="1" Grid.Row="5"/>
-                        <TextBlock x:Name="tb_harga_kotak" Text="100.000,00" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Width="57"/>
+                        <TextBlock x:Name="tb_harga_kotak" Text="-" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Width="57"/>
                     </Grid>
                 </Border>
                 <Border Grid.Row="3" BorderBrush="Gray" BorderThickness="2" Margin="0 6 6 6">

@@ -41,7 +41,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
             PencarianRegistrasi pencarianRegistrasi = new PencarianRegistrasi();
             pencarianRegistrasi.ShowDialog();
             id_penitipan_abu = pencarianRegistrasi.selectedId;
-            if (id_penitipan_abu == -1)
+            if (id_penitipan_abu == 0)
             {
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
@@ -162,14 +162,27 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
 
         private void cb_kotak_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Kotak temp = (Kotak)listKotak[cb_kotak.SelectedIndex];
-            int id_kategori = temp.kategori_id;
-            MySqlCommand cmd = new MySqlCommand("select harga from kategori where id = ?id", conn);
-            conn.Close();
-            conn.Open();
-            cmd.Parameters.AddWithValue("?id", id_kategori);
-            tb_harga_kotak.Text = ((int)cmd.ExecuteScalar()).ToString();
-            conn.Close();
+            if (listKotak.Count <= 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Kotak belum tersedia, buat kotak terlebih dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
+            if (id_penitipan_abu != 0)
+            {
+                Kotak temp = (Kotak)listKotak[cb_kotak.SelectedIndex];
+                int id_kategori = temp.kategori_id;
+                MySqlCommand cmd = new MySqlCommand("select harga from kategori where id = ?id", conn);
+                cmd.Parameters.AddWithValue("?id", id_kategori);
+                conn.Close();
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    tb_harga_kotak.Text = reader.GetInt32(0).ToString();
+                }
+                reader.Close();
+                conn.Close();
+            }
         }
 
         private void btn_edit_Click(object sender, RoutedEventArgs e)
@@ -320,7 +333,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
 
         private void btn_delete_Click(object sender, RoutedEventArgs e)
         {
-            if (id_penitipan_abu == -1)
+            if (id_penitipan_abu.Equals(0) || id_penitipan_abu.Equals(-1))
             {
                 System.Windows.Forms.MessageBox.Show("Pilih dulu data yang ingin dihapus", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
