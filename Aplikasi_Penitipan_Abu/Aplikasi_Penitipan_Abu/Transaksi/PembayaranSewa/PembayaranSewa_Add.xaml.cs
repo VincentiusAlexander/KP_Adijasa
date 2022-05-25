@@ -90,7 +90,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             while (reader.Read())
             {
                 registrasi.no_kotak = reader.GetString(2);
-                registrasi.harga_kotak = reader.GetInt32(7);
+                registrasi.harga_kotak = reader.GetInt32(8);
             }
 
             reader.Close();
@@ -142,7 +142,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             cmd.ExecuteNonQuery();
             if (perlu_jaminan)
             {
-                cmd.CommandText = "insert into jaminan values(0,?id_penitipan,1000000,0)";
+                cmd.CommandText = "insert into jaminan values(0,?id_penitipan,1000000,0,0)";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
                 cmd.ExecuteNonQuery();

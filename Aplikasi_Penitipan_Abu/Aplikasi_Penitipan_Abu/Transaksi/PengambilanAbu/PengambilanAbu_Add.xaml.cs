@@ -141,7 +141,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                 }
                 else
                 {
-                    MySqlCommand cmd = new MySqlCommand("insert into pengambilan_abu values (0,?id_penitipan,?tanggal_pengambilan)", conn);
+                    MySqlCommand cmd = new MySqlCommand("insert into pengambilan_abu values (0,?id_penitipan,?tanggal_pengambilan,0)", conn);
                     conn.Close();
                     conn.Open();
                     cmd.Parameters.AddWithValue("?id_penitipan", id_registrasi);
@@ -149,6 +149,24 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
+                command = new MySqlCommand("select * from penitipan where id = ?id", conn);
+                command.Parameters.AddWithValue("?id", id_registrasi);
+                conn.Close();
+                conn.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                int id_kotak = -1;
+                while (reader.Read())
+                {
+                    id_kotak = reader.GetInt32(4);
+                }
+                reader.Close();
+                conn.Close();
+                command = new MySqlCommand("update kotak set terpakai = 0 where id = ?id", conn);
+                command.Parameters.AddWithValue("?id", id_kotak);
+                conn.Close();
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
                 System.Windows.Forms.MessageBox.Show("Pengambilan Berhasil !", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                 //lakukan reset tampilan
                 alamat_penanggung_jawab_txt.Text = "-";

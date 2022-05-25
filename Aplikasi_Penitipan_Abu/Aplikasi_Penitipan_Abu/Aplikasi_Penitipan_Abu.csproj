@@ -183,6 +183,9 @@
     <Compile Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml.cs">
       <DependentUpon>PerpanjanganSewa_Edit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PerpanjanganSewa\TandaTerimaPerpanjanganSewa.xaml.cs">
+      <DependentUpon>TandaTerimaPerpanjanganSewa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\Registrasi.cs" />
     <Page Include="Laporan\LaporanJaminanAbu.xaml">
       <SubType>Designer</SubType>
@@ -309,6 +312,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PerpanjanganSewa\PerpanjanganSewa_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PerpanjanganSewa\TandaTerimaPerpanjanganSewa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
