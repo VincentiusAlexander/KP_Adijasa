@@ -208,9 +208,9 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                if (reader.GetInt32(4) == 1)
+                if (reader.GetInt32(4) == 1 || reader.GetInt32(5) == 1)
                 {
-                    System.Windows.Forms.MessageBox.Show("Kotak Masih Dipakai!");
+                    System.Windows.Forms.MessageBox.Show("Kotak Masih Dipakai/Sudah Dibook!");
                     return;
                 }
             }

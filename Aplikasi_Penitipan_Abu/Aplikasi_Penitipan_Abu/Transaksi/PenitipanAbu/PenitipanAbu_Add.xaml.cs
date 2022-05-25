@@ -320,9 +320,9 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    if (reader.GetInt32(4) == 1)
+                    if (reader.GetInt32(4) == 1 || reader.GetInt32(5) == 1)
                     {
-                        System.Windows.Forms.MessageBox.Show("Kotak Masih Dipakai!");
+                        System.Windows.Forms.MessageBox.Show("Kotak Masih Dipakai/Sudah Dibook!");
                         return;
                     }
                 }
@@ -380,6 +380,12 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                 cmd.Parameters.AddWithValue("?data_abu_id", data_abu_id);
                 cmd.Parameters.AddWithValue("?penanggung_jawab_satu_id", penanggung_jawab_satu_id);
                 cmd.Parameters.AddWithValue("?penanggung_jawab_dua_id", penanggung_jawab_dua_id);
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                cmd = new MySqlCommand("update kotak set booking = 1 where id = ?id", conn);
+                cmd.Parameters.AddWithValue("?id", kotak_id);
                 conn.Close();
                 conn.Open();
                 cmd.ExecuteNonQuery();

@@ -148,7 +148,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 cmd.ExecuteNonQuery();
             }
             conn.Close();
-            cmd = new MySqlCommand("update kotak set terpakai = 1 where id = ?id", conn);
+            cmd = new MySqlCommand("update kotak set terpakai = 1, booking = 0 where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", registrasi.id_kotak);
             conn.Close();
             conn.Open();
