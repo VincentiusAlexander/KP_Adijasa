@@ -24,31 +24,28 @@
                     <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="2">
                         <DockPanel Margin="4">
                             <TextBlock Text="Kategori" DockPanel.Dock="Top"></TextBlock>
-                            <CheckBox DockPanel.Dock="Top">Kategori A</CheckBox>
-                            <CheckBox DockPanel.Dock="Top">Kategori B</CheckBox>
-                            <CheckBox DockPanel.Dock="Top">Kategori C</CheckBox>
-                            <ComboBox>
-                                <ComboBoxItem>Item</ComboBoxItem>
-                            </ComboBox>
+                            <ComboBox x:Name="cb_kategori" DockPanel.Dock="Top" Margin="0 1"/>
+                            <Button x:Name="filter_kategori" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Kategori" Click="filter_kategori_Click"/>
                         </DockPanel>
                     </Border>
                     <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="2">
                         <DockPanel Margin="4">
                             <TextBlock Text="Kotak" DockPanel.Dock="Top"></TextBlock>
-                            <CheckBox DockPanel.Dock="Top" Content="Kotak Terisi"></CheckBox>
-                            <CheckBox DockPanel.Dock="Top" Content="Kotak Kosong"></CheckBox>
+                            <RadioButton x:Name="terisi" DockPanel.Dock="Top" Content="Kotak Terisi"/>
+                            <RadioButton x:Name="kosong" DockPanel.Dock="Top" Content="Kotak Kosong"/>
+                            <Button x:Name="filter_kotak" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Kotak" Click="filter_kotak_Click"/>
                         </DockPanel>
                     </Border>
                     <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="2">
                         <DockPanel Margin="4">
-                            <TextBlock Text="Kotak" DockPanel.Dock="Top"></TextBlock>
-                            <ComboBox DockPanel.Dock="Top" Margin="0 0 2 0"></ComboBox>
-                            <CheckBox DockPanel.Dock="Top" Content="Terbaru"></CheckBox>
-                            <CheckBox DockPanel.Dock="Top" Content="Terlama"></CheckBox>
+                            <TextBlock Text="Tanggal" DockPanel.Dock="Top"></TextBlock>
+                            <ComboBox x:Name="kriteria" DockPanel.Dock="Top" Margin="0 1"/>
+                            <ComboBox x:Name="waktu" DockPanel.Dock="Top" Margin="0 1"/>
+                            <Button x:Name="filter_tanggal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Tanggal" Click="filter_tanggal_Click"/>
                         </DockPanel>
                     </Border>
                     <StackPanel DockPanel.Dock="Bottom"   HorizontalAlignment="Right" VerticalAlignment="Top">
-                        <Button Padding="15 2" Margin="4">Filter</Button>
+                        <Button x:Name="reset_filter" Content="Reset Filter" Padding="15 2" Margin="4" Click="reset_filter_Click"/>
                     </StackPanel>
                 </DockPanel>
             </Border>
@@ -64,14 +61,14 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Kotak Kosong :" VerticalAlignment="Center"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Kotak Terisi :" VerticalAlignment="Center"/>
+                <TextBlock x:Name="kotak_kosong" Grid.Row="0" Grid.Column="0" Text="Kotak Kosong :" VerticalAlignment="Center"/>
+                <TextBlock x:Name="kotak_terisi" Grid.Row="0" Grid.Column="1" Text="Kotak Terisi :" VerticalAlignment="Center"/>
                 <DockPanel Grid.Row="0" Grid.Column="2">
                     <TextBlock Text="Pencarian : "/>
                     <Image Source="search_image.png" ></Image>
-                    <TextBox />
+                    <TextBox x:Name="tb_pencarian" TextChanged="tb_pencarian_TextChanged"/>
                 </DockPanel>
-                <DataGrid Grid.ColumnSpan="3" Grid.Row="1" Margin="0 6 0 0"></DataGrid>
+                <DataGrid x:Name="dtGrid" Grid.ColumnSpan="3" Grid.Row="1" Margin="0 6 0 0"></DataGrid>
             </Grid>
         </DockPanel>
     </Grid>

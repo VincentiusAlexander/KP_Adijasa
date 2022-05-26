@@ -47,9 +47,8 @@
                 <MenuItem x:Name="laporan_jaminan_abu" Header="Jaminan Abu" Click="laporan_jaminan_abu_Click"/>
                 <MenuItem x:Name="laporan_piutang_abu" Header="Piutang Abu" Click="laporan_piutang_abu_Click"/>
             </MenuItem>
+            <MenuItem x:Name="logout" Header="Logout" FontSize="14" Click="logout_Click"/>
         </Menu>
-        <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="6 0">
-            
-        </Frame>
+        <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="6 0"/>
     </Grid>
 </Window>

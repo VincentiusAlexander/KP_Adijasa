@@ -157,5 +157,12 @@ namespace Aplikasi_Penitipan_Abu
         {
             mainFrame.Content = new Overview();
         }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 login = new Window1();
+            login.Show();
+            this.Close();
+        }
     }
 }

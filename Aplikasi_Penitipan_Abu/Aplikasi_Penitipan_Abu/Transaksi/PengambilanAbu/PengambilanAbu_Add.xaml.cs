@@ -167,6 +167,13 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                 conn.Open();
                 command.ExecuteNonQuery();
                 conn.Close();
+                command = new MySqlCommand("update pembayaran_sewa set tanggal_diambil = ?tanggal_diambil where id_penitipan = ?id_penitipan", conn);
+                command.Parameters.AddWithValue("?tanggal_diambil", DateTime.Now.ToString("yyyy-MM-dd"));
+                command.Parameters.AddWithValue("?id_penitipan", id_registrasi);
+                conn.Close();
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
                 System.Windows.Forms.MessageBox.Show("Pengambilan Berhasil !", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                 //lakukan reset tampilan
                 alamat_penanggung_jawab_txt.Text = "-";
