@@ -37,11 +37,12 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         {
             InitializeComponent();
             conn = new MySqlConnection("datasource=localhost; port=3306; username=root; password=;database=penitipan_abu_adijasa");
-            loadComboBox();
+            
         }
         public void loadComboBox()
         {
-            MySqlCommand command = new MySqlCommand("select * from kotak where terpakai = 0",conn);
+            MySqlCommand command = new MySqlCommand("select * from kotak where terpakai = 0 or id = ?id",conn);
+            command.Parameters.AddWithValue("?id", id_kotak);
             conn.Close();
             conn.Open();
 
@@ -80,6 +81,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 tanggal_awal = reader.GetDateTime(5);
                 tanggal_akhir = reader.GetDateTime(6);
             }
+            loadComboBox();
             no_registrasi.Text = id_penitipan.ToString();
             for (int i = 0; i < list.Count; i++)
             {
@@ -100,7 +102,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             tanggal_simpan_awal.SelectedDate = tanggal_awal;
             tanggal_simpan_akhir.SelectedDate = tanggal_akhir;
             harga_total_sewa_txt.Text ="Rp."+ harga_total_sewa.ToString();
-
         }
 
         private void tanggal_simpan_awal_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

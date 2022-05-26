@@ -127,42 +127,50 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 System.Windows.Forms.MessageBox.Show("Centang sudah menerima pembayaran", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
-
-            int harga_total_sewa = Int32.Parse(harga_sewa.Text.Split('.')[1]);
-
-            MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa (id_penitipan,id_kotak,harga_kotak,harga_total_sewa,tanggal_awal,tanggal_akhir) values(?id_penitipan,?id_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
-            cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
-            cmd.Parameters.AddWithValue("?id_kotak", registrasi.id_kotak);
-            cmd.Parameters.AddWithValue("?harga_kotak", registrasi.harga_kotak);
-            cmd.Parameters.AddWithValue("?harga_total_sewa", harga_total_sewa);
-            cmd.Parameters.AddWithValue("?tanggal_awal", awal);
-            cmd.Parameters.AddWithValue("?tanggal_akhir", akhir);
-            conn.Close();
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            if (perlu_jaminan)
+            try
             {
-                cmd.CommandText = "insert into jaminan values(0,?id_penitipan,1000000,0,0)";
-                cmd.Parameters.Clear();
+
+                int harga_total_sewa = Int32.Parse(harga_sewa.Text.Split('.')[1]);
+
+                MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa (id_penitipan,id_kotak,harga_kotak,harga_total_sewa,tanggal_awal,tanggal_akhir) values(?id_penitipan,?id_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
                 cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
+                cmd.Parameters.AddWithValue("?id_kotak", registrasi.id_kotak);
+                cmd.Parameters.AddWithValue("?harga_kotak", registrasi.harga_kotak);
+                cmd.Parameters.AddWithValue("?harga_total_sewa", harga_total_sewa);
+                cmd.Parameters.AddWithValue("?tanggal_awal", awal);
+                cmd.Parameters.AddWithValue("?tanggal_akhir", akhir);
+                conn.Close();
+                conn.Open();
                 cmd.ExecuteNonQuery();
+                if (perlu_jaminan)
+                {
+                    cmd.CommandText = "insert into jaminan values(0,?id_penitipan,1000000,0,0)";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+                cmd = new MySqlCommand("update kotak set terpakai = 1, booking = 0 where id = ?id", conn);
+                cmd.Parameters.AddWithValue("?id", registrasi.id_kotak);
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Pembayaran Sewa", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                //reset tampilan
+                registrasi = new Registrasi();
+                no_registrasi.Text = "-";
+                no_kotak.Text = "-";
+                nama_abu.Text = "-";
+                harga_sewa.Text = "Rp.";
+                tanggalAkhir.Text = "-";
+                tanggalAwal.Text = "-";
             }
-            conn.Close();
-            cmd = new MySqlCommand("update kotak set terpakai = 1, booking = 0 where id = ?id", conn);
-            cmd.Parameters.AddWithValue("?id", registrasi.id_kotak);
-            conn.Close();
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Pembayaran Sewa", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-            //reset tampilan
-            registrasi = new Registrasi();
-            no_registrasi.Text = "-";
-            no_kotak.Text = "-";
-            nama_abu.Text = "-";
-            harga_sewa.Text = "Rp.";
-            tanggalAkhir.Text = "-";
-            tanggalAwal.Text = "-";
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Pastikan semua input sudah benar", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
         }
 
         private void cetak_tanda_terima_pembayaran_abu_Click(object sender, RoutedEventArgs e)

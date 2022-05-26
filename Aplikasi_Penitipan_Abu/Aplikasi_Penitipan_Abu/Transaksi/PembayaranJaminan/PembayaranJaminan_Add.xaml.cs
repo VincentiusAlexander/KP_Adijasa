@@ -90,7 +90,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             }
             nama_penanggung_jawab_txt.Text = nama_penanggung_jawab;
             reader.Close();
-
         }
 
         private void btn_simpan_Click(object sender, RoutedEventArgs e)
@@ -98,6 +97,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             if (check_box_pembayaran_telah_diterima.IsChecked == false)
             {
                 System.Windows.Forms.MessageBox.Show("Centang Pembayaran Sudah Diterima", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
+            if (selectedId == -1)
+            {
+                System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
             MySqlCommand cmd = new MySqlCommand("update jaminan set status = 1 where id = ?id", conn);
