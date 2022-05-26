@@ -26,7 +26,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         Registrasi registrasi;
         int selectedId = -1;
         bool perlu_jaminan = false;
-        DateTime awal, akhir;
         string penanggung_jawab;
         public PembayaranSewa_Add()
         {
@@ -72,8 +71,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 registrasi.id_kotak = reader.GetInt32(4);
                 registrasi.id_abu = reader.GetInt32(5);
                 registrasi.nama_abu = reader.GetString(10);
-                awal = reader.GetDateTime(2);
-                akhir = reader.GetDateTime(3);
                 penanggung_jawab = reader.GetString(19);
             }
             reader.Close();
@@ -82,8 +79,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
-            tanggalAwal.Text = awal.ToString("dd/M/yyyy");
-            tanggalAkhir.Text = akhir.ToString("dd/M/yyyy");
             cmd.CommandText = "SELECT * FROM kotak LEFT JOIN kategori ON kotak.kategori_id = kategori.id WHERE kotak.id = ?idKotak";
             cmd.Parameters.AddWithValue("?idKotak", registrasi.id_kotak);
             reader = cmd.ExecuteReader();
@@ -98,28 +93,39 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             no_kotak.Text = registrasi.no_kotak;
             no_registrasi.Text = registrasi.idRegistrasi.ToString();
             nama_abu.Text = registrasi.nama_abu;
-            //perhitungan harga
-            if (registrasi != null && registrasi.harga_kotak != -1)
-            {
-                perlu_jaminan = false;
-                int harga = registrasi.harga_kotak;
-                TimeSpan timeSpan = (TimeSpan)(akhir - awal);
-                int countDays = (int)timeSpan.TotalDays;
-                int totalMonth = countDays / 30;
-                if ((countDays / 30) % 30 >= 0)
-                {
-                    totalMonth += 1;
-                }
-                int harga_total_sewa = harga * totalMonth;
-                harga_sewa.Text = "Rp." + harga_total_sewa.ToString();
-                if (totalMonth >= 3)
-                {
-                    perlu_jaminan = true;
-                }
-            }
             conn.Close();
         }
-
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (datepickerAwal.SelectedDate != null && datepickerAkhir.SelectedDate != null)
+            {
+                //perhitungan harga
+                if (registrasi != null && registrasi.harga_kotak != -1)
+                {
+                    perlu_jaminan = false;
+                    int harga = registrasi.harga_kotak;
+                    if (datepickerAkhir.SelectedDate < datepickerAwal.SelectedDate)
+                    {
+                        System.Windows.Forms.MessageBox.Show("tanggal akhir lebih awal daripada tanggal awal");
+                        datepickerAkhir.SelectedDate = datepickerAwal.SelectedDate;
+                        return;
+                    }
+                    TimeSpan timeSpan = (TimeSpan)(datepickerAkhir.SelectedDate - datepickerAwal.SelectedDate);
+                    int countDays = (int)timeSpan.TotalDays;
+                    int totalMonth = countDays / 30;
+                    if ((countDays / 30) % 30 >= 0)
+                    {
+                        totalMonth += 1;
+                    }
+                    int harga_total_sewa = harga * totalMonth;
+                    harga_sewa.Text = "Rp." + harga_total_sewa.ToString();
+                    if (totalMonth >= 3)
+                    {
+                        perlu_jaminan = true;
+                    }
+                }
+            }
+        }
         private void btnSimpan_Click(object sender, RoutedEventArgs e)
         {
             if (centang_bila_pembayaran.IsChecked == false)
@@ -129,16 +135,16 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             }
             try
             {
-
                 int harga_total_sewa = Int32.Parse(harga_sewa.Text.Split('.')[1]);
-
+                DateTime tanggal_awal = (DateTime)datepickerAwal.SelectedDate;
+                DateTime tanggal_akhir = (DateTime)datepickerAkhir.SelectedDate;
                 MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa (id_penitipan,id_kotak,harga_kotak,harga_total_sewa,tanggal_awal,tanggal_akhir) values(?id_penitipan,?id_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
                 cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
                 cmd.Parameters.AddWithValue("?id_kotak", registrasi.id_kotak);
                 cmd.Parameters.AddWithValue("?harga_kotak", registrasi.harga_kotak);
                 cmd.Parameters.AddWithValue("?harga_total_sewa", harga_total_sewa);
-                cmd.Parameters.AddWithValue("?tanggal_awal", awal);
-                cmd.Parameters.AddWithValue("?tanggal_akhir", akhir);
+                cmd.Parameters.AddWithValue("?tanggal_awal", tanggal_awal.ToString("yyyy-MM-dd HH:mm"));
+                cmd.Parameters.AddWithValue("?tanggal_akhir", tanggal_akhir.ToString("yyyy-MM-dd HH:mm"));
                 conn.Close();
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -163,8 +169,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 no_kotak.Text = "-";
                 nama_abu.Text = "-";
                 harga_sewa.Text = "Rp.";
-                tanggalAkhir.Text = "-";
-                tanggalAwal.Text = "-";
+                datepickerAkhir.SelectedDate = null;
+                datepickerAwal.SelectedDate = null;
             }
             catch (Exception)
             {

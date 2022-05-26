@@ -24,7 +24,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
         MySqlConnection conn;
         Registrasi registrasi;
         int selectedId = -1;
-        int id_p1, id_p2;
         bool perlu_jaminan = false;
         DateTime awal;
         string penanggung_jawab;
@@ -90,8 +89,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
             {
                 registrasi.id_kotak = reader.GetInt32(4);
                 registrasi.id_abu = reader.GetInt32(5);
-                id_p1 = reader.GetInt32(6);
-                id_p2 = reader.GetInt32(7);
                 registrasi.nama_abu = reader.GetString(10);
                 awal = reader.GetDateTime(3);
                 penanggung_jawab = reader.GetString(19);
@@ -143,28 +140,9 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
             }
             try
             {
-
                 int harga_total_sewa = Int32.Parse(harga_sewa.Text.Split('.')[1]);
-
-                MySqlCommand cmd = new MySqlCommand("insert into penitipan (tanggal_registrasi, tanggal_titip, tanggal_ambil, kotak_id, data_abu_id, penanggung_jawab_satu_id, penanggung_jawab_dua_id) values(?tanggal_registrasi, ?tanggal_titip, ?tanggal_ambil, ?kotak_id, ?data_abu_id, ?penanggung_jawab_satu_id, ?penanggung_jawab_dua_id)", conn);
-                cmd.Parameters.AddWithValue("?tanggal_registrasi", DateTime.Today);
-                cmd.Parameters.AddWithValue("?tanggal_titip", awal);
-                cmd.Parameters.AddWithValue("?tanggal_ambil", tanggal_akhir.SelectedDate);
-                cmd.Parameters.AddWithValue("?kotak_id", registrasi.id_kotak);
-                cmd.Parameters.AddWithValue("?data_abu_id", registrasi.id_abu);
-                cmd.Parameters.AddWithValue("?penanggung_jawab_satu_id", id_p1);
-                cmd.Parameters.AddWithValue("?penanggung_jawab_dua_id", id_p2);
-                conn.Close();
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                cmd = new MySqlCommand("select count(*) from penitipan", conn);
-                conn.Close();
-                conn.Open();
-                int max = Int32.Parse(cmd.ExecuteScalar().ToString());
-                conn.Close();
-                cmd = new MySqlCommand("insert into pembayaran_sewa (id_penitipan,id_kotak,harga_kotak,harga_total_sewa,tanggal_awal,tanggal_akhir) values(?id_penitipan,?id_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
-                cmd.Parameters.AddWithValue("?id_penitipan", max);
+                MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa (id_penitipan,id_kotak,harga_kotak,harga_total_sewa,tanggal_awal,tanggal_akhir) values(?id_penitipan,?id_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
+                cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
                 cmd.Parameters.AddWithValue("?id_kotak", registrasi.id_kotak);
                 cmd.Parameters.AddWithValue("?harga_kotak", registrasi.harga_kotak);
                 cmd.Parameters.AddWithValue("?harga_total_sewa", harga_total_sewa);
@@ -177,7 +155,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
                 {
                     cmd.CommandText = "insert into jaminan values(0,?id_penitipan,1000000,0,0)";
                     cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("?id_penitipan", max);
+                    cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();
