@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="480" d:DesignWidth="800"
       Title="PengambilanAbu_Edit">
 
     <Grid>
@@ -19,6 +19,7 @@
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="6 0">
             <TextBlock HorizontalAlignment="Center" Text="Pengambilan Abu"  FontSize="24" FontWeight="Bold" DockPanel.Dock="Top" Margin="0 2"/>
+            <TextBlock HorizontalAlignment="Center" Text="(Delete)"  FontSize="24" FontWeight="Bold" DockPanel.Dock="Top" Margin="0 2"/>
             <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="0 2">
                 <StackPanel Margin="6">
                     <TextBlock Text="Data Pengambilan" FontSize="14" FontWeight="SemiBold" Margin="0 0 0 4"/>

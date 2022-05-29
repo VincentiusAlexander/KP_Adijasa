@@ -18,7 +18,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="6 0">
-            <TextBlock Text="Pembayaran Jaminan (Edit/Delete)" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="24" FontWeight="Bold" Margin="0 2" />
+            <TextBlock Text="Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="24" FontWeight="Bold" Margin="0 2" />
+            <TextBlock Text="(Edit/Delete)" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="24" FontWeight="Bold" Margin="0 2" />
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
                 <TextBlock Text="No Kwitansi Jaminan" MinWidth="120"/>
                 <TextBlock x:Name="no_kwitansi_jaminan_txt" Text="-" MinWidth="120"/>
