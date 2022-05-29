@@ -32,6 +32,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         DateTime tanggal_awal;
         DateTime tanggal_akhir;
         string penanggung_jawab;
+        bool isEdit = false;
         ArrayList list = new ArrayList();
         public PembayaranSewa_Edit()
         {
@@ -165,6 +166,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             tanggal_awal = new DateTime();
             tanggal_akhir = new DateTime();
             check_pembayaran_sudah_diterima.IsChecked = false;
+            isEdit = false;
         }
 
         private void btn_edit_Click(object sender, RoutedEventArgs e)
@@ -187,6 +189,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             conn.Close();
             System.Windows.Forms.MessageBox.Show("Edit Berhasil", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             resetTampilan();
+            isEdit = true;
         }
 
         private void no_kotak_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -211,6 +214,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
 
         private void btnCetakTandaTerima_Click(object sender, RoutedEventArgs e)
         {
+            if (!isEdit)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Edit Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
                 TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitasi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab));

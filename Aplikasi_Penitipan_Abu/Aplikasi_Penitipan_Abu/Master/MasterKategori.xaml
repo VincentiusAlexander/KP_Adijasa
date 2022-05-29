@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Master"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="512" d:DesignWidth="1024"
       Title="MasterKategori">
 
     <Grid>
@@ -18,16 +18,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="6 0">
-            <TextBlock Text="Master Kategori" FontSize="16" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" />
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" MaxHeight="16" Margin=" 0 0 6 0">
-                <TextBlock Text="Filter Kategori" Margin="0 0 6 0"/>
+            <TextBlock Text="Master Kategori" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" MaxHeight="24" Margin=" 0 0 6 0">
+                <TextBlock Text="Filter Kategori" Margin="0 0 6 0" FontSize="18"/>
                 <Image Source="search_image.png" ></Image>
-                <TextBox x:Name="search_box" MinWidth="120" TextChanged="search_box_TextChanged"/>
+                <TextBox x:Name="search_box" MinWidth="120" TextChanged="search_box_TextChanged" FontSize="18"/>
             </StackPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="67*"/>
-                    <ColumnDefinition Width="128*"/>
+                    <ColumnDefinition Width="107*"/>
+                    <ColumnDefinition Width="146*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -37,41 +37,41 @@
                         <StackPanel Orientation="Vertical" Margin="6">
                             <TextBlock Text="Tambah Kategori" Margin="2" FontSize="14" FontWeight="SemiBold"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Nama Kategori" MinWidth="120"/>
-                                <TextBox MinWidth="120" Name="NamaKategoriAdd"/>
+                                <TextBlock Text="Nama Kategori" MinWidth="200" FontSize="18"/>
+                                <TextBox MinWidth="200" Name="NamaKategoriAdd" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Harga" MinWidth="120"/>
-                                <TextBlock Text="Rp. "/>
-                                <TextBox MinWidth="100" Name="HargaKategoriAdd" />
+                                <TextBlock Text="Harga" MinWidth="200" FontSize="18"/>
+                                <TextBlock Text="Rp. " FontSize="18" MinWidth="40"/>
+                                <TextBox MinWidth="160" Name="HargaKategoriAdd" FontSize="18" />
                             </StackPanel>
-                            <Button Content="Tambah" HorizontalAlignment="Right" Margin="6 0" Name="btnTambah" Click="btnTambah_Click"/>
+                            <Button Content="Tambah" HorizontalAlignment="Right" Margin="6 0" Name="btnTambah" Click="btnTambah_Click" FontSize="18"/>
                         </StackPanel>
                     </Border>
                     <Border  BorderBrush="Gray" BorderThickness="2" Margin="3">
                         <StackPanel Orientation="Vertical" Margin="6">
                             <TextBlock Text="Kategori Yang Dipilih" Margin="2" FontSize="14" FontWeight="SemiBold"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="ID" MinWidth="120"/>
-                                <TextBlock Text="-" MinWidth="120" Name="txt_kategori_id"/>
+                                <TextBlock Text="ID" MinWidth="200" FontSize="18"/>
+                                <TextBlock Text="-" MinWidth="200" Name="txt_kategori_id" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Nama Kategori" MinWidth="120"/>
-                                <TextBox MinWidth="120" Name="NamaKategoriEdit"/>
+                                <TextBlock Text="Nama Kategori" MinWidth="200" FontSize="18"/>
+                                <TextBox MinWidth="200" Name="NamaKategoriEdit"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Harga" MinWidth="120"/>
-                                <TextBlock Text="Rp. "/>
-                                <TextBox MinWidth="100" Name="HargaKategoriEdit" />
+                                <TextBlock Text="Harga" MinWidth="200" FontSize="18"/>
+                                <TextBlock Text="Rp. " FontSize="18" MinWidth="40"/>
+                                <TextBox MinWidth="160" Name="HargaKategoriEdit" FontSize="18" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Content="Edit" Margin="6 0" Padding="4 0" Name="btnEdit" Click="btnEdit_Click"/>
-                                <Button Content="Delete" Margin="6 0" Padding="4 0" Name="btnDelete" Click="btnDelete_Click"/>
+                                <Button Content="Edit" Margin="6 0" Padding="4 0" Name="btnEdit" Click="btnEdit_Click" FontSize="18"/>
+                                <Button Content="Delete" Margin="6 0" Padding="4 0" Name="btnDelete" Click="btnDelete_Click" FontSize="18"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
                 </StackPanel>
-                <DataGrid Name="dtGrid" Grid.Column="1" Margin="6 3" IsReadOnly="True" MouseDoubleClick="dtGrid_MouseDoubleClick" >
+                <DataGrid Name="dtGrid" Grid.Column="1" Margin="6 3" IsReadOnly="True" MouseDoubleClick="dtGrid_MouseDoubleClick" FontSize="18" >
 
                 </DataGrid>
             </Grid>

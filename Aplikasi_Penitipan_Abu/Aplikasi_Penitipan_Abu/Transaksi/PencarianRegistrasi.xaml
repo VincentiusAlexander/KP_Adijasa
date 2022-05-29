@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi"
         mc:Ignorable="d"
-        Title="PencarianRegistrasi" Height="450" Width="800">
+        Title="PencarianRegistrasi" Height="448" Width="800">
     <Grid Margin="6">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="22"/>
+            <RowDefinition Height="26"/>
         </Grid.RowDefinitions>
         <DockPanel Margin="12" DockPanel.Dock="Top" Grid.Row="0">
             <TextBlock Text="Pencarian Registrasi" Margin="0 0 0 10" DockPanel.Dock="Top" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" MaxHeight="16" Margin=" 0 0 6 6">
-                <TextBlock Text="Filter Registrasi" Margin="0 0 6 0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" MaxHeight="24" Margin=" 0 0 6 6">
+                <TextBlock Text="Filter Registrasi" Margin="0 0 6 0" FontSize="18"/>
                 <Image Source="search_image.png" ></Image>
-                <TextBox MinWidth="120" Name="FilterRegistrasi" KeyDown="FilterRegistrasi_KeyDown"/>
+                <TextBox MinWidth="120" Name="FilterRegistrasi" KeyDown="FilterRegistrasi_KeyDown" FontSize="18"/>
             </StackPanel>
-            <DataGrid x:Name="dtGrid" DockPanel.Dock="Top"/>
+            <DataGrid x:Name="dtGrid" DockPanel.Dock="Top" FontSize="18"/>
 
 
         </DockPanel>
-        <Button Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Pilih Registrasi" Padding="6 0" Name="PilihRegistrasi" Click="PilihRegistrasi_Click"></Button>
+        <Button Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Pilih Registrasi" Padding="6 0" Name="PilihRegistrasi" Click="PilihRegistrasi_Click" FontSize="18"></Button>
     </Grid>
 </Window>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa.PembayaranJaminan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa"
+        mc:Ignorable="d"
+        Title="PembayaranJaminan" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="6 0">
+            <TextBlock Text="Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="24" FontWeight="Bold" Margin="0 2" />
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="No Kwitansi Jaminan" MinWidth="200" FontSize="18" MaxWidth="200"/>
+                <TextBlock x:Name="no_kwitansi_jaminan_txt" Text="-" FontSize="18"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="No Registrasi" MinWidth="200" FontSize="18" MaxWidth="200"/>
+                <TextBlock x:Name="no_registrasi_txt" Text="-" MinWidth="120" FontSize="18"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="Nama Abu" MinWidth="200" FontSize="18" MaxWidth="200"/>
+                <TextBlock x:Name="nama_abu_txt" Text="-" MinWidth="120" FontSize="18"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="Nama Penanggung Jawab" MinWidth="200" TextWrapping="Wrap" MaxWidth="200" FontSize="18"/>
+                <TextBlock x:Name="nama_penanggung_jawab_txt" Text="-" VerticalAlignment="Center" FontSize="18"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 2" >
+                <TextBlock Text="Uang Jaminan" MinWidth="200" FontSize="18" MaxWidth="200"/>
+                <TextBlock  x:Name="uang_jaminan_txt" Text="Rp." MinWidth="120" FontSize="18"/>
+            </StackPanel>
+            <CheckBox x:Name="check_box_pembayaran_telah_diterima" Content="Centang Bila Pembayaran Sudah Diterima" DockPanel.Dock="Top" Margin="0 4" FontSize="18" />
+            <Button x:Name="btnCetak" DockPanel.Dock="Top" Content="Cetak Tanda Pembayaran Jaminan" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 2" Padding="6 0" Click="btnCetak_Click" FontSize="18"/>
+            <Button x:Name="btn_simpan" DockPanel.Dock="Top" Content="Simpan" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 6" Padding="6 0" Click="btn_simpan_Click" FontSize="18"/>
+            <Button x:Name="btn_selesai" DockPanel.Dock="Top" Content="Selesai" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 6" Padding="6 0" FontSize="18" Click="btn_selesai_Click"/>
+        </DockPanel>
+    </Grid>
+</Window>

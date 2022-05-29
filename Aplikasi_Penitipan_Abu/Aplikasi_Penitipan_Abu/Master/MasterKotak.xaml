@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Master"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="512" d:DesignWidth="1024"
       Title="MasterKotak">
 
     <Grid>
@@ -18,16 +18,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="6 0">
-            <TextBlock Text="Master Kotak" FontSize="16" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" />
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" MaxHeight="16" Margin=" 0 0 6 0">
-                <TextBlock Text="Filter Kotak" Margin="0 0 6 0"/>
+            <TextBlock Text="Master Kotak" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" MaxHeight="24" Margin=" 0 0 6 0">
+                <TextBlock Text="Filter Kotak" Margin="0 0 6 0" FontSize="18"/>
                 <Image Source="search_image.png" ></Image>
-                <TextBox x:Name="search_box" MinWidth="120" TextChanged="search_box_TextChanged"/>
+                <TextBox x:Name="search_box" MinWidth="120" TextChanged="search_box_TextChanged" FontSize="18"/>
             </StackPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="67*"/>
-                    <ColumnDefinition Width="128*"/>
+                    <ColumnDefinition Width="106*"/>
+                    <ColumnDefinition Width="147*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -35,51 +35,51 @@
                 <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical">
                     <Border  BorderBrush="Gray" BorderThickness="2" Margin="3">
                         <StackPanel Orientation="Vertical" Margin="6">
-                            <TextBlock Text="Tambah Kotak" Margin="2" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="Tambah Kotak" Margin="2" FontSize="20" FontWeight="SemiBold"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="No Kotak" MinWidth="120"/>
-                                <TextBox MinWidth="120" Name="tb_no_kotak_add"/>
+                                <TextBlock Text="No Kotak" MinWidth="200" FontSize="18"/>
+                                <TextBox MinWidth="200" Name="tb_no_kotak_add" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Kategori" MinWidth="120"/>
-                                <ComboBox MinWidth="120" Name="cb_kategori_add" SelectionChanged="cb_kategori_add_SelectionChanged"/>
+                                <TextBlock Text="Kategori" MinWidth="200" FontSize="18"/>
+                                <ComboBox MinWidth="200" Name="cb_kategori_add" SelectionChanged="cb_kategori_add_SelectionChanged" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Harga Kotak" MinWidth="120"/>
-                                <TextBlock Text="Rp."/>
-                                <TextBlock Text="" MinWidth="90" Name="txt_harga_add" Margin="10 0"/>
+                                <TextBlock Text="Harga Kotak" MinWidth="200" FontSize="18"/>
+                                <TextBlock Text="Rp." FontSize="18" MinWidth="40"/>
+                                <TextBlock Text="" MinWidth="160" Name="txt_harga_add" FontSize="18"/>
                             </StackPanel>
-                            <Button Content="Tambah" HorizontalAlignment="Right" Name="btn_tambah" Click="btn_tambah_Click"/>
+                            <Button Content="Tambah" HorizontalAlignment="Right" Name="btn_tambah" Click="btn_tambah_Click" FontSize="18"/>
                         </StackPanel>
                     </Border>
                     <Border  BorderBrush="Gray" BorderThickness="2" Margin="3">
                         <StackPanel Orientation="Vertical" Margin="6">
-                            <TextBlock Text="Kotak Yang Dipilih" Margin="2" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="Kotak Yang Dipilih" Margin="2" FontSize="20" FontWeight="SemiBold"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="ID" MinWidth="120"/>
-                                <TextBlock MinWidth="120" Text="-" Name="id_kotak_edit"/>
+                                <TextBlock Text="ID" MinWidth="200" FontSize="18"/>
+                                <TextBlock MinWidth="200" Text="-" Name="id_kotak_edit" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="No Kotak" MinWidth="120"/>
-                                <TextBox MinWidth="120" Name="no_kotak_edit"/>
+                                <TextBlock Text="No Kotak" MinWidth="200" FontSize="18"/>
+                                <TextBox MinWidth="200" Name="no_kotak_edit" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Kategori" MinWidth="120"/>
-                                <ComboBox MinWidth="120" Name="cb_kategori_edit" SelectionChanged="cb_kategori_edit_SelectionChanged"/>
+                                <TextBlock Text="Kategori" MinWidth="200" FontSize="18"/>
+                                <ComboBox MinWidth="200" Name="cb_kategori_edit" SelectionChanged="cb_kategori_edit_SelectionChanged" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                                <TextBlock Text="Harga Kotak" MinWidth="120"/>
-                                <TextBlock Text="Rp."/>
-                                <TextBlock Text="" MinWidth="90" Name="txt_harga_edit" Margin="10 0"/>
+                                <TextBlock Text="Harga Kotak" MinWidth="200" FontSize="18"/>
+                                <TextBlock Text="Rp." FontSize="18" MinWidth="40"/>
+                                <TextBlock Text="" MinWidth="160" Name="txt_harga_edit" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button x:Name="btn_edit" Content="Edit" Margin="6 0" Padding="4 0" Click="btn_edit_Click"/>
-                                <Button x:Name="btn_delete" Content="Delete" Margin="6 0" Padding="4 0" Click="btn_delete_Click"/>
+                                <Button x:Name="btn_edit" Content="Edit" Margin="6 0" Padding="4 0" Click="btn_edit_Click" FontSize="18"/>
+                                <Button x:Name="btn_delete" Content="Delete" Margin="6 0" Padding="4 0" Click="btn_delete_Click" FontSize="18"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
                 </StackPanel>
-                <DataGrid Grid.Column="1" Margin="6 3" Name="dtGrid" MouseDoubleClick="dtGrid_MouseDoubleClick">
+                <DataGrid Grid.Column="1" Margin="6 3" Name="dtGrid" MouseDoubleClick="dtGrid_MouseDoubleClick" FontSize="18">
 
                 </DataGrid>
             </Grid>

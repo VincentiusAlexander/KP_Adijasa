@@ -137,6 +137,9 @@
     <Compile Include="Transaksi\PembayaranJaminan\TandaTerimaPembayaranJaminanFix.xaml.cs">
       <DependentUpon>TandaTerimaPembayaranJaminanFix.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PembayaranSewa\PembayaranJaminan.xaml.cs">
+      <DependentUpon>PembayaranJaminan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PembayaranSewa\PembayaranSewa_Add.xaml.cs">
       <DependentUpon>PembayaranSewa_Add.xaml</DependentUpon>
     </Compile>
@@ -252,6 +255,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PembayaranJaminan\TandaTerimaPembayaranJaminanFix.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PembayaranSewa\PembayaranJaminan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

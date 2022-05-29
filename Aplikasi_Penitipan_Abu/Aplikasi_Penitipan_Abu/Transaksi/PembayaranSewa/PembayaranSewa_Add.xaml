@@ -20,36 +20,37 @@
         <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="6 0">
             <TextBlock HorizontalAlignment="Center" Text="Pembayaran Sewa"  FontSize="24" FontWeight="Bold" DockPanel.Dock="Top"/>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="No Kwitansi" MinWidth="120"/>
-                <TextBlock x:Name="no_kwitansi" Text="-"/>
+                <TextBlock Text="No Kwitansi" MinWidth="199.8" FontSize="18"/>
+                <TextBlock x:Name="no_kwitansi" Text="-" FontSize="18"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="No Registrasi" MinWidth="120"/>
-                <TextBlock Text="-" MinWidth="120" Name="no_registrasi"/>
-                <Button Content="Cari Registrasi" Padding="6 0" Name="cari_registrasi" Click="cari_registrasi_Click"/>
+                <TextBlock Text="No Registrasi" MinWidth="199.8" FontSize="18"/>
+                <TextBlock Text="-" MinWidth="120" Name="no_registrasi" FontSize="18"/>
+                <Button Content="Cari Registrasi" Padding="6 0" Name="cari_registrasi" Click="cari_registrasi_Click" FontSize="18"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="No Kotak" MinWidth="120"/>
-                <TextBlock Text="-" Name="no_kotak"/>
+                <TextBlock Text="No Kotak" MinWidth="199.8" FontSize="18"/>
+                <TextBlock Text="-" Name="no_kotak" FontSize="18"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="Nama Abu" MinWidth="120"/>
-                <TextBlock Text="-" Name="nama_abu"/>
+                <TextBlock Text="Nama Abu" MinWidth="199.8" FontSize="18"/>
+                <TextBlock Text="-" Name="nama_abu" FontSize="18"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="Tanggal Penyimpanan" MinWidth="120"/>
-                <DatePicker x:Name="datepickerAwal" MinWidth="110" SelectedDateChanged="DatePicker_SelectedDateChanged" />
-                <TextBlock Text=" s/d " VerticalAlignment="Center"/>
-                <DatePicker x:Name="datepickerAkhir" MinWidth="110" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+                <TextBlock Text="Tanggal Penyimpanan" MinWidth="199.8" FontSize="18"/>
+                <DatePicker x:Name="datepickerAwal" MinWidth="200" SelectedDateChanged="DatePicker_SelectedDateChanged" FontSize="18" />
+                <TextBlock Text=" s/d " VerticalAlignment="Center" FontSize="18"/>
+                <DatePicker x:Name="datepickerAkhir" MinWidth="200" SelectedDateChanged="DatePicker_SelectedDateChanged" FontSize="18"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
-                <TextBlock Text="Harga Total Sewa" MinWidth="120"/>
-                <TextBlock Text="Rp.-" Name="harga_sewa"/>
+                <TextBlock Text="Harga Total Sewa" MinWidth="199.8" FontSize="18"/>
+                <TextBlock Text="Rp.-" Name="harga_sewa" FontSize="18"/>
             </StackPanel>
-            <CheckBox x:Name="centang_bila_pembayaran" Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top"></CheckBox>
-            <Button x:Name="cetak_tanda_terima_pembayaran_abu" DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5 2" Margin="0 2" Click="cetak_tanda_terima_pembayaran_abu_Click"/>
+            <CheckBox x:Name="centang_bila_pembayaran" Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top" FontSize="18"></CheckBox>
             <StackPanel>
-                <Button Content="Simpan" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 2" Padding="6 0" Name="btnSimpan" Click="btnSimpan_Click" ></Button>
+                <Button Content="Simpan" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 2" Padding="6 0" Name="btnSimpan" Click="btnSimpan_Click" FontSize="18" ></Button>
+                <Button x:Name="cetak_tanda_terima_pembayaran_abu" DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="5 2" Margin="0 2" Click="cetak_tanda_terima_pembayaran_abu_Click" FontSize="18"/>
+                <Button Content="Reset" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 2" Padding="6 0" Name="Reset" Click="Reset_Click" FontSize="18" ></Button>
             </StackPanel>
         </DockPanel>
     </Grid>

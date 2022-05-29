@@ -4,9 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu"
-      mc:Ignorable="d" 
-      d:DesignHeight="480" d:DesignWidth="800"
-      Title="PengambilanAbu_Edit">
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="PengambilanAbu_Edit" Height="608">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,59 +21,59 @@
             <TextBlock HorizontalAlignment="Center" Text="(Delete)"  FontSize="24" FontWeight="Bold" DockPanel.Dock="Top" Margin="0 2"/>
             <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="0 2">
                 <StackPanel Margin="6">
-                    <TextBlock Text="Data Pengambilan" FontSize="14" FontWeight="SemiBold" Margin="0 0 0 4"/>
+                    <TextBlock Text="Data Pengambilan" FontSize="20" FontWeight="SemiBold" Margin="0 0 0 4"/>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
-                        <TextBlock Text="No Pengambilan Abu" MinWidth="120"/>
-                        <TextBlock x:Name="no_pengambilan_abu_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
-                        <Button x:Name="cari_pengambilan_abu" Content="Cari Pengambilan Abu" Padding="4 0" Click="cari_pengambilan_abu_Click"/>
+                        <TextBlock Text="No Pengambilan Abu" MinWidth="200" FontSize="18"/>
+                        <TextBlock x:Name="no_pengambilan_abu_txt" Text="-" MinWidth="200" VerticalAlignment="Center" FontSize="18"/>
+                        <Button x:Name="cari_pengambilan_abu" Content="Cari Pengambilan Abu" Padding="4 0" Click="cari_pengambilan_abu_Click" MinWidth="200" FontSize="18"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
-                        <TextBlock Text="No Registrasi" MinWidth="120"/>
-                        <TextBlock x:Name="no_registrasi_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <TextBlock Text="No Registrasi" MinWidth="200" FontSize="18"/>
+                        <TextBlock x:Name="no_registrasi_txt" Text="-" MinWidth="200" VerticalAlignment="Center" FontSize="18"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
-                        <TextBlock Text="Nama Penanggung Jawab" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="nama_penanggung_jawab_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <TextBlock Text="Nama Penanggung Jawab" MinWidth="200" MaxWidth="120" TextWrapping="Wrap" FontSize="18"/>
+                        <TextBlock x:Name="nama_penanggung_jawab_txt" Text="-" MinWidth="200" VerticalAlignment="Center" FontSize="18"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0 2">
-                        <TextBlock Text="Alamat Penanggung Jawab" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="alamat_penanggung_jawab_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <TextBlock Text="Alamat Penanggung Jawab" MinWidth="200" MaxWidth="120" TextWrapping="Wrap" FontSize="18"/>
+                        <TextBlock x:Name="alamat_penanggung_jawab_txt" Text="-" MinWidth="200" VerticalAlignment="Center" FontSize="18"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 2">
-                        <TextBlock Text="Nomor Penanggung Jawab" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="nomor_penanggung_jawab_txt" Text="-" MinWidth="120" VerticalAlignment="Center"/>
+                        <TextBlock Text="Nomor Penanggung Jawab" MinWidth="200" MaxWidth="120" TextWrapping="Wrap" FontSize="18"/>
+                        <TextBlock x:Name="nomor_penanggung_jawab_txt" Text="-" MinWidth="200" VerticalAlignment="Center" FontSize="18"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
             <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="0 2">
                 <StackPanel >
-                    <TextBlock Text="Data Abu" FontSize="14" FontWeight="SemiBold" Margin="6"/>
+                    <TextBlock Text="Data Abu" FontSize="20" FontWeight="SemiBold" Margin="6"/>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
-                        <TextBlock Text="Nama Abu" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="nama_abu_txt" Text="-" MinWidth="120"/>
+                        <TextBlock Text="Nama Abu" MinWidth="200" MaxWidth="120" TextWrapping="Wrap" FontSize="18"/>
+                        <TextBlock x:Name="nama_abu_txt" Text="-" MinWidth="200" FontSize="18"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
-                        <TextBlock Text="Jenis Kelamin" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="jenis_kelamin_abu_txt" Text="-" MinWidth="120"/>
+                        <TextBlock Text="Jenis Kelamin" MinWidth="200" MaxWidth="120" TextWrapping="Wrap" FontSize="18"/>
+                        <TextBlock x:Name="jenis_kelamin_abu_txt" Text="-" MinWidth="200" FontSize="18"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
-                        <TextBlock Text="Tanggal Wafat" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="tanggal_wafat_abu_txt" Text="-" MinWidth="120"/>
+                        <TextBlock Text="Tanggal Wafat" MinWidth="200" MaxWidth="120" TextWrapping="Wrap" FontSize="18"/>
+                        <TextBlock x:Name="tanggal_wafat_abu_txt" Text="-" MinWidth="200" FontSize="18"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
-                        <TextBlock Text="Tanggal Kremasi" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="tanggal_kremasi_abu_txt" Text="-" MinWidth="120"/>
+                        <TextBlock Text="Tanggal Kremasi" MinWidth="200" MaxWidth="120" TextWrapping="Wrap" FontSize="18"/>
+                        <TextBlock x:Name="tanggal_kremasi_abu_txt" Text="-" MinWidth="200" FontSize="18"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="6 2">
-                        <TextBlock Text="Nomor Kotak" MinWidth="120" MaxWidth="120" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="no_kotak_abu_txt" Text="-" MinWidth="120"/>
+                        <TextBlock Text="Nomor Kotak" MinWidth="200" MaxWidth="120" TextWrapping="Wrap" FontSize="18"/>
+                        <TextBlock x:Name="no_kotak_abu_txt" Text="-" MinWidth="200" FontSize="18"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Button x:Name="btnCetakTandaTerima" Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btnCetakTandaTerima_Click"/>
+            <Button x:Name="btnCetakTandaTerima" Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btnCetakTandaTerima_Click" MinWidth="200" FontSize="18"/>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button x:Name="btn_delete" Content="Delete" Padding="6 0" Margin="6 0" Click="btn_delete_Click"/>
+                <Button x:Name="btn_delete" Content="Delete" Padding="6 0" Margin="6 0" Click="btn_delete_Click" FontSize="18"/>
             </StackPanel>
         </DockPanel>
     </Grid>

@@ -27,6 +27,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         int selectedId = -1;
         bool perlu_jaminan = false;
         string penanggung_jawab;
+        bool isSaved = false;
         public PembayaranSewa_Add()
         {
             InitializeComponent();
@@ -56,7 +57,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             conn.Close();
             command.Parameters.Clear();
             conn.Open();
-            command.CommandText = "select count(*) from pembayaran_sewa";
+            command.CommandText = "select max(id) from pembayaran_sewa";
             int max = Int32.Parse(command.ExecuteScalar().ToString()) + 1;
             no_kwitansi.Text = max.ToString();
 
@@ -119,7 +120,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                     }
                     int harga_total_sewa = harga * totalMonth;
                     harga_sewa.Text = "Rp." + harga_total_sewa.ToString();
-                    if (totalMonth >= 3)
+                    if (totalMonth > 3)
                     {
                         perlu_jaminan = true;
                     }
@@ -154,6 +155,18 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
                     cmd.ExecuteNonQuery();
+                    cmd.CommandText = "select id from penitipan where id = ?id_penitipan";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
+                    int id_penitipan = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    //membuka form baru untuk menyelesaikan pembayaran jaminan
+                    PembayaranJaminan pj = new PembayaranJaminan(id_penitipan);
+                    pj.ShowDialog();
+                    if (!pj.IsSimpan)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Gagal Melakukan Penyimpanan Pada Pembayaran Jaminan", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                        return;
+                    }
                 }
                 conn.Close();
                 cmd = new MySqlCommand("update kotak set terpakai = 1, booking = 0 where id = ?id", conn);
@@ -163,14 +176,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Pembayaran Sewa", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                //reset tampilan
-                registrasi = new Registrasi();
-                no_registrasi.Text = "-";
-                no_kotak.Text = "-";
-                nama_abu.Text = "-";
-                harga_sewa.Text = "Rp.";
-                datepickerAkhir.SelectedDate = null;
-                datepickerAwal.SelectedDate = null;
+                isSaved = true;
+                
             }
             catch (Exception)
             {
@@ -181,6 +188,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
 
         private void cetak_tanda_terima_pembayaran_abu_Click(object sender, RoutedEventArgs e)
         {
+            if (!isSaved)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Simpan Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
                 TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitansi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab));
@@ -191,6 +203,20 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
 
             }
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            //reset tampilan
+            registrasi = new Registrasi();
+            no_registrasi.Text = "-";
+            no_kotak.Text = "-";
+            nama_abu.Text = "-";
+            harga_sewa.Text = "Rp.";
+            datepickerAkhir.SelectedDate = null;
+            datepickerAwal.SelectedDate = null;
+            centang_bila_pembayaran.IsChecked = false;
+            isSaved = false;
         }
     }
     public class tandaTerimaPembayaranSewaData
