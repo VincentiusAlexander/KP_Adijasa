@@ -31,7 +31,8 @@
                     <RowDefinition Height="6*"/>
                     <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.ColumnSpan="2" Text="Penitipan Abu (EDIT/DELETE)" HorizontalAlignment="Center" FontSize="24"/>
+                <TextBlock Grid.ColumnSpan="2" Text="Penitipan Abu" HorizontalAlignment="Center" FontSize="24"/>
+                <TextBlock Grid.ColumnSpan="2" Text="(EDIT/DELETE)" HorizontalAlignment="Center" FontSize="24"/>
                 <Button x:Name="btn_cari_data_penitipan_abu" Content="Cari Data Lama" Grid.Row="1" HorizontalAlignment="Left" Click="btn_cari_data_penitipan_abu_Click" ></Button>
                 <Border BorderBrush="Gray" BorderThickness="2" Grid.Row="2" Grid.ColumnSpan="2" Margin="0 2">
                     <Grid Margin="6">
