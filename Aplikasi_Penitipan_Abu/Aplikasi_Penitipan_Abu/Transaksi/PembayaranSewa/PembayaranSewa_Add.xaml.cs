@@ -195,7 +195,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             }
             try
             {
-                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitansi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab));
+                string jangka_waktu = datepickerAwal.SelectedDate.Value.ToString("dd/MM/yyyy") + " - " + datepickerAkhir.SelectedDate.Value.ToString("dd/MM/yyyy");
+                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitansi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab, jangka_waktu));
                 tandaTerima.Show();
             }
             catch (Exception)
@@ -224,14 +225,16 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         public int no_kwitansi;
         public int no_registrasi;
         public string tanggal_pembayaran;
+        public string jangka_waktu;
         public string no_kotak;
         public string nama_abu;
         public string penanggung_jawab;
-        public tandaTerimaPembayaranSewaData(int noKwitansi, int noRegistrasi, string tanggalPembayaran, string noKotak, string namaAbu, string namaPenanggungJawab)
+        public tandaTerimaPembayaranSewaData(int noKwitansi, int noRegistrasi, string tanggalPembayaran, string noKotak, string namaAbu, string namaPenanggungJawab, string jangka_waktu)
         {
             no_kwitansi = noKwitansi;
             no_registrasi = noRegistrasi;
             tanggal_pembayaran = tanggalPembayaran;
+            this.jangka_waktu = jangka_waktu;
             no_kotak = noKotak;
             nama_abu = namaAbu;
             penanggung_jawab = namaPenanggungJawab;

@@ -28,6 +28,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             tanggal_pembayaran.Text = data.tanggal_pembayaran;
             nama_abu.Text = data.nama_abu;
             nama_penanggung_jawab.Text = data.nama_penanggung_jawab;
+            tanggal_tanda_tangan.Text += " "+ data.tanggal_pembayaran;
         }
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)

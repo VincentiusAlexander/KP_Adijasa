@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="PengambilanAbu_Add" Height="550.5">
+      Title="PengambilanAbu_Add" Height="592.5">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -66,8 +66,9 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Button x:Name="btnCetak" Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btnCetak_Click" FontSize="18"/>
-            <Button x:Name="btn_ambil_abu" Content="Ambil Abu" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btn_ambil_abu_Click" FontSize="18"/>
+            <Button x:Name="btn_ambil_abu" Content="Ambil Abu" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btn_ambil_abu_Click" FontSize="18" Margin="0 4"/>
+            <Button x:Name="btnCetak" Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btnCetak_Click" FontSize="18"/>
+            <Button x:Name="btnReset" DockPanel.Dock="Top" VerticalAlignment="Top" Content="Reset" HorizontalAlignment="Right" FontSize="18" Margin="0 4" Padding="6 0" Click="btnReset_Click"/>
         </DockPanel>
     </Grid>
 </Page>

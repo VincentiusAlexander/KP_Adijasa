@@ -8,10 +8,10 @@
         Title="TandaTerimaPengambilanAbuFix" Height="508.5" Width="800">
     <StackPanel Margin="12">
         <Button x:Name="btn" HorizontalAlignment="Right" Content="Print" Padding="4 2" Click="btn_Click"></Button>
-        <StackPanel HorizontalAlignment="Center">
-            <TextBlock Text="Yayasan Adi Jasa" FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBlock Text="JL. Demak No. 90 - 92" FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBlock Text="Surabaya" FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
+        <StackPanel HorizontalAlignment="Left">
+            <TextBlock Text="Yayasan Adi Jasa" FontSize="18" TextAlignment="Left"/>
+            <TextBlock Text="JL. Demak No. 90 - 92" FontSize="18" TextAlignment="Left"/>
+            <TextBlock Text="Surabaya" FontSize="18" TextAlignment="Left"/>
         </StackPanel>
         <TextBlock Text="Tanda Terima Pengambilan Abu" TextAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
         <TextBlock Text="Yang bertanda tangan dibawah ini, kami :" Margin="0 12" />

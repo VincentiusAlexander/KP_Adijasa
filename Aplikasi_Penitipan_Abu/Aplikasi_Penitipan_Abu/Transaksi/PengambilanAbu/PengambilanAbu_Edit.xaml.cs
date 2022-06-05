@@ -156,6 +156,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
 
         private void btnCetakTandaTerima_Click(object sender, RoutedEventArgs e)
         {
+            if (id_registrasi == -1)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
                 TandaTerimaPengambilanAbuFix tandaTerima = new TandaTerimaPengambilanAbuFix(new tandaTerimaPengambilanAbuData(nama_penanggung_jawab, alamat_penanggung_jawab, nomor_telp_penanggung_jawab, nama_abu, no_kotak, jenis_kelamin_abu, tanggal_wafat_abu.ToString("dd/MM/yyyy"), tanggal_kremasi_abu.ToString("dd/MM/yyyy")));
@@ -166,6 +171,21 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                 System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
 
             }
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            no_pengambilan_abu_txt.Text = "-";
+            alamat_penanggung_jawab_txt.Text = "-";
+            jenis_kelamin_abu_txt.Text = "-";
+            nama_abu_txt.Text = "-";
+            nama_penanggung_jawab_txt.Text = "-";
+            nomor_penanggung_jawab_txt.Text = "-";
+            no_kotak_abu_txt.Text = "-";
+            no_registrasi_txt.Text = "-";
+            tanggal_kremasi_abu_txt.Text = "-";
+            tanggal_wafat_abu_txt.Text = "-";
+            id_registrasi = -1;
         }
     }
 }

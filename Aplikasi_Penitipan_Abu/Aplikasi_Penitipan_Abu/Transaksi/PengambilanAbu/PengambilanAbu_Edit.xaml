@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="PengambilanAbu_Edit" Height="608">
+      Title="PengambilanAbu_Edit" Height="675.5">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -71,10 +71,9 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Button x:Name="btnCetakTandaTerima" Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btnCetakTandaTerima_Click" MinWidth="200" FontSize="18"/>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button x:Name="btn_delete" Content="Delete" Padding="6 0" Margin="6 0" Click="btn_delete_Click" FontSize="18"/>
-            </StackPanel>
+            <Button x:Name="btn_delete" DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Delete" Padding="6 0" Margin="0 4" Click="btn_delete_Click" FontSize="18"/>
+            <Button x:Name="btnCetakTandaTerima" Content="Cetak Tanda Terima Pengambilan Abu" HorizontalAlignment="right" VerticalAlignment="Top" DockPanel.Dock="Top" Padding="6 0" Click="btnCetakTandaTerima_Click"  FontSize="18" Margin="0 4"/>
+            <Button x:Name="btnReset" DockPanel.Dock="Top" VerticalAlignment="Top" Content="Reset" HorizontalAlignment="Right" FontSize="18" Margin="0 4" Padding="6 0" Click="btnReset_Click"/>
         </DockPanel>
     </Grid>
 </Page>

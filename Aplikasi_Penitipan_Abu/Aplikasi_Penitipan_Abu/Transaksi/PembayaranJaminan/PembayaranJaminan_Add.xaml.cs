@@ -24,6 +24,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
     {
         MySqlConnection conn;
         int selectedId = -1;
+        bool isSaved = false;
         public PembayaranJaminan_Add()
         {
             InitializeComponent();
@@ -111,12 +112,30 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             cmd.ExecuteNonQuery();
             conn.Close();
             System.Windows.Forms.MessageBox.Show("Berhasil melakukan pembayaran uang jaminan", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+            isSaved = true;
         }
 
         private void btnCetak_Click(object sender, RoutedEventArgs e)
         {
+            if (!isSaved)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Simpan Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
             TandaTerimaPembayaranJaminanFix a = new TandaTerimaPembayaranJaminanFix(new tandaTerimaPembayaranJaminanData(no_kwitansi_jaminan_txt.Text, no_registrasi_txt.Text, DateTime.Now.ToString("dd/MM/yyyy"), nama_penanggung_jawab_txt.Text, nama_abu_txt.Text, uang_jaminan_txt.Text));
             a.ShowDialog();
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            selectedId = -1;
+            nama_abu_txt.Text = "-";
+            nama_penanggung_jawab_txt.Text = "-";
+            no_kwitansi_jaminan_txt.Text = "-";
+            no_registrasi_txt.Text = "-";
+            uang_jaminan_txt.Text = "Rp.";
+            check_box_pembayaran_telah_diterima.IsChecked = false;
+            isSaved = false;
         }
     }
     public class tandaTerimaPembayaranJaminanData

@@ -221,7 +221,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             }
             try
             {
-                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitasi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab));
+                string jangka_waktu = tanggal_simpan_awal.SelectedDate.Value.ToString("dd/MM/yyyy") + " - " + tanggal_simpan_akhir.SelectedDate.Value.ToString("dd/MM/yyyy");
+                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitasi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab, jangka_waktu));
                 tandaTerima.Show();
             }
             catch (Exception)
