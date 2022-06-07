@@ -34,13 +34,13 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            btn_print.Visibility = Visibility.Hidden;
+            btn.Visibility = Visibility.Hidden;
             PrintDialog printDialog = new PrintDialog();
             if (printDialog.ShowDialog() == true)
             {
                 printDialog.PrintVisual(this, "Perpanjangan Sewa");
             }
-            btn_print.Visibility = Visibility.Visible;
+            btn.Visibility = Visibility.Visible;
         }
     }
 }

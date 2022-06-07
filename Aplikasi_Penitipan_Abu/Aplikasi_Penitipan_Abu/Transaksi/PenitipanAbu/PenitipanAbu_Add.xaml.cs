@@ -89,8 +89,12 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                 String notelp = tb_notelp_penanggung_jawab_satu_penitipan_abu.Text.ToString();
                 Kotak temp = (Kotak)listKotak[cb_no_kotak_penitipan_abu.SelectedIndex];
                 String kotak = temp.nama;
-                String tanggal_registrasi = DateTime.Now.ToString("dd MMMM yyyy");
-                TandaTerimaPenitipanAbuFix tandaTerimaPenitipanAbuFix = new TandaTerimaPenitipanAbuFix(nama, alamat, notelp, kotak, tanggal_registrasi);
+                String tanggal_registrasi = DateTime.Now.ToString("dd/m/yyyy");
+                String namaAbu = tb_nama_abu_penitipan_abu.Text.ToString();
+                String jk = cb_jk_abu_penitipan_abu.SelectedItem.ToString();
+                String tanggal_meninggal = dp_tgl_wafat_abu_penitipan_abu.SelectedDate.Value.ToString("dd/M/yyyy");
+                String tanggal_kremasi = dp_tgl_kremasi_abu_penitipan_abu.SelectedDate.Value.ToString("dd/M/yyyy");
+                TandaTerimaPenitipanAbuFix tandaTerimaPenitipanAbuFix = new TandaTerimaPenitipanAbuFix(nama, alamat, notelp, kotak, tanggal_registrasi, namaAbu, jk, tanggal_meninggal, tanggal_kremasi);
                 tandaTerimaPenitipanAbuFix.Show(); 
             }
         }

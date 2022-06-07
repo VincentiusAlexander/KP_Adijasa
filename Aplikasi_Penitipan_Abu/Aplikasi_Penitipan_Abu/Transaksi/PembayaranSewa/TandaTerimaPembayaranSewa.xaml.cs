@@ -30,7 +30,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             noKotak.Text = data.no_kotak;
             NamaAbu.Text = data.nama_abu;
             tempat_tanggal.Text = "Surabaya, " + data.tanggal_pembayaran;
-            keterangan.Text = "Sudah terima dari, " + data.penanggung_jawab +" untuk periode "+ data.jangka_waktu;
+            keterangan.Text = "Sudah terima dari " + data.penanggung_jawab +" untuk periode "+ data.jangka_waktu;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

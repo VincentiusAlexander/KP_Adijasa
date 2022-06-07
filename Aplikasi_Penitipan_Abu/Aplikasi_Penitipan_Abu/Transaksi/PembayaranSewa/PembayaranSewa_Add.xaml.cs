@@ -175,6 +175,14 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
+                cmd = new MySqlCommand("update penitipan set tanggal_titip = ?tanggal_titip, tanggal_ambil = ?tanggal_ambil where id = ?id", conn);
+                cmd.Parameters.AddWithValue("?tanggal_titip", tanggal_awal.ToString("yyyy-MM-dd HH:mm"));
+                cmd.Parameters.AddWithValue("?tanggal_ambil", tanggal_akhir.ToString("yyyy-MM-dd HH:mm"));
+                cmd.Parameters.AddWithValue("?id", registrasi.idRegistrasi);
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Pembayaran Sewa", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                 isSaved = true;
                 

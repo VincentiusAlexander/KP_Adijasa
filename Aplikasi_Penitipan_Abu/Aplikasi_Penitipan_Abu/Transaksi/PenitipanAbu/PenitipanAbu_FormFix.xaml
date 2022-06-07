@@ -60,7 +60,7 @@
                             <TextBlock Text="Alamat" MinWidth="120" FontSize="14" Grid.Column="0" Grid.Row="2" Margin="0 12 0 0"></TextBlock>
                             <TextBox BorderBrush="Gray"  BorderThickness="0 0 0 2" Grid.Column="1" Grid.Row="2"></TextBox>
                             <TextBlock Text="Jenis Kelamin" MinWidth="120" FontSize="14" Grid.Column="0" Grid.Row="3" Margin="0 12 0 0"></TextBlock>
-                            <TextBox BorderBrush="Gray" Text="Laki-Laki / Perempuan" VerticalAlignment="Bottom"  BorderThickness="0 0 0 0" Grid.Column="1" Grid.Row="3"></TextBox>
+                            <TextBox FontSize="14" BorderBrush="Gray" Text="Laki-Laki / Perempuan" VerticalAlignment="Bottom"  BorderThickness="0 0 0 0" Grid.Column="1" Grid.Row="3"></TextBox>
                             <TextBlock Text="Tanggal Lahir" MinWidth="120" FontSize="14" Grid.Column="0" Grid.Row="4" Margin="0 12 0 0"></TextBlock>
                             <TextBox BorderBrush="Gray" Text="" VerticalAlignment="Bottom"  BorderThickness="0 0 0 2" Grid.Column="1" Grid.Row="4"></TextBox>
                             <TextBlock Text="Tanggal Wafat" MinWidth="120" FontSize="14" Grid.Column="0" Grid.Row="5" Margin="0 12 0 0"></TextBlock>
@@ -149,14 +149,14 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Tanggal Penitipan" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Padding="0 0 12 0" Width="105"/>
-                    <TextBox BorderBrush="Gray" Text="" BorderThickness="0 0 0 2" Grid.Column="1" Grid.Row="0" Height="18"/>
-                    <TextBlock Text="Tanggal Pengembalian" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Padding="0 0 12 0" Width="175"/>
+                    <TextBlock FontSize="14" Text="Tanggal Penitipan" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Width="110"/>
+                    <TextBox BorderBrush="Gray" Text="" BorderThickness="0 0 0 2" Grid.Column="1" Grid.Row="0" Height="18" Grid.ColumnSpan="2" Margin="10,0,213,1"/>
+                    <TextBlock FontSize="14" Text="Tanggal Pengembalian" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Padding="0 0 12 0" Width="175"/>
                     <TextBox BorderBrush="Gray" Text="" BorderThickness="0 0 0 2" Grid.Column="3" Grid.Row="0" Height="18"/>
-                    <TextBlock Text="Demikian data di atas saya isi dengan sebenar - benarnya dan saya telah menyetujui segala tata tertib penitipan dan pengembalian abu jenazah" Grid.Row="1" Grid.ColumnSpan="4"  TextWrapping="Wrap" MaxWidth="600" TextAlignment="Left" HorizontalAlignment="Left" Margin="0 12 0 0"/>
+                    <TextBlock FontSize="14" Text="Demikian data di atas saya isi dengan sebenar - benarnya dan saya telah menyetujui segala tata tertib penitipan dan pengembalian abu jenazah" Grid.Row="1" Grid.ColumnSpan="4"  TextWrapping="Wrap" MaxWidth="741" TextAlignment="Left" HorizontalAlignment="Left" Margin="0 12 0 0" Width="741"/>
 
                     <StackPanel Grid.Row="2" Grid.ColumnSpan="4" Margin="50 20">
-                        <TextBlock Text="Surabaya," Height="80"></TextBlock>
+                        <TextBlock FontSize="14" Text="Surabaya," Height="80"></TextBlock>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>

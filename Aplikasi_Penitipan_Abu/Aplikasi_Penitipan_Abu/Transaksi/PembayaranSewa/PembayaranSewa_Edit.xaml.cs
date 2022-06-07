@@ -100,6 +100,29 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             cmd.Parameters.AddWithValue("?id", id_penitipan);
             nama_abu.Text = cmd.ExecuteScalar().ToString();
             conn.Close();
+            cmd = new MySqlCommand("select * from penitipan where id = ?id", conn);
+            cmd.Parameters.AddWithValue("?id", id_penitipan);
+            conn.Close();
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            int id_penanggung_jawab = -1;
+            while (reader.Read())
+            {
+                id_penanggung_jawab = reader.GetInt32(6);
+            }
+            reader.Close();
+            conn.Close();
+            cmd = new MySqlCommand("select * from penanggung_jawab where id = ?id", conn);
+            cmd.Parameters.AddWithValue("?id", id_penanggung_jawab);
+            conn.Close();
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                penanggung_jawab = reader.GetString(1);
+            }
+            reader.Close();
+            conn.Close();
             tanggal_simpan_awal.SelectedDate = tanggal_awal;
             tanggal_simpan_akhir.SelectedDate = tanggal_akhir;
             harga_total_sewa_txt.Text ="Rp."+ harga_total_sewa.ToString();
@@ -186,6 +209,26 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             conn.Close();
             conn.Open();
             cmd.ExecuteScalar();
+            conn.Close();
+            cmd = new MySqlCommand("select * from pembayaran_sewa where id = ?id", conn);
+            cmd.Parameters.AddWithValue("?id", idPembayaranSewa);
+            conn.Close();
+            conn.Open();
+            int id_penitipan = -1;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                id_penitipan = reader.GetInt32(1);
+            }
+            reader.Close();
+            conn.Close();
+            cmd = new MySqlCommand("update penitipan set tanggal_titip = ?tanggal_titip, tanggal_ambil = ?tanggal_ambil where id = ?id", conn);
+            cmd.Parameters.AddWithValue("?tanggal_titip", tanggal_awal.ToString("yyyy-MM-dd HH:mm"));
+            cmd.Parameters.AddWithValue("?tanggal_ambil", tanggal_akhir.ToString("yyyy-MM-dd HH:mm"));
+            cmd.Parameters.AddWithValue("?id", id_penitipan);
+            conn.Close();
+            conn.Open();
+            cmd.ExecuteNonQuery();
             conn.Close();
             System.Windows.Forms.MessageBox.Show("Edit Berhasil", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             resetTampilan();

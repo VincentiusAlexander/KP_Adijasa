@@ -31,8 +31,8 @@
                     <RowDefinition Height="6*"/>
                     <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.ColumnSpan="2" Text="Penitipan Abu" HorizontalAlignment="Center" FontSize="24"/>
-                <Button x:Name="btn_cetak_form_penitipan_abu" Content="Cetak Form Penitipan Abu" Grid.Row="1" HorizontalAlignment="Left" Click="btn_cetak_form_penitipan_abu_Click" ></Button>
+                <TextBlock FontWeight="Bold" Grid.ColumnSpan="2" Text="Penitipan Abu" HorizontalAlignment="Center" FontSize="24"/>
+                <Button FontSize="18" x:Name="btn_cetak_form_penitipan_abu" Content="Cetak Form Penitipan Abu" Grid.Row="1" HorizontalAlignment="Left" Click="btn_cetak_form_penitipan_abu_Click" ></Button>
                 <Border BorderBrush="Gray" BorderThickness="2" Grid.Row="2" Grid.ColumnSpan="2" Margin="0 2">
                     <Grid Margin="6">
                         <Grid.ColumnDefinitions>
@@ -51,73 +51,73 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Data Registrasi" Grid.Column="0" FontSize="14" FontWeight="SemiBold"></TextBlock>
-                        <TextBlock Text="No Registrasi" Grid.Column="0" Grid.Row="1"/>
-                        <TextBlock Text="Tanggal Registrasi" Grid.Column="0" Grid.Row="2"/>
-                        <TextBlock Text="Penyimpanan" Grid.Column="0" Grid.Row="3"/>
-                        <TextBlock Text="No Kotak" Grid.Column="0" Grid.Row="4"/>
-                        <TextBlock Text="Harga Kotak" Grid.Column="0" Grid.Row="5"/>
-                        <TextBlock x:Name="tb_noreg_penitipan_abu" Grid.Column="1" Grid.Row="1" Text="001"></TextBlock>
-                        <TextBlock x:Name="tb_tglreg_penitipan_abu" Grid.Column="1" Grid.Row="2" Text="12/08/2022"></TextBlock>
-                        <DatePicker x:Name="dp_tanggal_simpan_penitipan_abu" Grid.Row="3" Grid.Column="1" SelectedDateChanged="dp_tanggal_simpan_penitipan_abu_SelectedDateChanged"/>
-                        <TextBlock Text="s/d" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <DatePicker x:Name="dp_tanggal_ambil_penitipan_abu" Grid.Row="3" Grid.Column="3" SelectedDateChanged="dp_tanggal_ambil_penitipan_abu_SelectedDateChanged"/>
-                        <ComboBox x:Name="cb_no_kotak_penitipan_abu" Grid.Row="4" Grid.Column="1" SelectionChanged="cb_no_kotak_penitipan_abu_SelectionChanged"/>
-                        <TextBlock Text="Rp." Grid.Column="1" Grid.Row="5"/>
-                        <TextBlock x:Name="tb_harga_kotak_penitipan_abu" Text="100.000,00" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Width="57"/>
+                        <TextBlock FontSize="18" Text="Data Registrasi" Grid.Column="0" FontWeight="SemiBold"></TextBlock>
+                        <TextBlock FontSize="18" Text="No Registrasi" Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock FontSize="18" Text="Tanggal Registrasi" Grid.Column="0" Grid.Row="2"/>
+                        <TextBlock FontSize="18" Text="Penyimpanan" Grid.Column="0" Grid.Row="3"/>
+                        <TextBlock FontSize="18" Text="No Kotak" Grid.Column="0" Grid.Row="4"/>
+                        <TextBlock FontSize="18" Text="Harga Kotak" Grid.Column="0" Grid.Row="5"/>
+                        <TextBlock FontSize="18" x:Name="tb_noreg_penitipan_abu" Grid.Column="1" Grid.Row="1" Text="001"></TextBlock>
+                        <TextBlock FontSize="18" x:Name="tb_tglreg_penitipan_abu" Grid.Column="1" Grid.Row="2" Text="12/08/2022"></TextBlock>
+                        <DatePicker FontSize="18" x:Name="dp_tanggal_simpan_penitipan_abu" Grid.Row="3" Grid.Column="1" SelectedDateChanged="dp_tanggal_simpan_penitipan_abu_SelectedDateChanged"/>
+                        <TextBlock FontSize="18" Text="s/d" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <DatePicker FontSize="18" x:Name="dp_tanggal_ambil_penitipan_abu" Grid.Row="3" Grid.Column="3" SelectedDateChanged="dp_tanggal_ambil_penitipan_abu_SelectedDateChanged"/>
+                        <ComboBox FontSize="18" x:Name="cb_no_kotak_penitipan_abu" Grid.Row="4" Grid.Column="1" SelectionChanged="cb_no_kotak_penitipan_abu_SelectionChanged"/>
+                        <TextBlock FontSize="18" Text="Rp." Grid.Column="1" Grid.Row="5"/>
+                        <TextBlock FontSize="18" x:Name="tb_harga_kotak_penitipan_abu" Text="100.000,00" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Width="57"/>
                     </Grid>
                 </Border>
                 <Border Grid.Row="3" BorderBrush="Gray" BorderThickness="2" Margin="0 6 6 6">
                     <StackPanel Orientation="Vertical" Margin="4">
-                        <TextBlock Text="Data Abu" FontSize="14" FontWeight="SemiBold" Margin="4 2"/>
-                        <TextBlock Text="Nama Abu" Margin="4 2"/>
-                        <TextBox x:Name="tb_nama_abu_penitipan_abu"  Margin="4 2"/>
-                        <TextBlock Text="Nama Alternatif Abu" Margin="4 2"/>
-                        <TextBox x:Name="tb_nama_alternatif_abu_penitipan_abu"  Margin="4 2"/>
-                        <TextBlock Text="Alamat Abu" Margin="4 2"/>
-                        <TextBox x:Name="tb_alamat_abu_penitipan_abu"  Margin="4 2"/>
-                        <TextBlock Text="Jenis Kelamin" Margin="4 2"/>
-                        <ComboBox x:Name="cb_jk_abu_penitipan_abu" Margin="4 2"/>
-                        <TextBlock Text="Tanggal Lahir" Margin="4 2"/>
-                        <DatePicker x:Name="dp_tgl_lahir_abu_penitipan_abu" Margin="4 2" SelectedDateChanged="dp_tgl_lahir_abu_penitipan_abu_SelectedDateChanged"/>
-                        <TextBlock Text="Tanggal Wafat" Margin="4 2"/>
-                        <DatePicker x:Name="dp_tgl_wafat_abu_penitipan_abu" Margin="4 2" SelectedDateChanged="dp_tgl_wafat_abu_penitipan_abu_SelectedDateChanged"/>
-                        <TextBlock Text="Tanggal Kremasi" Margin="4 2"/>
-                        <DatePicker x:Name="dp_tgl_kremasi_abu_penitipan_abu" Margin="4 2" SelectedDateChanged="dp_tgl_kremasi_abu_penitipan_abu_SelectedDateChanged"/>
-                        <TextBlock Text="Keterangan" Margin="4 2"/>
-                        <TextBox x:Name="tb_keterangan_abu_penitipan_abu" Margin="4 2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                        <TextBlock Text="Data Abu" FontSize="18" FontWeight="SemiBold" Margin="4 2"/>
+                        <TextBlock FontSize="18" Text="Nama Abu" Margin="4 2"/>
+                        <TextBox FontSize="18" x:Name="tb_nama_abu_penitipan_abu"  Margin="4 2"/>
+                        <TextBlock FontSize="18" Text="Nama Alternatif Abu" Margin="4 2"/>
+                        <TextBox FontSize="18" x:Name="tb_nama_alternatif_abu_penitipan_abu"  Margin="4 2"/>
+                        <TextBlock FontSize="18" Text="Alamat Abu" Margin="4 2"/>
+                        <TextBox FontSize="18" x:Name="tb_alamat_abu_penitipan_abu"  Margin="4 2"/>
+                        <TextBlock FontSize="18" Text="Jenis Kelamin" Margin="4 2"/>
+                        <ComboBox FontSize="18" x:Name="cb_jk_abu_penitipan_abu" Margin="4 2"/>
+                        <TextBlock FontSize="18" Text="Tanggal Lahir" Margin="4 2"/>
+                        <DatePicker FontSize="18" x:Name="dp_tgl_lahir_abu_penitipan_abu" Margin="4 2" SelectedDateChanged="dp_tgl_lahir_abu_penitipan_abu_SelectedDateChanged"/>
+                        <TextBlock FontSize="18" Text="Tanggal Wafat" Margin="4 2"/>
+                        <DatePicker FontSize="18" x:Name="dp_tgl_wafat_abu_penitipan_abu" Margin="4 2" SelectedDateChanged="dp_tgl_wafat_abu_penitipan_abu_SelectedDateChanged"/>
+                        <TextBlock FontSize="18" Text="Tanggal Kremasi" Margin="4 2"/>
+                        <DatePicker FontSize="18" x:Name="dp_tgl_kremasi_abu_penitipan_abu" Margin="4 2" SelectedDateChanged="dp_tgl_kremasi_abu_penitipan_abu_SelectedDateChanged"/>
+                        <TextBlock FontSize="18" Text="Keterangan" Margin="4 2"/>
+                        <TextBox FontSize="18" x:Name="tb_keterangan_abu_penitipan_abu" Margin="4 2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
                     </StackPanel>
                 </Border >
                 <StackPanel Grid.Row="3" Grid.Column="1" Margin="6 6 0 6">
                     <Border BorderBrush="Gray" BorderThickness="2">
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Penanggung Jawab 1" FontSize="14" FontWeight="SemiBold" Margin="4 2"/>
-                            <TextBlock Text="Nama" Margin="4 2"/>
-                            <TextBox x:Name="tb_nama_penanggung_jawab_satu_penitipan_abu"  Margin="4 2"/>
-                            <TextBlock Text="Alamat" Margin="4 2"/>
-                            <TextBox x:Name="tb_alamat_penanggung_jawab_satu_penitipan_abu" Margin="4 2"/>
-                            <TextBlock Text="Nomor yang dapat dihubungi" Margin="4 2"/>
-                            <TextBox x:Name="tb_notelp_penanggung_jawab_satu_penitipan_abu" Margin="4 2" TextChanged="tb_notelp_penanggung_jawab_satu_penitipan_abu_TextChanged"/>
-                            <TextBlock Text="Relasi" Margin="4 2"/>
-                            <TextBox x:Name="tb_relasi_penanggung_jawab_satu_penitipan_abu" Margin="4 2"/>
+                            <TextBlock FontSize="18" Text="Penanggung Jawab 1" FontWeight="SemiBold" Margin="4 2"/>
+                            <TextBlock FontSize="18" Text="Nama" Margin="4 2"/>
+                            <TextBox FontSize="18" x:Name="tb_nama_penanggung_jawab_satu_penitipan_abu"  Margin="4 2"/>
+                            <TextBlock FontSize="18" Text="Alamat" Margin="4 2"/>
+                            <TextBox FontSize="18" x:Name="tb_alamat_penanggung_jawab_satu_penitipan_abu" Margin="4 2"/>
+                            <TextBlock FontSize="18" Text="Nomor yang dapat dihubungi" Margin="4 2"/>
+                            <TextBox FontSize="18" x:Name="tb_notelp_penanggung_jawab_satu_penitipan_abu" Margin="4 2" TextChanged="tb_notelp_penanggung_jawab_satu_penitipan_abu_TextChanged"/>
+                            <TextBlock FontSize="18" Text="Hubungan" Margin="4 2"/>
+                            <TextBox FontSize="18" x:Name="tb_relasi_penanggung_jawab_satu_penitipan_abu" Margin="4 2"/>
                         </StackPanel>
                     </Border>
                     <Border BorderBrush="Gray" BorderThickness="2" Margin="0 4">
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Penanggung Jawab 2" FontSize="14" FontWeight="SemiBold" Margin="4 2"/>
-                            <TextBlock Text="Nama" Margin="4 2"/>
-                            <TextBox x:Name="tb_nama_penanggung_jawab_dua_penitipan_abu" Margin="4 2"/>
-                            <TextBlock Text="Alamat" Margin="4 2"/>
-                            <TextBox x:Name="tb_alamat_penanggung_jawab_dua_penitipan_abu" Margin="4 2"/>
-                            <TextBlock Text="Nomor yang dapat dihubungi" Margin="4 2"/>
-                            <TextBox x:Name="tb_notelp_penanggung_jawab_dua_penitipan_abu" Margin="4 2" TextChanged="tb_notelp_penanggung_jawab_dua_penitipan_abu_TextChanged"/>
-                            <TextBlock Text="Relasi" Margin="4 2"/>
-                            <TextBox x:Name="tb_relasi_penanggung_jawab_dua_penitipan_abu" Margin="4 2"/>
+                            <TextBlock FontSize="18" Text="Penanggung Jawab 2" FontWeight="SemiBold" Margin="4 2"/>
+                            <TextBlock FontSize="18" Text="Nama" Margin="4 2"/>
+                            <TextBox FontSize="18" x:Name="tb_nama_penanggung_jawab_dua_penitipan_abu" Margin="4 2"/>
+                            <TextBlock FontSize="18" Text="Alamat" Margin="4 2"/>
+                            <TextBox FontSize="18" x:Name="tb_alamat_penanggung_jawab_dua_penitipan_abu" Margin="4 2"/>
+                            <TextBlock FontSize="18" Text="Nomor yang dapat dihubungi" Margin="4 2"/>
+                            <TextBox FontSize="18" x:Name="tb_notelp_penanggung_jawab_dua_penitipan_abu" Margin="4 2" TextChanged="tb_notelp_penanggung_jawab_dua_penitipan_abu_TextChanged"/>
+                            <TextBlock FontSize="18" Text="Hubungan" Margin="4 2"/>
+                            <TextBox FontSize="18" x:Name="tb_relasi_penanggung_jawab_dua_penitipan_abu" Margin="4 2"/>
                         </StackPanel>
                     </Border>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button x:Name="btn_save_penitipan_abu" Content="Save" Margin="4 0" Click="btn_save_penitipan_abu_Click"/>
-                        <Button x:Name="btn_cetak_tanda_terima_abu" Content="Cetak Tanda Terima Abu" Margin="4 0" Click="btn_cetak_tanda_terima_abu_Click"/>
+                        <Button FontSize="18" x:Name="btn_save_penitipan_abu" Content="Save" Margin="4 0" Click="btn_save_penitipan_abu_Click"/>
+                        <Button FontSize="18" x:Name="btn_cetak_tanda_terima_abu" Content="Cetak Tanda Terima Abu" Margin="4 0" Click="btn_cetak_tanda_terima_abu_Click"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

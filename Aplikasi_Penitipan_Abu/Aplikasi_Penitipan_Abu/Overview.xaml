@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="Overview">
 
     <Grid>
@@ -20,32 +20,32 @@
         <DockPanel Grid.Row="1" Margin="6">
             <Border BorderBrush="Gray" BorderThickness="2">
                 <DockPanel>
-                    <TextBlock Text="Filter" Margin="2" DockPanel.Dock="Top"></TextBlock>
+                    <TextBlock FontSize="18" Text="Filter" Margin="2" DockPanel.Dock="Top"></TextBlock>
                     <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="2">
                         <DockPanel Margin="4">
-                            <TextBlock Text="Kategori" DockPanel.Dock="Top"></TextBlock>
-                            <ComboBox x:Name="cb_kategori" DockPanel.Dock="Top" Margin="0 1"/>
-                            <Button x:Name="filter_kategori" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Kategori" Click="filter_kategori_Click"/>
+                            <TextBlock FontSize="18" Text="Kategori" DockPanel.Dock="Top"></TextBlock>
+                            <ComboBox FontSize="18" x:Name="cb_kategori" DockPanel.Dock="Top" Margin="0 1"/>
+                            <Button FontSize="18" x:Name="filter_kategori" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Kategori" Click="filter_kategori_Click"/>
                         </DockPanel>
                     </Border>
                     <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="2">
                         <DockPanel Margin="4">
-                            <TextBlock Text="Kotak" DockPanel.Dock="Top"></TextBlock>
-                            <RadioButton x:Name="terisi" DockPanel.Dock="Top" Content="Kotak Terisi"/>
-                            <RadioButton x:Name="kosong" DockPanel.Dock="Top" Content="Kotak Kosong"/>
-                            <Button x:Name="filter_kotak" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Kotak" Click="filter_kotak_Click"/>
+                            <TextBlock FontSize="18" Text="Kotak" DockPanel.Dock="Top"></TextBlock>
+                            <RadioButton FontSize="18" x:Name="terisi" DockPanel.Dock="Top" Content="Kotak Terisi"/>
+                            <RadioButton FontSize="18" x:Name="kosong" DockPanel.Dock="Top" Content="Kotak Kosong"/>
+                            <Button FontSize="18" x:Name="filter_kotak" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Kotak" Click="filter_kotak_Click"/>
                         </DockPanel>
                     </Border>
                     <Border BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top" Margin="2">
                         <DockPanel Margin="4">
-                            <TextBlock Text="Tanggal" DockPanel.Dock="Top"></TextBlock>
-                            <ComboBox x:Name="kriteria" DockPanel.Dock="Top" Margin="0 1"/>
-                            <ComboBox x:Name="waktu" DockPanel.Dock="Top" Margin="0 1"/>
-                            <Button x:Name="filter_tanggal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Tanggal" Click="filter_tanggal_Click"/>
+                            <TextBlock FontSize="18" Text="Tanggal" DockPanel.Dock="Top"></TextBlock>
+                            <ComboBox FontSize="18" x:Name="kriteria" DockPanel.Dock="Top" Margin="0 1"/>
+                            <ComboBox FontSize="18" x:Name="waktu" DockPanel.Dock="Top" Margin="0 1"/>
+                            <Button FontSize="18" x:Name="filter_tanggal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="1" Content="Filter Tanggal" Click="filter_tanggal_Click"/>
                         </DockPanel>
                     </Border>
                     <StackPanel DockPanel.Dock="Bottom"   HorizontalAlignment="Right" VerticalAlignment="Top">
-                        <Button x:Name="reset_filter" Content="Reset Filter" Padding="15 2" Margin="4" Click="reset_filter_Click"/>
+                        <Button FontSize="18" x:Name="reset_filter" Content="Reset Filter" Padding="15 2" Margin="4" Click="reset_filter_Click"/>
                     </StackPanel>
                 </DockPanel>
             </Border>
@@ -61,14 +61,14 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="kotak_kosong" Grid.Row="0" Grid.Column="0" Text="Kotak Kosong :" VerticalAlignment="Center"/>
-                <TextBlock x:Name="kotak_terisi" Grid.Row="0" Grid.Column="1" Text="Kotak Terisi :" VerticalAlignment="Center"/>
+                <TextBlock FontSize="18" x:Name="kotak_kosong" Grid.Row="0" Grid.Column="0" Text="Kotak Kosong :" VerticalAlignment="Center"/>
+                <TextBlock FontSize="18" x:Name="kotak_terisi" Grid.Row="0" Grid.Column="1" Text="Kotak Terisi :" VerticalAlignment="Center"/>
                 <DockPanel Grid.Row="0" Grid.Column="2">
-                    <TextBlock Text="Pencarian : "/>
+                    <TextBlock FontSize="18" Text="Pencarian : "/>
                     <Image Source="search_image.png" ></Image>
                     <TextBox x:Name="tb_pencarian" TextChanged="tb_pencarian_TextChanged"/>
                 </DockPanel>
-                <DataGrid x:Name="dtGrid" Grid.ColumnSpan="3" Grid.Row="1" Margin="0 6 0 0"></DataGrid>
+                <DataGrid FontSize="18" x:Name="dtGrid" Grid.ColumnSpan="3" Grid.Row="1" Margin="0 6 0 0"></DataGrid>
             </Grid>
         </DockPanel>
     </Grid>

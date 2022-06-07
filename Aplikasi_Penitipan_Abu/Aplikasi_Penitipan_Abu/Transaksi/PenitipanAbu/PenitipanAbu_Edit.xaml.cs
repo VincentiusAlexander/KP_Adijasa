@@ -327,7 +327,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
             Kotak temp = (Kotak)listKotak[cb_kotak.SelectedIndex];
             String kotak = temp.nama;
             String tanggal_registrasi = tb_tgl_registrasi.Text;
-            TandaTerimaPenitipanAbuFix tandaTerimaPenitipanAbuFix = new TandaTerimaPenitipanAbuFix(nama, alamat, notelp, kotak, tanggal_registrasi);
+            String namaAbu = tb_nama_abu.Text.ToString();
+            String jk = cb_jk.SelectedItem.ToString();
+            String tanggal_meninggal = dp_tanggal_wafat.SelectedDate.Value.ToString("dd/M/yyyy");
+            String tanggal_kremasi = dp_tanggal_kremasi.SelectedDate.Value.ToString("dd/M/yyyy");
+            TandaTerimaPenitipanAbuFix tandaTerimaPenitipanAbuFix = new TandaTerimaPenitipanAbuFix(nama, alamat, notelp, kotak, tanggal_registrasi, namaAbu, jk, tanggal_meninggal, tanggal_kremasi);
             tandaTerimaPenitipanAbuFix.Show();
         }
 
