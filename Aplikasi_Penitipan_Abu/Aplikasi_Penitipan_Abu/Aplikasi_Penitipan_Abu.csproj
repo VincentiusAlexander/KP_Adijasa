@@ -185,6 +185,9 @@
     <Compile Include="Transaksi\PenitipanAbu\TandaTerimaPenitipanAbuFix.xaml.cs">
       <DependentUpon>TandaTerimaPenitipanAbuFix.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\PerpanjanganSewa\PembayaranJaminanPerpanjangan.xaml.cs">
+      <DependentUpon>PembayaranJaminanPerpanjangan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaksi\PerpanjanganSewa\PencarianPembayaranSewaPerpanjangan.xaml.cs">
       <DependentUpon>PencarianPembayaranSewaPerpanjangan.xaml</DependentUpon>
     </Compile>
@@ -319,6 +322,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Transaksi\PenitipanAbu\TandaTerimaPenitipanAbuFix.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\PerpanjanganSewa\PembayaranJaminanPerpanjangan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
