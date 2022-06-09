@@ -31,7 +31,9 @@ CREATE TABLE `data_abu` (
   `tanggal_kremasi` date NOT NULL,
   `keterangan` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `data_abu` */
 
 /*Table structure for table `jaminan` */
 
@@ -39,12 +41,15 @@ DROP TABLE IF EXISTS `jaminan`;
 
 CREATE TABLE `jaminan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_penitipan` varchar(255) NOT NULL,
+  `kode_jaminan` varchar(255) NOT NULL,
+  `id_penitipan` int(11) NOT NULL,
   `total_jaminan` int(11) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = belum terbayar, 1 = sudah terbayar',
   `dikembalikan` int(1) NOT NULL DEFAULT 0 COMMENT '0 = belum, 1 = sudah',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `jaminan` */
 
 /*Table structure for table `kategori` */
 
@@ -56,7 +61,9 @@ CREATE TABLE `kategori` (
   `harga` int(255) NOT NULL,
   `status` int(1) DEFAULT 0 COMMENT '0 == Not Deleted, 1 == Deleted',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `kategori` */
 
 /*Table structure for table `kotak` */
 
@@ -70,7 +77,9 @@ CREATE TABLE `kotak` (
   `terpakai` int(1) DEFAULT 0 COMMENT '0 == Not used, 1 == Used',
   `booking` int(1) DEFAULT 0 COMMENT '0 == Not booked, 1 == Booked',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `kotak` */
 
 /*Table structure for table `pembayaran_sewa` */
 
@@ -78,6 +87,7 @@ DROP TABLE IF EXISTS `pembayaran_sewa`;
 
 CREATE TABLE `pembayaran_sewa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_penitipan` varchar(255) NOT NULL,
   `id_penitipan` int(11) NOT NULL,
   `id_kotak` int(11) NOT NULL,
   `harga_kotak` int(11) NOT NULL,
@@ -88,10 +98,10 @@ CREATE TABLE `pembayaran_sewa` (
   `tanggal_diambil` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_penitipan` (`id_penitipan`),
-  KEY `id_kotak` (`id_kotak`),
-  CONSTRAINT `pembayaran_sewa_ibfk_1` FOREIGN KEY (`id_penitipan`) REFERENCES `penitipan` (`id`),
-  CONSTRAINT `pembayaran_sewa_ibfk_2` FOREIGN KEY (`id_kotak`) REFERENCES `kotak` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+  KEY `id_kotak` (`id_kotak`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `pembayaran_sewa` */
 
 /*Table structure for table `penanggung_jawab` */
 
@@ -104,7 +114,9 @@ CREATE TABLE `penanggung_jawab` (
   `nomor_telp` varchar(55) NOT NULL,
   `relasi` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `penanggung_jawab` */
 
 /*Table structure for table `pengambilan_abu` */
 
@@ -112,11 +124,14 @@ DROP TABLE IF EXISTS `pengambilan_abu`;
 
 CREATE TABLE `pengambilan_abu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_pengambilan` varchar(255) DEFAULT NULL,
   `id_penitipan` int(11) NOT NULL,
   `tanggal_pengambilan` date NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = deleted, 1 = not-deleted',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `pengambilan_abu` */
 
 /*Table structure for table `penitipan` */
 
@@ -124,6 +139,7 @@ DROP TABLE IF EXISTS `penitipan`;
 
 CREATE TABLE `penitipan` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
+  `kode_penitipan` varchar(255) DEFAULT NULL,
   `tanggal_registrasi` date NOT NULL,
   `tanggal_titip` date DEFAULT NULL,
   `tanggal_ambil` date DEFAULT NULL,
@@ -133,7 +149,9 @@ CREATE TABLE `penitipan` (
   `penanggung_jawab_dua_id` int(11) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `penitipan` */
 
 /*Table structure for table `users` */
 
@@ -145,7 +163,9 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `role` int(1) NOT NULL COMMENT '1 = admin, 0 = staff',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `users` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
