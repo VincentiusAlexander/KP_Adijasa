@@ -44,7 +44,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="16" Text="Tanggal Kremasi" MinWidth="200"/>
                 <TextBlock FontSize="16" Text="-" x:Name="tb_tgl_kremasi" MinWidth="200"/>
-                <TextBlock FontSize="16" Text="di KEPUTIH"/>
+                <TextBlock FontSize="16" Text="kremasi di KEPUTIH"/>
             </StackPanel>
             <TextBlock FontSize="16" x:Name="tb_Keterangan" Text="Pihak Adijasa tidak keberatan abu tersebut ditempatkan di kotak no. (A5) dengan syarat pihak keluarga (penanggung jawab) harus menaati tata tertib yayasan adijasa" MaxWidth="750" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12"/>
             <Grid Margin="24 0">
