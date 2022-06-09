@@ -41,11 +41,11 @@ DROP TABLE IF EXISTS `jaminan`;
 
 CREATE TABLE `jaminan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kode_jaminan` varchar(255) NOT NULL,
   `id_penitipan` int(11) NOT NULL,
   `total_jaminan` int(11) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = belum terbayar, 1 = sudah terbayar',
   `dikembalikan` int(1) NOT NULL DEFAULT 0 COMMENT '0 = belum, 1 = sudah',
+  `kode_jaminan` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -87,7 +87,6 @@ DROP TABLE IF EXISTS `pembayaran_sewa`;
 
 CREATE TABLE `pembayaran_sewa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kode_penitipan` varchar(255) NOT NULL,
   `id_penitipan` int(11) NOT NULL,
   `id_kotak` int(11) NOT NULL,
   `harga_kotak` int(11) NOT NULL,
@@ -96,6 +95,7 @@ CREATE TABLE `pembayaran_sewa` (
   `tanggal_akhir` date NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0,
   `tanggal_diambil` date DEFAULT NULL,
+  `kode_penitipan` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_penitipan` (`id_penitipan`),
   KEY `id_kotak` (`id_kotak`)
@@ -124,10 +124,10 @@ DROP TABLE IF EXISTS `pengambilan_abu`;
 
 CREATE TABLE `pengambilan_abu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kode_pengambilan` varchar(255) DEFAULT NULL,
   `id_penitipan` int(11) NOT NULL,
   `tanggal_pengambilan` date NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = deleted, 1 = not-deleted',
+  `kode_pengambilan` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -139,7 +139,6 @@ DROP TABLE IF EXISTS `penitipan`;
 
 CREATE TABLE `penitipan` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `kode_penitipan` varchar(255) DEFAULT NULL,
   `tanggal_registrasi` date NOT NULL,
   `tanggal_titip` date DEFAULT NULL,
   `tanggal_ambil` date DEFAULT NULL,
@@ -148,6 +147,7 @@ CREATE TABLE `penitipan` (
   `penanggung_jawab_satu_id` int(11) NOT NULL,
   `penanggung_jawab_dua_id` int(11) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
+  `kode_penitipan` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
