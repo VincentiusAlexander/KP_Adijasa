@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu"
         mc:Ignorable="d"
-        Title="TandaTerimaPengambilanAbuFix" Height="508.5" Width="800">
+        Title="TandaTerimaPengambilanAbuFix" Height="659.5" Width="800">
     <StackPanel Margin="12">
         <Button x:Name="btn" HorizontalAlignment="Right" Content="Print" Padding="4 2" Click="btn_Click"></Button>
         <StackPanel HorizontalAlignment="Left">
@@ -14,37 +14,37 @@
             <TextBlock Text="Surabaya" FontSize="18" TextAlignment="Left"/>
         </StackPanel>
         <TextBlock Text="Tanda Terima Pengambilan Abu" TextAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
-        <TextBlock Text="Yang bertanda tangan dibawah ini, kami :" Margin="0 12" />
+        <TextBlock Text="Yang bertanda tangan dibawah ini, kami :" Margin="0 12" FontSize="18" />
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Nama Penanggung Jawab" MinWidth="200"/>
-            <TextBlock x:Name="nama_penanggung_jawab" Text="-" MinWidth="200"/>
+            <TextBlock Text="Nama Penanggung Jawab" MinWidth="300" FontSize="18"/>
+            <TextBlock x:Name="nama_penanggung_jawab" Text="-" MinWidth="200" FontSize="18"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Alamat Penanggung Jawab" MinWidth="200"/>
-            <TextBlock x:Name="alamat_penanggung_jawab" Text="-" MinWidth="200"/>
+            <TextBlock Text="Alamat Penanggung Jawab" MinWidth="300" FontSize="18"/>
+            <TextBlock x:Name="alamat_penanggung_jawab" Text="-" MinWidth="200" FontSize="18"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Nomor Yang Dapat Dihubungi " MinWidth="200"/>
-            <TextBlock x:Name="no_telp_penanggung_jawab" Text="-" MinWidth="200"/>
+            <TextBlock Text="Nomor Yang Dapat Dihubungi " MinWidth="300" FontSize="18"/>
+            <TextBlock x:Name="no_telp_penanggung_jawab" Text="-" MinWidth="200" FontSize="18"/>
         </StackPanel>
-        <TextBlock Text="Dengan ini, kami telah menitipkan abu jenazah pada tanggal 29 maret 2022" MaxWidth="600" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12 0 2"/>
+        <TextBlock Text="Dengan ini, kami telah menitipkan abu jenazah pada tanggal 29 maret 2022" MaxWidth="600" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12 0 2" FontSize="18"/>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Nama Abu" MinWidth="200"/>
-            <TextBlock x:Name="nama_abu" Text="-" MinWidth="200"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Jenis Kelamin" MinWidth="200"/>
-            <TextBlock x:Name="jenis_kelamin_abu" Text="-" MinWidth="200"/>
+            <TextBlock Text="Nama Abu" MinWidth="300" FontSize="18"/>
+            <TextBlock x:Name="nama_abu" Text="-" MinWidth="200" FontSize="18"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Tanggal Wafat" MinWidth="200"/>
-            <TextBlock x:Name="tanggal_wafat" Text="-" MinWidth="200"/>
+            <TextBlock Text="Jenis Kelamin" MinWidth="300" FontSize="18"/>
+            <TextBlock x:Name="jenis_kelamin_abu" Text="-" MinWidth="200" FontSize="18"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Tanggal Kremasi" MinWidth="200"/>
-            <TextBlock x:Name="tanggal_kremasi" Text="-" MinWidth="200"/>
+            <TextBlock Text="Tanggal Wafat" MinWidth="300" FontSize="18"/>
+            <TextBlock x:Name="tanggal_wafat" Text="-" MinWidth="200" FontSize="18"/>
         </StackPanel>
-        <TextBlock x:Name="pernyataan_no_kotak" Text="Pihak Keluarga (penanggung jawab) menyatakan bahwa abu titipan di kotak no.(-) tersebut telah kami terima dengan baik" MaxWidth="600" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Tanggal Kremasi" MinWidth="300" FontSize="18"/>
+            <TextBlock x:Name="tanggal_kremasi" Text="-" MinWidth="200" FontSize="18"/>
+        </StackPanel>
+        <TextBlock x:Name="pernyataan_no_kotak" Text="Pihak Keluarga (penanggung jawab) menyatakan bahwa abu titipan di kotak no.(-) tersebut telah kami terima dengan baik" MaxWidth="600" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12" FontSize="18"/>
         <Grid Margin="24 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200*"/>
@@ -52,16 +52,16 @@
                 <ColumnDefinition Width="200*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <TextBlock Text="Menyetujui" TextAlignment="Center"/>
-                <TextBlock Text="Adi (Pengurus Yayasan Adi Jasa)" Margin="0 0 0 40" TextAlignment="Center"/>
-                <TextBox BorderThickness="0 0 0 2" MaxWidth="250" />
+                <TextBlock Text="Menyetujui" TextAlignment="Center" FontSize="18"/>
+                <TextBlock Text="Adi (Pengurus Yayasan Adi Jasa)" Margin="0 0 0 40" TextAlignment="Center" FontSize="18"/>
+                <TextBox BorderThickness="0 0 0 2" MaxWidth="250" FontSize="18" />
             </StackPanel>
             <StackPanel Grid.Column="2">
                 <StackPanel Margin="26 0">
-                    <TextBlock Text="Surabaya," TextAlignment="Left" HorizontalAlignment="Left" />
-                    <TextBlock Text="Penanggung Jawab" Margin="0 0 0 40" TextAlignment="Center" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Surabaya," TextAlignment="Left" HorizontalAlignment="Left" FontSize="18" />
+                    <TextBlock Text="Penanggung Jawab" Margin="0 0 0 40" TextAlignment="Center" HorizontalAlignment="Left" FontSize="18"/>
                 </StackPanel>
-                <TextBox BorderThickness="0 0 0 2" MaxWidth="250" />
+                <TextBox BorderThickness="0 0 0 2" MaxWidth="250" FontSize="18" />
             </StackPanel>
         </Grid>
     </StackPanel>
