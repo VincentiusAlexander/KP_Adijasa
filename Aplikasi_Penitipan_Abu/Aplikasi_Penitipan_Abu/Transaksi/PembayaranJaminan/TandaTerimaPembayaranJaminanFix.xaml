@@ -71,8 +71,12 @@
                 <TextBlock x:Name="nama_penanggung_jawab" Text="-" MinWidth="200" Grid.ColumnSpan="2" FontSize="16"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Row="1">
-                <TextBlock Text="Uang Jaminan" MinWidth="200" FontSize="16" />
-                <TextBlock x:Name="uang_jaminan" Text="-" Grid.Row="2" FontSize="16" Grid.ColumnSpan="2"/>
+                <TextBlock Text="Banyaknya Uang" MinWidth="200" FontSize="16" />
+                <TextBlock x:Name="banyaknya_uang" Text="-" Grid.Row="2" FontSize="16" Grid.ColumnSpan="2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <TextBlock Text="Rp." MinWidth="20" FontSize="16"/>
+                <TextBox x:Name="uang_rupiah" TextAlignment="Right" Text="-" MinWidth="200" FontSize="16" BorderThickness="0,0,0,2"/>
             </StackPanel>
         </Grid>
         <Grid Margin="24 10">

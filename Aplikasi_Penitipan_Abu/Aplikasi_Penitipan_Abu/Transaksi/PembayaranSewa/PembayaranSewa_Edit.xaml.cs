@@ -162,6 +162,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
 
         private void btn_delete_Click(object sender, RoutedEventArgs e)
         {
+            if (idPembayaranSewa == -1)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
+            }
             MySqlCommand cmd = new MySqlCommand("Update pembayaran_sewa set status = 1 where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", idPembayaranSewa);
             conn.Close();
@@ -194,7 +199,12 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
 
         private void btn_edit_Click(object sender, RoutedEventArgs e)
         {
-            if(check_pembayaran_sudah_diterima.IsChecked != true)
+            if (idPembayaranSewa == -1)
+            {
+                System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
+            }
+            if (check_pembayaran_sudah_diterima.IsChecked != true)
             {
                 System.Windows.Forms.MessageBox.Show("Centang Pembayaran Telah Diterima", "Warning", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
@@ -265,7 +275,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             try
             {
                 string jangka_waktu = tanggal_simpan_awal.SelectedDate.Value.ToString("dd/MM/yyyy") + " - " + tanggal_simpan_akhir.SelectedDate.Value.ToString("dd/MM/yyyy");
-                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitasi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab, jangka_waktu));
+                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(no_kwitasi.Text, no_registrasi.Text, DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab, jangka_waktu, harga_total_sewa));
                 tandaTerima.Show();
             }
             catch (Exception)

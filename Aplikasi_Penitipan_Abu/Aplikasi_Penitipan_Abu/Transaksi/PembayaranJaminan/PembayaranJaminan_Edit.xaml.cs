@@ -71,11 +71,14 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
                 {
                     status = 1;
                 }
+                no_kwitansi_jaminan_txt.Text = reader.GetString(5);
             }
             reader.Close();
             uang_jaminan_txt.Text = "Rp." + total_jaminan.ToString();
-            no_kwitansi_jaminan_txt.Text = selectedId.ToString();
-            no_registrasi_txt.Text = id_penitipan.ToString();
+            cmd.Parameters.Clear();
+            cmd.CommandText = "select kode_penitipan from penitipan where id = ?id";
+            cmd.Parameters.AddWithValue("?id", id_penitipan);
+            no_registrasi_txt.Text = cmd.ExecuteScalar().ToString();
             cb_status.SelectedIndex = status;
 
             cmd.Parameters.Clear();

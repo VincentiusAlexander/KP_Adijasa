@@ -43,7 +43,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
-            no_kwitansi_jaminan_txt.Text = selectedId.ToString();
             MySqlCommand cmd = new MySqlCommand("select * from jaminan where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", selectedId);
             conn.Close();
@@ -55,8 +54,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             {
                 id_penitipan = reader.GetInt32(1);
                 total_jaminan = reader.GetInt32(2);
+                no_kwitansi_jaminan_txt.Text = reader.GetString(5);
             }
-            no_registrasi_txt.Text = id_penitipan.ToString();
             uang_jaminan_txt.Text = "Rp. "+total_jaminan.ToString();
             reader.Close();
             cmd.CommandText = "select * from penitipan where id = ?id_penitipan";
@@ -67,6 +66,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             {
                 data_abu_id = reader.GetInt32(5);
                 penanggung_jawab_satu_id = reader.GetInt32(6);
+                no_registrasi_txt.Text =reader.GetString(9);
             }
             reader.Close();
             cmd.CommandText = "select * from data_abu where id = ?data_abu_id";
@@ -95,6 +95,10 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
 
         private void btn_simpan_Click(object sender, RoutedEventArgs e)
         {
+            if (isSaved)
+            {
+                return;
+            }
             if (check_box_pembayaran_telah_diterima.IsChecked == false)
             {
                 System.Windows.Forms.MessageBox.Show("Centang Pembayaran Sudah Diterima", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
@@ -105,6 +109,29 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
+            MySqlCommand cmd1 = new MySqlCommand("select * from jaminan where id = ?id", conn);
+            conn.Close();
+            conn.Open();
+            cmd1.Parameters.AddWithValue("?id", selectedId);
+            MySqlDataReader reader = cmd1.ExecuteReader();
+            bool sudah_pernah_terbayar = false;
+            while (reader.Read())
+            {
+                if (reader.GetInt32(3) == 1)
+                {
+                    sudah_pernah_terbayar = true;
+                }
+            }
+            reader.Close();
+            conn.Close();
+
+            if (sudah_pernah_terbayar)
+            {
+                System.Windows.Forms.MessageBox.Show("Sudah pernah terbayar sebelumnya", "Information", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                isSaved = true;
+                return;
+            }
+
             MySqlCommand cmd = new MySqlCommand("update jaminan set status = 1 where id = ?id", conn);
             conn.Close();
             conn.Open();

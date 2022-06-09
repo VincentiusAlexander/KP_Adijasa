@@ -31,6 +31,9 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             NamaAbu.Text = data.nama_abu;
             tempat_tanggal.Text = "Surabaya, " + data.tanggal_pembayaran;
             keterangan.Text = "Sudah terima dari " + data.penanggung_jawab +" untuk periode "+ data.jangka_waktu;
+            nama_penanggung_jawab.Text =  data.penanggung_jawab;
+            uang_rupiah.Text = data.uang.ToString();
+            banyaknya_uang.Text = pembuatan_bilangan.Terbilang(Convert.ToInt64(data.uang));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

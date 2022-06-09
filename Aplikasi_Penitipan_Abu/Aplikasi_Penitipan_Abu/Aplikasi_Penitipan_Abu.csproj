@@ -152,6 +152,7 @@
     <Compile Include="Transaksi\PembayaranSewa\TandaTerimaPembayaranSewa.xaml.cs">
       <DependentUpon>TandaTerimaPembayaranSewa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\pembuatan_bilangan.cs" />
     <Compile Include="Transaksi\PencarianPembayaranJaminan.xaml.cs">
       <DependentUpon>PencarianPembayaranJaminan.xaml</DependentUpon>
     </Compile>

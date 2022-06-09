@@ -44,7 +44,7 @@
             <TextBlock Text="Tanggal Kremasi" MinWidth="300" FontSize="18"/>
             <TextBlock x:Name="tanggal_kremasi" Text="-" MinWidth="200" FontSize="18"/>
         </StackPanel>
-        <TextBlock x:Name="pernyataan_no_kotak" Text="Pihak Keluarga (penanggung jawab) menyatakan bahwa abu titipan di kotak no.(-) tersebut telah kami terima dengan baik" MaxWidth="600" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12" FontSize="18"/>
+        <TextBlock x:Name="pernyataan_no_kotak" Text="Pihak Keluarga (penanggung jawab) menyatakan bahwa abu titipan di kotak no.(-) tersebut telah kami terima dengan baik" MaxWidth="800" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0 12" FontSize="18"/>
         <Grid Margin="24 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200*"/>

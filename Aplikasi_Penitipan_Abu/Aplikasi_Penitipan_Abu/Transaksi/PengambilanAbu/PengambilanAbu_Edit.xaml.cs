@@ -52,7 +52,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
-            no_pengambilan_abu_txt.Text = id_pengambilan_abu.ToString();
 
             MySqlCommand cmd = new MySqlCommand("select * from pengambilan_abu where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", id_pengambilan_abu);
@@ -62,6 +61,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
             while (reader.Read())
             {
                 id_registrasi = reader.GetInt32(1);
+                no_pengambilan_abu_txt.Text = reader.GetString(4);
             }
             reader.Close();
             conn.Close();
@@ -74,8 +74,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
             {
                 id_data_abu = reader.GetInt32(5);
                 id_penanggung_jawab = reader.GetInt32(6);
+                no_registrasi_txt.Text = reader.GetString(9);
             }
-            no_registrasi_txt.Text = id_registrasi.ToString();
             reader.Close();
             conn.Close();
             conn.Open();
@@ -152,6 +152,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
             no_registrasi_txt.Text = "-";
             tanggal_kremasi_abu_txt.Text = "-";
             tanggal_wafat_abu_txt.Text = "-";
+            id_registrasi = -1;
+            id_pengambilan_abu = -1;
         }
 
         private void btnCetakTandaTerima_Click(object sender, RoutedEventArgs e)
@@ -186,6 +188,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
             tanggal_kremasi_abu_txt.Text = "-";
             tanggal_wafat_abu_txt.Text = "-";
             id_registrasi = -1;
+            id_pengambilan_abu = -1;
         }
     }
 }

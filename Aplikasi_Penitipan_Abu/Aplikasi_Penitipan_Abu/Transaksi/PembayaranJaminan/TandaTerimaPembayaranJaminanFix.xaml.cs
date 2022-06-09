@@ -24,11 +24,13 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranJaminan
             InitializeComponent();
             no_kwitansi.Text = data.no_kwitansi;
             no_registrasi.Text = data.no_registrasi;
-            uang_jaminan.Text = data.uang_jaminan;
             tanggal_pembayaran.Text = data.tanggal_pembayaran;
             nama_abu.Text = data.nama_abu;
             nama_penanggung_jawab.Text = data.nama_penanggung_jawab;
             tanggal_tanda_tangan.Text += " "+ data.tanggal_pembayaran;
+            int uang = Convert.ToInt32(data.uang_jaminan.Split('.')[1]);
+            uang_rupiah.Text = uang.ToString();
+            banyaknya_uang.Text = pembuatan_bilangan.Terbilang(Convert.ToInt64(uang));
         }
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)

@@ -25,7 +25,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock Text="No Registrasi" MinWidth="199.8" FontSize="18"/>
-                <TextBlock Text="-" MinWidth="120" Name="no_registrasi" FontSize="18"/>
+                <TextBlock Text="-" MinWidth="180" Name="no_registrasi" FontSize="18"/>
                 <Button Content="Cari Registrasi" Padding="6 0" Name="cari_registrasi" Click="cari_registrasi_Click" FontSize="18"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">

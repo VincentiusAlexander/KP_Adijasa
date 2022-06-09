@@ -51,7 +51,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
-            no_registrasi_txt.Text = id_registrasi.ToString();
             
             MySqlCommand cmd = new MySqlCommand("select * from penitipan where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", id_registrasi);
@@ -62,6 +61,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
             {
                 id_penanggung_jawab = reader.GetInt32(6);
                 id_data_abu = reader.GetInt32(5);
+                no_registrasi_txt.Text = reader.GetString(9);
             }
             reader.Close();
             conn.Close();
@@ -141,11 +141,28 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PengambilanAbu
                 }
                 else
                 {
-                    MySqlCommand cmd = new MySqlCommand("insert into pengambilan_abu values (0,?id_penitipan,?tanggal_pengambilan,0)", conn);
+                    MySqlCommand cmd1 = new MySqlCommand();
+                    cmd1.Connection = conn;
+                    conn.Close();
+                    conn.Open();
+                    cmd1.CommandText = "SELECT LPAD(COUNT(tanggal_pengambilan)+1,5,0) as hasil FROM pengambilan_abu WHERE MONTH(tanggal_pengambilan) = MONTH(CURRENT_DATE())";
+                    cmd1.Parameters.Clear();
+                    MySqlDataReader reader1 = cmd1.ExecuteReader();
+                    string hasil = "";
+                    while (reader1.Read())
+                    {
+                        hasil = reader1.GetString(0);
+                    }
+                    DateTime now = DateTime.Now;
+                    string kode_pengambilan = "KLR-" + now.Date.ToString("yyMM") + "-" + hasil;
+                    reader1.Close();
+                    conn.Close();
+                    MySqlCommand cmd = new MySqlCommand("insert into pengambilan_abu values (0,?id_penitipan,?tanggal_pengambilan,0,?kode_pengambilan)", conn);
                     conn.Close();
                     conn.Open();
                     cmd.Parameters.AddWithValue("?id_penitipan", id_registrasi);
                     cmd.Parameters.AddWithValue("?tanggal_pengambilan", DateTime.Now.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("?kode_pengambilan", kode_pengambilan);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }

@@ -57,10 +57,15 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             conn.Close();
             command.Parameters.Clear();
             conn.Open();
-            command.CommandText = "SELECT LPAD(COUNT(tanggal_awal),5,0) FROM pembayaran_sewa WHERE MONTH(tanggal_awal) = MONTH(CURRENT_DATE())";
-            
-            DateTime now = new DateTime();
-            no_kwitansi.Text = "KWI-" + now.Date.ToString("yyMM") + "-" + command.ExecuteScalar().ToString();
+            command.CommandText = "SELECT LPAD(COUNT(tanggal_awal)+1,5,0) as hasil FROM pembayaran_sewa WHERE MONTH(tanggal_awal) = MONTH(CURRENT_DATE())";
+            MySqlDataReader reader1 = command.ExecuteReader();
+            string hasil = "";
+            while (reader1.Read())
+            {
+                hasil = reader1.GetString(0);
+            }
+            DateTime now = DateTime.Now;
+            no_kwitansi.Text = "KWI-" + now.Date.ToString("yyMM") + "-" + hasil;
 
             MySqlCommand cmd = new MySqlCommand("select * from penitipan p left join data_abu da on p.data_abu_id = da.id left join penanggung_jawab pj on p.penanggung_jawab_satu_id = pj.id where p.id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", selectedId);
@@ -72,8 +77,9 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             {
                 registrasi.id_kotak = reader.GetInt32(4);
                 registrasi.id_abu = reader.GetInt32(5);
-                registrasi.nama_abu = reader.GetString(10);
-                penanggung_jawab = reader.GetString(19);
+                registrasi.nama_abu = reader.GetString(11);
+                penanggung_jawab = reader.GetString(20);
+                no_registrasi.Text = reader.GetString(9);
             }
             reader.Close();
             if (registrasi.id_kotak == -1)
@@ -93,7 +99,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             reader.Close();
             registrasi.idRegistrasi = selectedId;
             no_kotak.Text = registrasi.no_kotak;
-            no_registrasi.Text = registrasi.idRegistrasi.ToString();
             nama_abu.Text = registrasi.nama_abu;
             conn.Close();
         }
@@ -130,6 +135,10 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
         }
         private void btnSimpan_Click(object sender, RoutedEventArgs e)
         {
+            if (isSaved)
+            {
+                return;
+            }
             if (centang_bila_pembayaran.IsChecked == false)
             {
                 System.Windows.Forms.MessageBox.Show("Centang sudah menerima pembayaran", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
@@ -140,22 +149,36 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 int harga_total_sewa = Int32.Parse(harga_sewa.Text.Split('.')[1]);
                 DateTime tanggal_awal = (DateTime)datepickerAwal.SelectedDate;
                 DateTime tanggal_akhir = (DateTime)datepickerAkhir.SelectedDate;
-                MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa (id_penitipan,id_kotak,harga_kotak,harga_total_sewa,tanggal_awal,tanggal_akhir) values(?id_penitipan,?id_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir)", conn);
+                MySqlCommand cmd = new MySqlCommand("insert into pembayaran_sewa (id_penitipan,id_kotak,harga_kotak,harga_total_sewa,tanggal_awal,tanggal_akhir,kode_pembayaran) values(?id_penitipan,?id_kotak,?harga_kotak,?harga_total_sewa,?tanggal_awal,?tanggal_akhir, ?kode_pembayaran)", conn);
                 cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
                 cmd.Parameters.AddWithValue("?id_kotak", registrasi.id_kotak);
                 cmd.Parameters.AddWithValue("?harga_kotak", registrasi.harga_kotak);
                 cmd.Parameters.AddWithValue("?harga_total_sewa", harga_total_sewa);
                 cmd.Parameters.AddWithValue("?tanggal_awal", tanggal_awal.ToString("yyyy-MM-dd HH:mm"));
                 cmd.Parameters.AddWithValue("?tanggal_akhir", tanggal_akhir.ToString("yyyy-MM-dd HH:mm"));
+                cmd.Parameters.AddWithValue("?kode_pembayaran", no_kwitansi.Text);
                 conn.Close();
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 if (perlu_jaminan)
                 {
-                    cmd.CommandText = "insert into jaminan values(0,?id_penitipan,1000000,0,0)";
+                    cmd.CommandText = "SELECT LPAD(COUNT(tanggal_pembayaran)+1,5,0) as hasil FROM jaminan WHERE MONTH(tanggal_pembayaran) = MONTH(CURRENT_DATE())";
+                    cmd.Parameters.Clear();
+                    MySqlDataReader reader1 = cmd.ExecuteReader();
+                    string hasil = "";
+                    while (reader1.Read())
+                    {
+                        hasil = reader1.GetString(0);
+                    }
+                    DateTime now = DateTime.Now;
+                    string no_jaminan = "JMN-" + now.Date.ToString("yyMM") + "-" + hasil;
+                    reader1.Close();
+
+                    cmd.CommandText = "insert into jaminan values(0,?id_penitipan,1000000,0,0,?kode_jaminan,NOW())";
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("?kode_jaminan", no_jaminan);
+                cmd.ExecuteNonQuery();
                     cmd.CommandText = "select id from penitipan where id = ?id_penitipan";
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
@@ -186,7 +209,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 conn.Close();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Pembayaran Sewa", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                 isSaved = true;
-                
             }
             catch (Exception)
             {
@@ -205,7 +227,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             try
             {
                 string jangka_waktu = datepickerAwal.SelectedDate.Value.ToString("dd/MM/yyyy") + " - " + datepickerAkhir.SelectedDate.Value.ToString("dd/MM/yyyy");
-                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(Int32.Parse(no_kwitansi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab, jangka_waktu));
+                TandaTerimaPembayaranSewa tandaTerima = new TandaTerimaPembayaranSewa(new tandaTerimaPembayaranSewaData(no_kwitansi.Text, no_registrasi.Text, DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab, jangka_waktu, Int32.Parse(harga_sewa.Text.Split('.')[1])));
                 tandaTerima.Show();
             }
             catch (Exception)
@@ -231,14 +253,15 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
     }
     public class tandaTerimaPembayaranSewaData
     {
-        public int no_kwitansi;
-        public int no_registrasi;
+        public string no_kwitansi;
+        public string no_registrasi;
         public string tanggal_pembayaran;
         public string jangka_waktu;
         public string no_kotak;
         public string nama_abu;
         public string penanggung_jawab;
-        public tandaTerimaPembayaranSewaData(int noKwitansi, int noRegistrasi, string tanggalPembayaran, string noKotak, string namaAbu, string namaPenanggungJawab, string jangka_waktu)
+        public int uang;
+        public tandaTerimaPembayaranSewaData(string noKwitansi, string noRegistrasi, string tanggalPembayaran, string noKotak, string namaAbu, string namaPenanggungJawab, string jangka_waktu, int uang)
         {
             no_kwitansi = noKwitansi;
             no_registrasi = noRegistrasi;
@@ -247,6 +270,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             no_kotak = noKotak;
             nama_abu = namaAbu;
             penanggung_jawab = namaPenanggungJawab;
+            this.uang = uang;
         }
     }
 
