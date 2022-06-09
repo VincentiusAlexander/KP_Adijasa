@@ -231,7 +231,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             cmd.ExecuteNonQuery();
             conn.Close();
             System.Windows.Forms.MessageBox.Show("Edit Berhasil", "Success", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-            resetTampilan();
+            //resetTampilan();
             isEdit = true;
         }
 
@@ -272,6 +272,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             {
                 System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
             }
+        }
+
+        private void reset_Click(object sender, RoutedEventArgs e)
+        {
+            resetTampilan();
         }
     }
     public class Kotak

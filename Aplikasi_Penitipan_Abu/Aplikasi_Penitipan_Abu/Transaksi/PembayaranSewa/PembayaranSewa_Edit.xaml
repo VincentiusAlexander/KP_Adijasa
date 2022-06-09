@@ -53,6 +53,7 @@
                 <Button x:Name="btn_delete" Content="Delete" Margin="2 2" Padding="6 0" Click="btn_delete_Click" FontSize="18"/>
             </StackPanel>
             <Button x:Name="btnCetakTandaTerima" DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="5 2" Margin="0 2" Click="btnCetakTandaTerima_Click" FontSize="18"/>
+            <Button x:Name="reset" DockPanel.Dock="Top" Content="Reset" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="5 2" Margin="0 2" FontSize="18" Click="reset_Click"/>
         </DockPanel>
     </Grid>
 </Page>
