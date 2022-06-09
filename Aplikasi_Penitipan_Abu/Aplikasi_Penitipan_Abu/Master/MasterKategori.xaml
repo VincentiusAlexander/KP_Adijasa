@@ -57,7 +57,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                                 <TextBlock Text="Nama Kategori" MinWidth="200" FontSize="18"/>
-                                <TextBox MinWidth="200" Name="NamaKategoriEdit"/>
+                                <TextBox MinWidth="200" Name="NamaKategoriEdit" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                                 <TextBlock Text="Harga" MinWidth="200" FontSize="18"/>

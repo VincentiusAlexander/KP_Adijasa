@@ -102,9 +102,11 @@ namespace Aplikasi_Penitipan_Abu.Master
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-
                 loadDataTable();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Penambahan Kategori", "Sukses", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                NamaKategoriAdd.Text = "";
+                HargaKategoriAdd.Text = "";
+                txt_kategori_id.Text = "-";
             }
             catch (Exception)
             {
@@ -132,9 +134,10 @@ namespace Aplikasi_Penitipan_Abu.Master
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-
                 loadDataTable();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Delete Kategori", "Sukses", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                NamaKategoriEdit.Text = "";
+                HargaKategoriEdit.Text = "";
             }
             catch (Exception)
             {
@@ -186,9 +189,11 @@ namespace Aplikasi_Penitipan_Abu.Master
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-
                 loadDataTable();
                 System.Windows.Forms.MessageBox.Show("Berhasil Melakukan Edit Kategori", "Sukses", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                NamaKategoriEdit.Text = "";
+                HargaKategoriEdit.Text = "";
+                txt_kategori_id.Text = "-";
             }
             catch (Exception)
             {

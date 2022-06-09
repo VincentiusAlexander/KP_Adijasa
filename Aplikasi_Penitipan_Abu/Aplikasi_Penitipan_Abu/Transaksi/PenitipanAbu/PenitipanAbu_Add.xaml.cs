@@ -89,11 +89,11 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                 String notelp = tb_notelp_penanggung_jawab_satu_penitipan_abu.Text.ToString();
                 Kotak temp = (Kotak)listKotak[cb_no_kotak_penitipan_abu.SelectedIndex];
                 String kotak = temp.nama;
-                String tanggal_registrasi = DateTime.Now.ToString("dd/m/yyyy");
+                String tanggal_registrasi = DateTime.Now.ToString("dd/MM/yyyy");
                 String namaAbu = tb_nama_abu_penitipan_abu.Text.ToString();
                 String jk = cb_jk_abu_penitipan_abu.SelectedItem.ToString();
-                String tanggal_meninggal = dp_tgl_wafat_abu_penitipan_abu.SelectedDate.Value.ToString("dd/M/yyyy");
-                String tanggal_kremasi = dp_tgl_kremasi_abu_penitipan_abu.SelectedDate.Value.ToString("dd/M/yyyy");
+                String tanggal_meninggal = dp_tgl_wafat_abu_penitipan_abu.SelectedDate.Value.ToString("dd/MM/yyyy");
+                String tanggal_kremasi = dp_tgl_kremasi_abu_penitipan_abu.SelectedDate.Value.ToString("dd/MM/yyyy");
                 TandaTerimaPenitipanAbuFix tandaTerimaPenitipanAbuFix = new TandaTerimaPenitipanAbuFix(nama, alamat, notelp, kotak, tanggal_registrasi, namaAbu, jk, tanggal_meninggal, tanggal_kremasi);
                 tandaTerimaPenitipanAbuFix.Show(); 
             }
@@ -376,7 +376,25 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                     reader.Close();
                     conn.Close();
                 }
-                cmd = new MySqlCommand("insert into penitipan (tanggal_registrasi, tanggal_titip, tanggal_ambil, kotak_id, data_abu_id, penanggung_jawab_satu_id, penanggung_jawab_dua_id) values(?tanggal_registrasi, ?tanggal_titip, ?tanggal_ambil, ?kotak_id, ?data_abu_id, ?penanggung_jawab_satu_id, ?penanggung_jawab_dua_id)", conn);
+                int month = DateTime.Now.Month;
+                String bulan = "";
+                if (month < 10)
+                {
+                    bulan += "0" + month;
+                }
+                else
+                {
+                    bulan += month + "";
+                }
+                String tanggal = DateTime.Now.Year.ToString().Substring(2, 2) + bulan;
+                cmd = new MySqlCommand("select count(*) from penitipan where kode_penitipan like '%?tanggal%'", conn);
+                cmd.Parameters.AddWithValue("?tanggal", tanggal);
+                conn.Close();
+                conn.Open();
+                int jumlah = Int32.Parse(cmd.ExecuteScalar()+1.ToString());
+                conn.Close();
+                String kode = "MSK-" + tanggal + "-" + jumlah.ToString().PadLeft(6, '0');
+                cmd = new MySqlCommand("insert into penitipan (tanggal_registrasi, tanggal_titip, tanggal_ambil, kotak_id, data_abu_id, penanggung_jawab_satu_id, penanggung_jawab_dua_id, status, kode_penitipan) values(?tanggal_registrasi, ?tanggal_titip, ?tanggal_ambil, ?kotak_id, ?data_abu_id, ?penanggung_jawab_satu_id, ?penanggung_jawab_dua_id, 1, ?kode_penitipan)", conn);
                 cmd.Parameters.AddWithValue("?tanggal_registrasi", tanggal_registrasi);
                 cmd.Parameters.AddWithValue("?tanggal_titip", tanggal_titip);
                 cmd.Parameters.AddWithValue("?tanggal_ambil", tanggal_ambil);
@@ -384,6 +402,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                 cmd.Parameters.AddWithValue("?data_abu_id", data_abu_id);
                 cmd.Parameters.AddWithValue("?penanggung_jawab_satu_id", penanggung_jawab_satu_id);
                 cmd.Parameters.AddWithValue("?penanggung_jawab_dua_id", penanggung_jawab_dua_id);
+                cmd.Parameters.AddWithValue("?kode_penitipan", kode);
                 conn.Close();
                 conn.Open();
                 cmd.ExecuteNonQuery();

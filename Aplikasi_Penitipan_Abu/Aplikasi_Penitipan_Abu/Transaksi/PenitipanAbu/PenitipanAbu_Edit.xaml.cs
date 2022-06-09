@@ -187,7 +187,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
 
         private void btn_edit_Click(object sender, RoutedEventArgs e)
         {
-            if (id_penitipan_abu == -1)
+            if (id_penitipan_abu == -1 || id_penitipan_abu == 0)
             {
                 System.Windows.Forms.MessageBox.Show("Pilih dulu data yang ingin diubah", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
