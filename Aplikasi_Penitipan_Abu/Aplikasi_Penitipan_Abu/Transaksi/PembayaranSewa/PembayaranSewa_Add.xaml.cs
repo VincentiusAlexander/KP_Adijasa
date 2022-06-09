@@ -57,9 +57,10 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
             conn.Close();
             command.Parameters.Clear();
             conn.Open();
-            command.CommandText = "select max(id) from pembayaran_sewa";
-            int max = Int32.Parse(command.ExecuteScalar().ToString()) + 1;
-            no_kwitansi.Text = max.ToString();
+            command.CommandText = "SELECT LPAD(COUNT(tanggal_awal),5,0) FROM pembayaran_sewa WHERE MONTH(tanggal_awal) = MONTH(CURRENT_DATE())";
+            
+            DateTime now = new DateTime();
+            no_kwitansi.Text = "KWI-" + now.Date.ToString("yyMM") + "-" + command.ExecuteScalar().ToString();
 
             MySqlCommand cmd = new MySqlCommand("select * from penitipan p left join data_abu da on p.data_abu_id = da.id left join penanggung_jawab pj on p.penanggung_jawab_satu_id = pj.id where p.id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", selectedId);
