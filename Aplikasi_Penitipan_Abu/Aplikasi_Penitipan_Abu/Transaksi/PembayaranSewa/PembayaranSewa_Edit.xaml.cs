@@ -67,7 +67,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
-            no_kwitasi.Text = idPembayaranSewa.ToString();
             MySqlCommand cmd = new MySqlCommand("select * from pembayaran_sewa where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", idPembayaranSewa);
             conn.Close();
@@ -81,9 +80,15 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                 harga_total_sewa = reader.GetInt32(4);
                 tanggal_awal = reader.GetDateTime(5);
                 tanggal_akhir = reader.GetDateTime(6);
+                no_kwitasi.Text = reader.GetString(9);
             }
+            reader.Close();
+            cmd.Parameters.Clear();
+            cmd.CommandText = "select kode_penitipan from penitipan where id = ?id";
+            cmd.Parameters.AddWithValue("?id", id_penitipan);
+            no_registrasi.Text = cmd.ExecuteScalar().ToString();
+          
             loadComboBox();
-            no_registrasi.Text = id_penitipan.ToString();
             for (int i = 0; i < list.Count; i++)
             {
                 Kotak item = (Kotak) list[i];
@@ -92,7 +97,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PembayaranSewa
                     no_kotak.SelectedIndex = i;
                 }
             }
-            reader.Close();
             conn.Close();
             conn.Open();
             cmd.Parameters.Clear();
