@@ -25,9 +25,8 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
         MySqlConnection conn;
         bool perlu_jaminan = false;
         int idPembayaranSewa = -1;
-        int id_kotak;
-        Registrasi registrasi;
-        int id_penitipan;
+        int id_kotak = -1;
+        int id_penitipan = -1;
         int harga_kotak = -1;
         int harga_total_sewa;
         DateTime tanggal_awal;
@@ -41,7 +40,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
 
         public void loadComboBox()
         {
-            MySqlCommand command = new MySqlCommand("select * from kotak where terpakai = 0 or id = ?id", conn);
+            MySqlCommand command = new MySqlCommand("select * from kotak", conn);
             command.Parameters.AddWithValue("?id", id_kotak);
             conn.Close();
             conn.Open();
@@ -66,7 +65,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
                 System.Windows.Forms.MessageBox.Show("Pencarian Gagal, ulang kembali pencarian", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
-            no_kwitansi.Text = idPembayaranSewa.ToString();
             MySqlCommand cmd = new MySqlCommand("select * from pembayaran_sewa where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", idPembayaranSewa);
             conn.Close();
@@ -81,7 +79,31 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
                 tanggal_awal = reader.GetDateTime(5);
             }
             loadComboBox();
-            no_registrasi.Text = id_penitipan.ToString();
+            int month = DateTime.Now.Month;
+            String bulan = "";
+            if (month < 10)
+            {
+                bulan += "0" + month;
+            }
+            else
+            {
+                bulan += month + "";
+            }
+            String tanggal = DateTime.Now.Year.ToString().Substring(2, 2) + bulan;
+            cmd = new MySqlCommand("select count(*)+1 from pembayaran_sewa where kode_pembayaran like ?tanggal", conn);
+            cmd.Parameters.AddWithValue("?tanggal", "%" + tanggal + "%");
+            conn.Close();
+            conn.Open();
+            int jumlah = Int32.Parse(cmd.ExecuteScalar().ToString());
+            conn.Close();
+            String kode = "KWI-" + tanggal + "-" + jumlah.ToString().PadLeft(5, '0');
+            no_kwitansi.Text = kode;
+            cmd = new MySqlCommand("select kode_penitipan from penitipan where id = ?id", conn);
+            cmd.Parameters.AddWithValue("?id", id_penitipan);
+            conn.Close();
+            conn.Open();
+            no_registrasi.Text = cmd.ExecuteScalar().ToString();
+            conn.Close();
             for (int i = 0; i < list.Count; i++)
             {
                 Kotak item = (Kotak)list[i];
@@ -92,10 +114,10 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
             }
             reader.Close();
             conn.Close();
-            conn.Open();
-            cmd.Parameters.Clear();
-            cmd.CommandText = "select da.nama_abu, pj.nama from penitipan p left join data_abu da on p.data_abu_id = da.id join penanggung_jawab pj on pj.id = p.penanggung_jawab_satu_id where p.id = ?id";
+            cmd = new MySqlCommand("select da.nama_abu, pj.nama from penitipan p left join data_abu da on p.data_abu_id = da.id join penanggung_jawab pj on pj.id = p.penanggung_jawab_satu_id where p.id = ?id", conn);
             cmd.Parameters.AddWithValue("?id", id_penitipan);
+            conn.Close();
+            conn.Open();
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -159,17 +181,20 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
 
         private void btn_cetak_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (id_penitipan == -1 || id_penitipan == 0)
             {
-                TandaTerimaPerpanjanganSewa tandaTerima = new TandaTerimaPerpanjanganSewa(new tandaTerimaPerpanjanganSewaData(Int32.Parse(no_kwitansi.Text), Int32.Parse(no_registrasi.Text), DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab));
-                tandaTerima.Show();
-                System.Windows.Forms.MessageBox.Show("Jangan lupa untuk Melakukan Penyimpanan Data!");
+                System.Windows.Forms.MessageBox.Show("Lakukan pencarian data terlebih dahulu!");
+                return;
             }
-            catch (Exception)
+            if (tanggal_simpan_akhir.SelectedDate.ToString() == "" || harga_total_sewa_txt.Text == "Rp.-")
             {
-                System.Windows.Forms.MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
-
+                System.Windows.Forms.MessageBox.Show("Data belum lengkap!");
+                return;
             }
+            string jangka_waktu = tanggal_awal.ToString("dd/MM/yyyy") + " - " + tanggal_simpan_akhir.SelectedDate.Value.ToString("dd/MM/yyyy");
+            TandaTerimaPerpanjanganSewa tandaTerima = new TandaTerimaPerpanjanganSewa(new tandaTerimaPerpanjanganSewaData(no_kwitansi.Text, no_registrasi.Text, DateTime.Now.ToString("dd/MM/yyyy"), no_kotak.Text, nama_abu.Text, penanggung_jawab, jangka_waktu, Int32.Parse(harga_total_sewa_txt.Text.Split('.')[1])));
+            tandaTerima.Show();
+            System.Windows.Forms.MessageBox.Show("Jangan lupa untuk Melakukan Penyimpanan Data!");
         }
         private void btn_edit_Click(object sender, RoutedEventArgs e)
         {
@@ -178,7 +203,22 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
                 System.Windows.Forms.MessageBox.Show("Centang sudah menerima pembayaran", "Warning", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return;
             }
-            MySqlCommand cmd = new MySqlCommand("Update pembayaran_sewa set id_kotak = ?id_kotak, harga_kotak = ?harga_kotak, harga_total_sewa = ?harga_total_sewa, tanggal_awal = ?tanggal_awal, tanggal_akhir = ?tanggal_akhir where id = ?id", conn);
+            MySqlCommand cmd = new MySqlCommand("select * from kotak where id = ?id", conn);
+            cmd.Parameters.AddWithValue("?id", id_kotak);
+            conn.Close();
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                if (reader.GetInt32(4) == 1 || reader.GetInt32(5) == 1)
+                {
+                    System.Windows.Forms.MessageBox.Show("Kotak Masih Dipakai/Sudah Dibook!");
+                    return;
+                }
+            }
+            reader.Close();
+            conn.Close();
+            cmd = new MySqlCommand("Update pembayaran_sewa set id_kotak = ?id_kotak, harga_kotak = ?harga_kotak, harga_total_sewa = ?harga_total_sewa, tanggal_awal = ?tanggal_awal, tanggal_akhir = ?tanggal_akhir where id = ?id", conn);
             cmd.Parameters.AddWithValue("?id_kotak", id_kotak);
             cmd.Parameters.AddWithValue("?harga_kotak", harga_kotak);
             cmd.Parameters.AddWithValue("?harga_total_sewa", harga_total_sewa);
@@ -192,7 +232,7 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
             if (perlu_jaminan)
             {
                 cmd = new MySqlCommand("select count(*) from jaminan where id_penitipan = ?id_penitipan", conn);
-                cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
+                cmd.Parameters.AddWithValue("?id_penitipan", id_penitipan);
                 conn.Close();
                 conn.Open();
                 int count = Int32.Parse(cmd.ExecuteScalar().ToString());
@@ -204,12 +244,12 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
                 else
                 {
                     cmd = new MySqlCommand("insert into jaminan values(0,?id_penitipan,1000000,0,0)", conn);
-                    cmd.Parameters.AddWithValue("?id_penitipan", registrasi.idRegistrasi);
+                    cmd.Parameters.AddWithValue("?id_penitipan", id_penitipan);
                     conn.Close();
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    PembayaranJaminanPerpanjangan pj = new PembayaranJaminanPerpanjangan(registrasi.idRegistrasi);
+                    PembayaranJaminanPerpanjangan pj = new PembayaranJaminanPerpanjangan(id_penitipan);
                     pj.ShowDialog();
                     if (!pj.IsSimpan)
                     {
@@ -219,16 +259,6 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
                 }
             }
             conn.Close();
-            cmd = new MySqlCommand("select * from pembayaran sewa where id = ?id", conn);
-            cmd.Parameters.AddWithValue("?id", idPembayaranSewa);
-            conn.Close();
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            int id_penitipan = -1;
-            while (reader.Read())
-            {
-                id_penitipan = reader.GetInt32(1);
-            }
             cmd = new MySqlCommand("update penitipan set tanggal_ambil = ?tanggal_ambil where id = ?id", conn);
             cmd.Parameters.AddWithValue("?tanggal_ambil", tanggal_simpan_akhir.SelectedDate);
             cmd.Parameters.AddWithValue("?id", id_penitipan);
@@ -287,6 +317,18 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PerpanjanganSewa
                 conn.Close();
                 perhitungan_harga();
             }
+        }
+
+        private void btn_reset_Click(object sender, RoutedEventArgs e)
+        {
+            no_registrasi.Text = "-";
+            no_kotak.Text = "-";
+            nama_abu.Text = "-";
+            harga_total_sewa_txt.Text = "Rp.";
+            tanggal_simpan_awal.Text = "-";
+            no_kwitansi.Text = "-";
+            tanggal_simpan_akhir.SelectedDate = null;
+            cb_centang.IsChecked = false;
         }
     }
     public class Kotak

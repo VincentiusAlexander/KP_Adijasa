@@ -116,6 +116,7 @@
                         </StackPanel>
                     </Border>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button FontSize="18" x:Name="btn_reset" Content="Reset" Margin="4 0" Click="btn_reset_Click"/>
                         <Button FontSize="18" x:Name="btn_save_penitipan_abu" Content="Save" Margin="4 0" Click="btn_save_penitipan_abu_Click"/>
                         <Button FontSize="18" x:Name="btn_cetak_tanda_terima_abu" Content="Cetak Tanda Terima Abu" Margin="4 0" Click="btn_cetak_tanda_terima_abu_Click"/>
                     </StackPanel>

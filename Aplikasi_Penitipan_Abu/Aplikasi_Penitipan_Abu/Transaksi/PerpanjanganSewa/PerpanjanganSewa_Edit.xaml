@@ -22,7 +22,7 @@
             <TextBlock Text="(Edit/Delete)" FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" DockPanel.Dock="Top"/>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock FontSize="18" Text="No Kwitansi" MinWidth="120"/>
-                <TextBlock FontSize="18" x:Name="no_kwitansi" Text="-" MinWidth="120"/>
+                <TextBlock FontSize="18" x:Name="no_kwitansi" Text="-" MinWidth="180"/>
                 <Button FontSize="18" x:Name="btn_cari" Content="Cari Kwitansi Perpanjangan Sewa" Padding="6 0" Click="btn_cari_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
@@ -50,6 +50,7 @@
             <CheckBox FontSize="18" x:Name="cb_centang" Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top"></CheckBox>
             <Button FontSize="18" x:Name="btn_cetak" DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5 2" Margin="0 2" Click="btn_cetak_Click"/>
             <StackPanel  Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button FontSize="18" x:Name="btn_reset" Content="Reset" Margin="2 2" Padding="6 0" Click="btn_reset_Click"/>
                 <Button FontSize="18" x:Name="btn_edit" Content="Edit" Margin="2 2" Padding="6 0" Click="btn_edit_Click"/>
                 <Button FontSize="18" x:Name="btn_delete" Content="Delete" Margin="2 2" Padding="6 0" Click="btn_delete_Click"/>
             </StackPanel>

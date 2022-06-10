@@ -25,7 +25,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
                 <TextBlock FontSize="18" Text="No Registrasi" MinWidth="120"/>
-                <TextBlock FontSize="18" x:Name="no_registrasi" Text="-" MinWidth="120"/>
+                <TextBlock FontSize="18" x:Name="no_registrasi" Text="-" MinWidth="180"/>
                 <Button FontSize="18" x:Name="btn_cari" Content="Cari Registrasi" Padding="6 0" Click="btn_cari_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 2">
@@ -48,7 +48,8 @@
             </StackPanel>
             <CheckBox FontSize="18" x:Name="cb_centang" Content="Centang Bila Pembayaran Sudah Diterima" Margin="0 2" DockPanel.Dock="Top"></CheckBox>
             <Button FontSize="18" x:Name="btn_cetak" DockPanel.Dock="Top" Content="Cetak Tanda Terima Pembayaran Abu" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5 2" Margin="0 2" Click="btn_cetak_Click"/>
-            <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button FontSize="18"  x:Name="btn_reset" Content="Reset" VerticalAlignment="Top" Margin="0 2 10 0" HorizontalAlignment="Right" Padding="6 0" Click="btn_reset_Click"></Button>
                 <Button FontSize="18"  x:Name="btn_simpan" Content="Simpan" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 2" Padding="6 0" Click="btn_simpan_Click"></Button>
             </StackPanel>
         </DockPanel>

@@ -22,11 +22,11 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Yayasan Adi Jasa" FontSize="16" TextAlignment="Left" FontWeight="Bold" Grid.Row="0"/>
-                <TextBlock Text="Tanda Terima Pembayaran Sewa" TextAlignment="Right" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.Row="0"></TextBlock>
+                <TextBlock Text="Tanda Terima Perpanjangan Sewa" TextAlignment="Right" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.Row="0"></TextBlock>
                 <TextBlock Text="JL. Demak No. 90 - 92" FontSize="16" TextAlignment="Left" Grid.Row="1"/>
                 <TextBlock Text="Telp. 5312106 - 5312107" FontSize="16" TextAlignment="Left" Grid.Row="2"/>
                 <TextBlock Text="Surabaya" FontSize="16" TextAlignment="Left" Grid.Row="3"/>
-                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
                     <TextBlock Text="No Registrasi" MinWidth="200" FontSize="16"/>
                     <TextBlock x:Name="noRegistrasi" Text="-" FontSize="16"/>
                 </StackPanel>
@@ -42,11 +42,23 @@
                     <TextBlock Text="Nama Abu" MinWidth="200" FontSize="16"/>
                     <TextBlock x:Name="NamaAbu" Text="-" MinWidth="200" FontSize="16"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
                     <TextBlock Text="No Kwitansi" MinWidth="200" FontSize="16"/>
                     <TextBlock x:Name="noKwitansi" Text="-" MinWidth="200" FontSize="16"/>
                 </StackPanel>
             </Grid>
+            <StackPanel Margin="0 20 0 0" Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
+                <TextBlock Text="Sudah Terima Dari" MinWidth="200" FontSize="16"/>
+                <TextBlock x:Name="nama_penanggung_jawab" Text="-" MinWidth="200" FontSize="16"/>
+            </StackPanel>
+            <StackPanel Margin="0 0 0 20" Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
+                <TextBlock Text="Banyaknya Uang" MinWidth="200" FontSize="16"/>
+                <TextBlock x:Name="banyaknya_uang" Text="-" MinWidth="200" FontSize="16"/>
+            </StackPanel>
+            <StackPanel Margin="0 0 0 20" Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
+                <TextBlock Text="Rp." MinWidth="20" FontSize="16"/>
+                <TextBox x:Name="uang_rupiah" TextAlignment="Right" Text="-" MinWidth="200" FontSize="16" BorderThickness="0,0,0,2"/>
+            </StackPanel>
             <StackPanel HorizontalAlignment="Center"/>
             <Grid Margin="0 12 0 0">
                 <Grid.ColumnDefinitions>

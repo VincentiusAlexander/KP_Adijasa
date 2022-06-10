@@ -101,10 +101,10 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
 
         private void initRegistrasi(int status = 0)
         {
-            MySqlCommand cmd = new MySqlCommand("select count(id) as id from penitipan", conn);
+            MySqlCommand cmd = new MySqlCommand("select max(id)+1 from penitipan", conn);
             conn.Close();
             conn.Open();
-            tb_noreg_penitipan_abu.Text = Int32.Parse(cmd.ExecuteScalar().ToString()+1).ToString();
+            tb_noreg_penitipan_abu.Text = Int32.Parse(cmd.ExecuteScalar().ToString()).ToString();
             cmd = new MySqlCommand("select id, kategori_id, no_kotak from kotak where status = ?status", conn);
             cmd.Parameters.AddWithValue("?status", status);
             conn.Close();
@@ -300,6 +300,30 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
             }
         }
 
+        private void btn_reset_Click(object sender, RoutedEventArgs e)
+        {
+            dp_tanggal_simpan_penitipan_abu.SelectedDate = null;
+            dp_tanggal_ambil_penitipan_abu.SelectedDate = null;
+            cb_no_kotak_penitipan_abu.SelectedIndex = 0;
+            tb_nama_abu_penitipan_abu.Text = "";
+            tb_nama_alternatif_abu_penitipan_abu.Text = "";
+            tb_alamat_abu_penitipan_abu.Text = "";
+            cb_jk_abu_penitipan_abu.SelectedIndex = 0;
+            dp_tgl_lahir_abu_penitipan_abu.SelectedDate = null;
+            dp_tgl_wafat_abu_penitipan_abu.SelectedDate = null;
+            dp_tgl_kremasi_abu_penitipan_abu.SelectedDate = null;
+            tb_keterangan_abu_penitipan_abu.Text = "";
+            tb_alamat_penanggung_jawab_dua_penitipan_abu.Text = "";
+            tb_alamat_penanggung_jawab_satu_penitipan_abu.Text = "";
+            tb_notelp_penanggung_jawab_dua_penitipan_abu.Text = "";
+            tb_notelp_penanggung_jawab_satu_penitipan_abu.Text = "";
+            tb_nama_penanggung_jawab_dua_penitipan_abu.Text = "";
+            tb_nama_penanggung_jawab_satu_penitipan_abu.Text = "";
+            tb_relasi_penanggung_jawab_dua_penitipan_abu.Text = "";
+            tb_relasi_penanggung_jawab_satu_penitipan_abu.Text = "";
+            initRegistrasi();
+        }
+
         private void btn_save_penitipan_abu_Click(object sender, RoutedEventArgs e)
         {
             error = false;
@@ -387,14 +411,14 @@ namespace Aplikasi_Penitipan_Abu.Transaksi.PenitipanAbu
                     bulan += month + "";
                 }
                 String tanggal = DateTime.Now.Year.ToString().Substring(2, 2) + bulan;
-                cmd = new MySqlCommand("select count(*) from penitipan where kode_penitipan like '%?tanggal%'", conn);
-                cmd.Parameters.AddWithValue("?tanggal", tanggal);
+                cmd = new MySqlCommand("select count(*)+1 from penitipan where kode_penitipan like ?tanggal", conn);
+                cmd.Parameters.AddWithValue("?tanggal", "%" + tanggal + "%");
                 conn.Close();
                 conn.Open();
-                int jumlah = Int32.Parse(cmd.ExecuteScalar()+1.ToString());
+                int jumlah = Int32.Parse(cmd.ExecuteScalar().ToString());
                 conn.Close();
-                String kode = "MSK-" + tanggal + "-" + jumlah.ToString().PadLeft(6, '0');
-                cmd = new MySqlCommand("insert into penitipan (tanggal_registrasi, tanggal_titip, tanggal_ambil, kotak_id, data_abu_id, penanggung_jawab_satu_id, penanggung_jawab_dua_id, status, kode_penitipan) values(?tanggal_registrasi, ?tanggal_titip, ?tanggal_ambil, ?kotak_id, ?data_abu_id, ?penanggung_jawab_satu_id, ?penanggung_jawab_dua_id, 1, ?kode_penitipan)", conn);
+                String kode = "MSK-" + tanggal + "-" + jumlah.ToString().PadLeft(5, '0');
+                cmd = new MySqlCommand("insert into penitipan (tanggal_registrasi, tanggal_titip, tanggal_ambil, kotak_id, data_abu_id, penanggung_jawab_satu_id, penanggung_jawab_dua_id, status, kode_penitipan) values(?tanggal_registrasi, ?tanggal_titip, ?tanggal_ambil, ?kotak_id, ?data_abu_id, ?penanggung_jawab_satu_id, ?penanggung_jawab_dua_id, 0, ?kode_penitipan)", conn);
                 cmd.Parameters.AddWithValue("?tanggal_registrasi", tanggal_registrasi);
                 cmd.Parameters.AddWithValue("?tanggal_titip", tanggal_titip);
                 cmd.Parameters.AddWithValue("?tanggal_ambil", tanggal_ambil);
